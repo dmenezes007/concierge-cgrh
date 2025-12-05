@@ -19,5 +19,8 @@ export default defineConfig(({ mode }) => {
           '@': path.resolve(__dirname, '.'),
         }
       }
+      css: { // Add this block
+        postcss: './postcss.config.js' // Explicitly tell Vite to use this PostCSS config
+      }
     };
 });
