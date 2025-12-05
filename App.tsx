@@ -358,7 +358,24 @@ export default function App() {
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
                     {selectedItem.title}
                   </h2>
-                  <p className="text-sm sm:text-base text-slate-600 mt-2 font-light">
+                  
+                  {/* Botão Acessar na Intranet */}
+                  {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
+                    <a 
+                      href={selectedItem.externalLink} 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 text-white"
+                      style={{
+                        background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
+                      }}
+                    >
+                      <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                      ACESSAR NA INTRANET
+                    </a>
+                  )}
+                  
+                  <p className="text-sm sm:text-base text-slate-600 mt-3 sm:mt-4 font-light">
                     {selectedItem.description}
                   </p>
                 </div>

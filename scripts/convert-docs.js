@@ -3,12 +3,14 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import * as cheerio from 'cheerio';
+import XLSX from 'xlsx';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const DOCS_DIR = path.join(__dirname, '../docs');
 const OUTPUT_FILE = path.join(__dirname, '../src/database.json');
+const EXCEL_FILE = path.join(__dirname, '../docs/Projeto Concierge Digital PRONTA.xlsx');
 
 // Mapeamento de ícones por categoria/palavra-chave
 const ICON_MAP = {
@@ -177,7 +179,37 @@ function generateShortDescription(sections) {
   return 'Informações sobre recursos humanos.';
 }
 
-async function convertDocxToJson(docxPath) {
+// Função para carregar dados da planilha
+function loadExcelData() {
+  if (!fs.existsSync(EXCEL_FILE)) {
+    console.warn('⚠️  Planilha não encontrada, usando descrições automáticas');
+    return {};
+  }
+  
+  const workbook = XLSX.readFile(EXCEL_FILE);
+  const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+  const data = XLSX.utils.sheet_to_json(worksheet);
+  
+  // Criar um mapa de título -> {descrição, link}
+  const excelMap = {};
+  data.forEach(row => {
+    const pagina = row['Pagina'] || row['Página'] || row['pagina'];
+    const descricao = row['Descrição'] || row['descricao'] || row['Descricao'];
+    const link = row['Link'] || row['link'];
+    
+    if (pagina) {
+      excelMap[pagina] = {
+        description: descricao || 'Informações sobre recursos humanos.',
+        externalLink: link || '#'
+      };
+    }
+  });
+  
+  console.log(`📊 Carregados ${Object.keys(excelMap).length} registros da planilha\n`);
+  return excelMap;
+}
+
+async function convertDocxToJson(docxPath, excelData = {}) {
   try {
     const result = await mammoth.convertToHtml({ path: docxPath });
     const html = result.value;
@@ -190,9 +222,13 @@ async function convertDocxToJson(docxPath) {
     
     const sections = parseStructuredContent(html);
     const keywords = extractKeywords(html, fileName);
-    const description = generateShortDescription(sections);
     const icon = getIconForTitle(fileName);
     const color = getColorForTitle(fileName);
+    
+    // Usar descrição e link da planilha se disponível
+    const excelInfo = excelData[fileName] || {};
+    const description = excelInfo.description || generateShortDescription(sections);
+    const externalLink = excelInfo.externalLink || '#';
     
     return {
       id,
@@ -202,7 +238,7 @@ async function convertDocxToJson(docxPath) {
       icon,
       color,
       sections,
-      externalLink: '#',
+      externalLink,
       lastModified: fs.statSync(docxPath).mtime.toISOString()
     };
   } catch (error) {
@@ -213,6 +249,9 @@ async function convertDocxToJson(docxPath) {
 
 async function main() {
   console.log('🚀 Iniciando conversão de documentos...\n');
+  
+  // Carregar dados da planilha Excel
+  const excelData = loadExcelData();
   
   // Verificar se a pasta docs existe
   if (!fs.existsSync(DOCS_DIR)) {
@@ -237,7 +276,7 @@ async function main() {
     const filePath = path.join(DOCS_DIR, file);
     console.log(`   ⏳ Convertendo: ${file}`);
     
-    const data = await convertDocxToJson(filePath);
+    const data = await convertDocxToJson(filePath, excelData);
     if (data) {
       database.push(data);
       console.log(`   ✅ ${file} → ${data.sections.length} seções extraídas`);

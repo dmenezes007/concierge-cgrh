@@ -3,7 +3,7 @@
     "id": "aposentadoria-e-abono",
     "title": "Aposentadoria e Abono",
     "keywords": "solicitação salário gratificação sougov licença aposentadoria abono permanência voluntária tempo",
-    "description": "Emissão de declarações com teor similar a certidão de tempo de contribuição",
+    "description": "Para processos de Aposentadoria e abono, verifique os requisitos, preencha o requerimento específico e encaminhe a documentação ao setor SERAP (serap@inpi.gov.br) para as devidas providências.",
     "icon": "home",
     "color": {
       "bg": "rose",
@@ -387,14 +387,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=873:aposentadoria-e-abono&catid=20",
     "lastModified": "2025-12-04T23:13:12.002Z"
   },
   {
     "id": "capacitacao",
     "title": "Capacitação",
     "keywords": "prazo solicitação remuneração treinamento curso pdp proamb cetec capacitação licença",
-    "description": "Responsável, junto à CGRH, por planejar, organizar, dirigir e controlar o Plano de Desenvolvimento de Pessoas (PDP) do INPI, o CETEC visa à promoçã...",
+    "description": "O CETEC - Centro de Educação Corporativa - gerencia o Plano de Desenvolvimento de Pessoas (PDP), oferecendo aprendizado, capacitação, treinamento como o PROAMB (Programa de Ambientação e Formação de Novos Servidores) e cursos (Educação à Distância - EAD/regulares) por meio da escola virtual. Permite licença para pós-graduação lato sensu e afastamento para mestrado e doutorado (stricto sensu) no país.",
     "icon": "graduation-cap",
     "color": {
       "bg": "indigo",
@@ -1221,14 +1221,14 @@
         "html": "<p>&nbsp;6) Escolher o mês desejado e clicar em “Detalhar” para obter informações sobre “Unidade Gestora”, “Função”, \"Subfunção”, “Programa Orçamentário”, “Ação Orçamentária”, “Grupo de Despesa”, “Elemento de Despesa” e “Modalidade de Aplicação”.</p>"
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=863:capacitacao&catid=20",
     "lastModified": "2025-12-04T23:15:40.284Z"
   },
   {
     "id": "carta-de-servicos",
     "title": "Carta de Serviços",
     "keywords": "prazo solicitação remuneração contracheque salário gratificação auxílio ponto sisref sougov",
-    "description": "Veja o Tutorial em PDF",
+    "description": "Este Guia do Servidor detalha requerimento, prazos, e direitos para diversos serviços, sendo o setor responsável geralmente DIREF/CGRH ou SERAP/SECAD.",
     "icon": "book-open",
     "color": {
       "bg": "fuchsia",
@@ -3429,14 +3429,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "Carta de Serviços",
     "lastModified": "2025-12-04T23:19:09.814Z"
   },
   {
     "id": "dados-cadastrais",
     "title": "Dados Cadastrais",
     "keywords": "prazo remuneração sougov cadastro atualização dados pessoais perfil",
-    "description": "Informações sobre recursos humanos.",
+    "description": "O servidor é o responsável pela atualização anual dos seus dados pessoais (e bancários) no SouGov.br. O passo a passo exige acesso ao app/site, seguindo o caminho \"meu perfil\"/\"meus dados pessoais\".",
     "icon": "user",
     "color": {
       "bg": "slate",
@@ -3539,14 +3539,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "Dados Cadastrais",
     "lastModified": "2025-12-05T10:50:12.061Z"
   },
   {
     "id": "estagio-probatorio",
     "title": "Estágio Probatório",
     "keywords": "prazo remuneração curso licença saúde doença cônjuge avaliação desempenho probatório",
-    "description": "Informações sobre recursos humanos.",
+    "description": "A legislação federal estabelece prazo e duração do probatório, assegurando o direito à estabilidade. Certas licenças preveem a suspensão da contagem do tempo.",
     "icon": "briefcase",
     "color": {
       "bg": "cyan",
@@ -3648,14 +3648,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "Estágio Probatório",
     "lastModified": "2025-12-05T10:50:26.374Z"
   },
   {
     "id": "frequencia",
     "title": "Frequência",
     "keywords": "homologação prazo remuneração sisref sougov ausência banco de horas curso perfil desempenho",
-    "description": "Este código será registrado automaticamente pelo sistema para quem registra frequência.",
+    "description": " O SISREF foi substituído pelo SOUGOV Frequência para gerenciar a folha de ponto, registrando a ausência e a presença dos servidores, que devem aguardar o registro mensal. É possível obter orientações sobre o recesso de final de ano. ",
     "icon": "clock",
     "color": {
       "bg": "purple",
@@ -4035,14 +4035,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=862:frequencia-2&catid=20",
     "lastModified": "2025-12-05T11:00:15.923Z"
   },
   {
     "id": "ferias",
     "title": "Férias",
     "keywords": "marcação homologação prazo contracheque gratificação sougov",
-    "description": "A Divisão de Registros Funcionais informa e orienta sobre:",
+    "description": "Marcação e agendamento de férias exigem homologação tempestiva; após o prazo, não há ajustes, podendo ocorrer devolução de parcela de adiantamento, conforme exercício vigente no SouGov",
     "icon": "calendar",
     "color": {
       "bg": "blue",
@@ -4190,14 +4190,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/todos-os-servicos?view=article&layout=edit&id=496:ferias-cgrh&catid=20",
     "lastModified": "2025-12-05T10:50:47.484Z"
   },
   {
     "id": "licencas",
     "title": "Licenças",
     "keywords": "agendamento prazo solicitação remuneração auxílio ponto sougov ausência curso cetec",
-    "description": "A licença de 1 a 14 dias para tratamento da própria saúde do servidor será dispensada de perícia, desde que atendidos os seguintes requisitos previ...",
+    "description": "Para diferentes tipos de licenças, submeta o requerimento ao setor competente (DISAO, DIREF, CETEC, SERAP) cumprindo os prazos legais e requisitos específicos de cada modalidade.",
     "icon": "file-text",
     "color": {
       "bg": "amber",
@@ -4896,14 +4896,14 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=875:licencas&catid=20",
     "lastModified": "2025-12-05T11:01:08.998Z"
   },
   {
     "id": "pagamento",
     "title": "Pagamento",
     "keywords": "homologação prazo remuneração contracheque salário gratificação auxílio sougov curso cadastro",
-    "description": "A Coordenação de Administração de Recursos Humanos (COARH) e a Divisão de Pagamento (DIPAG) informam que o contracheque definitivo, com a gratifica...",
+    "description": "Temas ligados à remuneração do servidor, como 13º salário, auxílio-transporte, substituição, gratificação natalina, pagamento de substituição, Retribuição por Titulação e Gratificação por Qualificação e consignações, assim como informações financeiras e comprovantes de rendimento são providenciados pela DIPAG.",
     "icon": "dollar-sign",
     "color": {
       "bg": "green",
@@ -5371,7 +5371,7 @@
         "html": "<p>O requerimento será analisado primeiramente pelo SECAD e, posteriormente, pelo Comitê Especial para concessão da GQ.</p>"
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/pagamento",
     "lastModified": "2025-12-05T11:01:46.231Z"
   },
   {
@@ -5582,7 +5582,7 @@
     "id": "remocao",
     "title": "Remoção",
     "keywords": "desempenho remoção",
-    "description": "Por enquanto, estão vedadas as remoções a pedido, nos termos do Relatório de Auditoria nº 05/2017.",
+    "description": "A remoção a pedido está vedada. O público alvo da remoção de ofício são as chefias, que iniciam o processo com documentos necessários no SEI, sem prazo ou duração fixados no texto.",
     "icon": "map-pin",
     "color": {
       "bg": "orange",
@@ -5697,14 +5697,14 @@
         "html": "<p><strong>Como requerer</strong>: deverá ser aberto processo no SEI pela unidade requerente do processo seletivo, remetido à aprovação do dirigente máximo da unidade e, após, enviado ao SECAD para orientações acerca da elaboração do edital de seleção e acompanhamento de todo o processo.</p>"
       }
     ],
-    "externalLink": "#",
+    "externalLink": "Remoção",
     "lastModified": "2025-12-05T11:07:23.385Z"
   },
   {
     "id": "retribuicao-por-titulacao",
     "title": "Retribuição por Titulação",
     "keywords": "gratificação curso titulação retribuição",
-    "description": "Servidores de nível superior do Plano de Carreiras e Cargos do INPI que tenham completado curso de pós-graduação stricto sensu ou lato sensu.",
+    "description": "Servidores de nível superior obtêm Retribuição por Titulação (RT) com declaração de conclusão, não apenas diploma. Nível médio recebe Gratificação por Qualificação (GQ) via SECAD e Comitê.",
     "icon": "award",
     "color": {
       "bg": "emerald",
@@ -5819,14 +5819,14 @@
         "html": "<p>O requerimento será analisado primeiramente pelo SECAD e, posteriormente, pelo Comitê Especial para concessão da GQ.</p>"
       }
     ],
-    "externalLink": "#",
+    "externalLink": "Retribuição por Titulação",
     "lastModified": "2025-12-05T11:07:37.884Z"
   },
   {
     "id": "saude-ocupacional",
     "title": "Saúde Ocupacional",
     "keywords": "ponto treinamento curso licença saúde doença perfil avaliação desempenho",
-    "description": "Recebimento de licenças médicas. Procedimentos referentes a outras licenças, saúde suplementar (planos de saúde), per capita (subsídio para titular...",
+    "description": "Divisão de Saúde Ocupacional (DISAO) oferece serviços integrais de assistência e saúde suplementar como medicina, enfermagem, odontologia, psicologia, fisioterapia, acupuntura, auriculoterapia e demais técnicas terapêuticas aplicáveis, educação física (ginástica laboral, fortalecimento, circuito funcional, pilates) ergonomia (avaliação e orientação ergonômica), serviço social, programas de bem-estar para os servidores; também recebe licenças médicas.",
     "icon": "heart",
     "color": {
       "bg": "red",
@@ -6039,7 +6039,7 @@
         ]
       }
     ],
-    "externalLink": "#",
+    "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/saude-ocupacional?layout=edit",
     "lastModified": "2025-12-05T11:08:00.488Z"
   },
   {
