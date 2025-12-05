@@ -220,7 +220,7 @@ export default function App() {
         )}
 
         {/* Search Container */}
-        <div className="w-full max-w-3xl relative z-20 mb-2 sm:mb-4 md:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-50 mb-2 sm:mb-4 md:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
           <div
             className={`
               relative flex items-center w-full transition-all duration-300 animate-shimmer
@@ -261,7 +261,7 @@ export default function App() {
               ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
-            <div className="max-h-[200px] sm:max-h-[280px] overflow-y-scroll">
+            <div className="h-[180px] sm:h-[240px] overflow-y-scroll">
               {suggestions.map((item) => {
                 const IconComponent = getIconComponent(item.icon);
                 const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
