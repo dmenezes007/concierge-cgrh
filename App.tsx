@@ -170,7 +170,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
       
       {/* Fixed Header with Logo */}
       <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-br from-slate-50 via-white to-slate-50">
@@ -181,7 +181,7 @@ export default function App() {
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
+        className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto
           ${hasSelection ? 'pt-16 sm:pt-24 pb-4 sm:pb-12 justify-start' : 'pt-16 sm:pt-32 pb-4 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
