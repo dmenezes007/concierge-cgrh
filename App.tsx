@@ -109,47 +109,47 @@ export default function App() {
       
       {/* Fixed Header with Logo */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-4 py-2 flex items-center">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-2 flex items-center">
           <div className="flex items-center">
-            <img src="/logos/inpi.png" alt="INPI" className="h-8" />
+            <img src="/logos/inpi.png" alt="INPI" className="h-6 sm:h-8" />
           </div>
         </div>
       </header>
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center justify-center px-4 w-full transition-all duration-700 ease-in-out
-          ${hasSelection ? 'pt-24 pb-12' : 'pt-32 pb-20'}`}
+        className={`flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full transition-all duration-700 ease-in-out
+          ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12' : 'pt-24 sm:pt-32 pb-12 sm:pb-20'}`}
       >
         {!hasSelection && (
-          <div className="max-w-4xl w-full text-center mb-12 animate-fadeIn">
+          <div className="max-w-4xl w-full text-center mb-8 sm:mb-12 animate-fadeIn">
             {/* Icon and Title */}
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="relative">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4">
+              <div className="relative mb-2 sm:mb-0">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 blur-xl opacity-30"></div>
-                <div className="relative bg-gradient-to-br from-blue-600 to-indigo-700 p-4 rounded-2xl text-white shadow-2xl">
-                  <i className="fas fa-bell-concierge text-3xl"></i>
+                <div className="relative bg-gradient-to-br from-blue-600 to-indigo-700 p-3 sm:p-4 rounded-2xl text-white shadow-2xl">
+                  <i className="fas fa-bell-concierge text-2xl sm:text-3xl"></i>
                 </div>
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 tracking-tight">
                 Concierge Digital
               </h1>
             </div>
             
             {/* Subtitle */}
-            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
               Os serviços de gestão de pessoas na palma da sua mão
             </p>
           </div>
         )}
 
         {hasSelection && (
-          <div className="max-w-4xl w-full text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-xl text-white shadow-lg">
-                <i className="fas fa-bell-concierge text-lg"></i>
+          <div className="max-w-4xl w-full text-center mb-6 sm:mb-8">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-1.5 sm:p-2 rounded-xl text-white shadow-lg">
+                <i className="fas fa-bell-concierge text-base sm:text-lg"></i>
               </div>
-              <h1 className="text-2xl font-bold text-slate-900">
+              <h1 className="text-xl sm:text-2xl font-bold text-slate-900">
                 Concierge Digital
               </h1>
             </div>
@@ -157,7 +157,7 @@ export default function App() {
         )}
 
         {/* Search Container */}
-        <div className="w-full max-w-3xl relative z-20 mb-8" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-20 mb-6 sm:mb-8 px-2 sm:px-0" ref={searchContainerRef}>
           <div 
             className={`
               relative flex items-center w-full transition-all duration-300
@@ -165,8 +165,8 @@ export default function App() {
               bg-white rounded-2xl border-2 ${isFocused ? 'border-blue-500' : 'border-slate-200'}
             `}
           >
-            <div className="pl-6 text-slate-400">
-              <Search size={22} />
+            <div className="pl-4 sm:pl-6 text-slate-400">
+              <Search size={20} className="sm:w-[22px] sm:h-[22px]" />
             </div>
             <input
               type="text"
@@ -178,15 +178,15 @@ export default function App() {
               }}
               onFocus={() => setIsFocused(true)}
               placeholder="Pesquisar em Recursos Humanos..."
-              className="w-full py-5 px-5 bg-transparent outline-none text-lg text-slate-700 placeholder:text-slate-400 rounded-2xl font-medium"
+              className="w-full py-3 sm:py-4 md:py-5 px-3 sm:px-4 md:px-5 bg-transparent outline-none text-base sm:text-lg text-slate-700 placeholder:text-slate-400 rounded-2xl font-medium"
               autoComplete="off"
             />
             {query && (
               <button 
                 onClick={handleClear}
-                className="pr-5 text-slate-300 hover:text-slate-500 transition-colors p-2"
+                className="pr-3 sm:pr-5 text-slate-300 hover:text-slate-500 transition-colors p-2"
               >
-                <X size={20} />
+                <X size={18} className="sm:w-5 sm:h-5" />
               </button>
             )}
           </div>
@@ -194,11 +194,11 @@ export default function App() {
           {/* Autocomplete Dropdown */}
           <div 
             className={`
-              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top
+              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0
               ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
-            <div className="max-h-[400px] overflow-y-auto">
+            <div className="max-h-[300px] sm:max-h-[400px] overflow-y-auto">
               {suggestions.map((item) => {
                 const IconComponent = getIconComponent(item.icon);
                 const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
@@ -206,28 +206,28 @@ export default function App() {
                   <button
                     key={item.id}
                     onClick={() => handleSelect(item)}
-                    className="w-full text-left px-5 py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group flex items-start gap-4"
+                    className="w-full text-left px-3 sm:px-5 py-3 sm:py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group flex items-start gap-3 sm:gap-4"
                   >
                     <div 
-                      className="p-2 rounded-lg transition-colors flex-shrink-0"
+                      className="p-1.5 sm:p-2 rounded-lg transition-colors flex-shrink-0"
                       style={{
                         backgroundColor: `${gradient.from}15`,
                         color: gradient.to
                       }}
                     >
-                      <IconComponent size={20} />
+                      <IconComponent size={18} className="sm:w-5 sm:h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">
+                        <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
                           {item.title}
                         </span>
                       </div>
-                      <p className="text-sm text-slate-400 mt-0.5 line-clamp-2">
+                      <p className="text-xs sm:text-sm text-slate-400 mt-0.5 line-clamp-2">
                         {item.description}
                       </p>
                     </div>
-                    <ChevronRight size={16} className="text-slate-300 group-hover:text-blue-400 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 flex-shrink-0 mt-2" />
+                    <ChevronRight size={14} className="hidden sm:block sm:w-4 sm:h-4 text-slate-300 group-hover:text-blue-400 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 flex-shrink-0 mt-2" />
                   </button>
                 );
               })}
@@ -253,21 +253,21 @@ export default function App() {
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
         
         {selectedItem && (
-          <main className="w-full max-w-4xl px-6 py-12 animate-fadeIn">
+          <main className="w-full max-w-4xl px-4 sm:px-6 py-8 sm:py-12 animate-fadeIn">
             {/* Header Card with Icon */}
-            <Card className="mb-8">
-              <div className="flex items-start gap-4 mb-6">
+            <Card className="mb-6 sm:mb-8">
+              <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
                 <div 
-                  className="p-3 rounded-xl text-white shadow-lg"
+                  className="p-2 sm:p-3 rounded-xl text-white shadow-lg flex-shrink-0"
                   style={{
                     background: `linear-gradient(to bottom right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.from || '#3b82f6'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'})`
                   }}
                 >
-                  {React.createElement(getIconComponent(selectedItem.icon), { size: 32 })}
+                  {React.createElement(getIconComponent(selectedItem.icon), { size: 24, className: 'sm:w-8 sm:h-8' })}
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <span 
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-3"
+                    className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-semibold tracking-wide uppercase mb-2 sm:mb-3"
                     style={{
                       backgroundColor: `${COLOR_GRADIENTS[selectedItem.color.bg]?.from || '#3b82f6'}15`,
                       color: COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'
@@ -275,15 +275,15 @@ export default function App() {
                   >
                     RH / {selectedItem.title}
                   </span>
-                  <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
                     {selectedItem.title}
                   </h2>
                 </div>
               </div>
-              <p className="text-lg text-slate-500 font-light leading-relaxed border-l-2 border-slate-200 pl-4">
+              <p className="text-base sm:text-lg text-slate-500 font-light leading-relaxed border-l-2 border-slate-200 pl-3 sm:pl-4">
                 {selectedItem.description}
               </p>
-              <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
+              <div className="mt-3 sm:mt-4 flex items-center gap-2 text-[10px] sm:text-xs text-slate-400">
                 <span>Última atualização:</span>
                 <span className="font-medium text-slate-500">
                   {new Date(selectedItem.lastModified).toLocaleDateString('pt-BR')}
@@ -298,12 +298,12 @@ export default function App() {
 
             {/* External Link */}
             {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
-              <div className="mt-12 pt-8 border-t border-slate-100 flex justify-end">
+              <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-100 flex justify-end">
                 <a 
                   href={selectedItem.externalLink} 
                   target="_blank" 
                   rel="noreferrer"
-                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 text-white"
+                  className="group inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 text-white"
                   style={{
                     background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
                   }}
@@ -314,9 +314,10 @@ export default function App() {
                     e.currentTarget.style.background = `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`;
                   }}
                 >
-                  Acessar Documentação Original
-                  <ExternalLink size={16} className="group-hover:hidden" />
-                  <ArrowRight size={16} className="hidden group-hover:block animate-pulse" />
+                  <span className="hidden sm:inline">Acessar Documentação Original</span>
+                  <span className="sm:hidden">Ver Documentação</span>
+                  <ExternalLink size={14} className="sm:w-4 sm:h-4 group-hover:hidden" />
+                  <ArrowRight size={14} className="sm:w-4 sm:h-4 hidden group-hover:block animate-pulse" />
                 </a>
               </div>
             )}
@@ -325,33 +326,33 @@ export default function App() {
       </div>
 
       {/* Footer with Sliding Logos */}
-      <footer className="relative bg-white border-t border-slate-200 py-10 px-4 overflow-hidden">
+      <footer className="relative bg-white border-t border-slate-200 py-6 sm:py-8 md:py-10 px-4 overflow-hidden">
         {/* Animated Logos Slider */}
-        <div className="mb-8 relative">
-          <div className="flex items-center gap-16 animate-slideLogos whitespace-nowrap">
-            <img src="/logos/dirad.png" alt="DIRAD" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/cgrh.png" alt="CGRH" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/acad.png" alt="ACAD" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/cetec.png" alt="CETEC" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/coarh.png" alt="COARH" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+        <div className="mb-6 sm:mb-8 relative">
+          <div className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-slideLogos whitespace-nowrap">
+            <img src="/logos/dirad.png" alt="DIRAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/cgrh.png" alt="CGRH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/coarh.png" alt="COARH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/acad.png" alt="ACAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/cetec.png" alt="CETEC" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
             {/* Duplicate for seamless loop */}
-            <img src="/logos/dirad.png" alt="DIRAD" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/cgrh.png" alt="CGRH" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/acad.png" alt="ACAD" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/cetec.png" alt="CETEC" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
-            <img src="/logos/coarh.png" alt="COARH" className="h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/dirad.png" alt="DIRAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/cgrh.png" alt="CGRH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/coarh.png" alt="COARH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/acad.png" alt="ACAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
+            <img src="/logos/cetec.png" alt="CETEC" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0" />
           </div>
         </div>
         
         {/* Divider */}
-        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-6"></div>
+        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-4 sm:mb-6"></div>
         
         {/* Copyright and Info */}
-        <div className="text-center">
-          <p className="text-slate-600 text-sm font-medium mb-2">
+        <div className="text-center px-4">
+          <p className="text-slate-600 text-xs sm:text-sm font-medium mb-1 sm:mb-2">
             &copy; 2025 Academia de Propriedade Intelectual, Inovação e Desenvolvimento
           </p>
-          <p className="text-slate-400 text-xs">
+          <p className="text-slate-400 text-[10px] sm:text-xs">
             {(database as DatabaseItem[]).length} documentos disponíveis
           </p>
         </div>
