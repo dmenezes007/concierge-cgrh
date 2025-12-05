@@ -159,7 +159,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col overflow-hidden">
       
       {/* Fixed Header with Logo */}
-      <header className="fixed top-0 left-0 right-0 z-50">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-6 py-3 flex items-center justify-center">
           <img src="/logos/inpi.png" alt="INPI" className="h-8 mt-2" />
         </div>
@@ -167,11 +167,11 @@ export default function App() {
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center justify-center px-6 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto
-          ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12' : 'pt-24 sm:pt-32 pb-12 sm:pb-20'}`}
+        className={`flex-1 flex flex-col items-center px-8 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
+          ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12 justify-start' : 'pt-24 sm:pt-32 pb-12 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
-          <div className="max-w-4xl w-full text-center mb-8 sm:mb-12 animate-fadeIn">
+          <div className="max-w-4xl w-full text-center mb-6 sm:mb-10 animate-fadeIn">
             {/* Icon and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4">
               <div className="relative mb-2 sm:mb-0">
@@ -186,7 +186,7 @@ export default function App() {
             </div>
             
             {/* Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-10 px-4">
               Os serviços de gestão de pessoas na palma da sua mão
             </p>
           </div>
@@ -206,7 +206,7 @@ export default function App() {
         )}
 
         {/* Search Container */}
-        <div className="w-full max-w-3xl relative z-20 mb-6 sm:mb-8 px-2 sm:px-0" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-20 mb-4 sm:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
           <div
             className={`
               relative flex items-center w-full transition-all duration-300 animate-shimmer

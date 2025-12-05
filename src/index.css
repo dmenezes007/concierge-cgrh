@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, a, li {
 }
 
 .animate-slideLogos {
-  animation: slideLogos 20s linear infinite;
+  animation: slideLogos 15s linear infinite;
   display: inline-flex;
   align-items: center;
   will-change: transform;
