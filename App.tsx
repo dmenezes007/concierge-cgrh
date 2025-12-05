@@ -324,7 +324,7 @@ export default function App() {
       </div>
 
       {/* Content Display Area */}
-      <div className={`flex-1 flex justify-center w-full bg-white relative transition-opacity duration-700 delay-100 ${hasSelection ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className={`flex-1 flex justify-center w-full bg-white relative z-20 transition-opacity duration-700 delay-100 ${hasSelection ? 'opacity-100' : 'opacity-0 hidden'}`}>
         {/* Decorative gradient top border for content area */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent"></div>
         
@@ -421,7 +421,7 @@ export default function App() {
       </div>
 
       {/* Footer with Sliding Logos */}
-      <footer className="relative z-10 bg-white border-t border-slate-200 py-3 sm:py-8 md:py-10 px-4 overflow-hidden">
+      <footer className="fixed bottom-0 left-0 right-0 z-10 bg-white border-t border-slate-200 py-3 sm:py-8 md:py-10 px-4 overflow-hidden">
         {/* Animated Logos Slider */}
         <div className="mb-2 sm:mb-6 md:mb-8 relative overflow-hidden">
           <div className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-slideLogos whitespace-nowrap">
