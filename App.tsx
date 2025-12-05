@@ -132,12 +132,12 @@ export default function App() {
                 </div>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 tracking-tight">
-                Concierge Digital
+                Concierge RH Digital
               </h1>
             </div>
             
             {/* Subtitle */}
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-8 sm:mb-12 px-4">
               Os serviços de gestão de pessoas na palma da sua mão
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function App() {
                 <i className="fas fa-bell-concierge text-base sm:text-lg"></i>
               </div>
               <h1 className="text-xl sm:text-2xl font-bold text-slate-900">
-                Concierge Digital
+                Concierge RH Digital
               </h1>
             </div>
           </div>
