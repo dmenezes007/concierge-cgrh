@@ -131,6 +131,11 @@ export default function App() {
           }}
         />
         
+        {/* Logo INPI no topo */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 z-10">
+          <img src="/logos/inpi-branco.png" alt="INPI" className="h-12 sm:h-16 md:h-20 opacity-90" />
+        </div>
+        
         {/* Content */}
         <div className="relative z-10 text-center animate-fadeIn px-[75px]">
           {/* Icon */}
