@@ -262,32 +262,51 @@ export default function App() {
                 const IconComponent = getIconComponent(item.icon);
                 const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
                 return (
-                  <button
+                  <div
                     key={item.id}
-                    onClick={() => handleSelect(item)}
-                    className="w-full text-left px-3 sm:px-5 py-3 sm:py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group flex items-start gap-3 sm:gap-4"
+                    className="w-full px-3 sm:px-5 py-3 sm:py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group"
                   >
-                    <div 
-                      className="p-1.5 sm:p-2 rounded-lg transition-colors flex-shrink-0"
-                      style={{
-                        backgroundColor: `${gradient.from}15`,
-                        color: gradient.to
-                      }}
-                    >
-                      <IconComponent size={18} className="sm:w-5 sm:h-5" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
-                          {item.title}
-                        </span>
+                    <div className="flex items-start gap-3 sm:gap-4 mb-3">
+                      <div 
+                        className="p-1.5 sm:p-2 rounded-lg transition-colors flex-shrink-0"
+                        style={{
+                          backgroundColor: `${gradient.from}15`,
+                          color: gradient.to
+                        }}
+                      >
+                        <IconComponent size={18} className="sm:w-5 sm:h-5" />
                       </div>
-                      <p className="text-xs sm:text-sm text-slate-400 mt-0.5 line-clamp-2">
-                        {item.description}
-                      </p>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-semibold text-sm sm:text-base text-slate-700">
+                            {item.title}
+                          </span>
+                        </div>
+                        <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                    <ChevronRight size={14} className="hidden sm:block sm:w-4 sm:h-4 text-slate-300 group-hover:text-blue-400 opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1 flex-shrink-0 mt-2" />
-                  </button>
+                    
+                    <div className="flex gap-2 ml-10 sm:ml-12">
+                      <button
+                        onClick={() => handleSelect(item)}
+                        className="flex-1 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md"
+                      >
+                        Ver Detalhes
+                      </button>
+                      {item.externalLink && item.externalLink !== '#' && (
+                        <a
+                          href={item.externalLink}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="flex-1 px-3 py-2 bg-white border-2 border-slate-200 text-slate-700 text-xs sm:text-sm font-medium rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all text-center"
+                        >
+                          Acesse na Intranet
+                        </a>
+                      )}
+                    </div>
+                  </div>
                 );
               })}
             </div>
