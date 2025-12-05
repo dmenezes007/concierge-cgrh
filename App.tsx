@@ -112,6 +112,15 @@ export default function App() {
         className={`transition-all duration-700 ease-in-out flex flex-col items-center justify-center px-4 w-full
           ${hasSelection ? 'pt-8 pb-6' : 'min-h-[60vh]'}`}
       >
+        {/* Logo INPI */}
+        <div className={`transition-all duration-700 ${hasSelection ? 'scale-75 mb-4' : 'scale-100 mb-6'}`}>
+          <img 
+            src="/logos/inpi.png" 
+            alt="INPI" 
+            className={`transition-all duration-700 ${hasSelection ? 'h-16' : 'h-24'}`}
+          />
+        </div>
+
         <div className={`transition-all duration-700 flex flex-col items-center ${hasSelection ? 'scale-75 mb-4' : 'scale-100 mb-8'}`}>
           <div className="flex items-center gap-2 mb-2">
             <div className="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2 rounded-lg text-white shadow-lg shadow-blue-500/30">
@@ -298,11 +307,25 @@ export default function App() {
 
       {/* Footer (Only visible when no selection to keep look clean) */}
       {!hasSelection && (
-        <footer className="w-full py-6 text-center text-slate-300 text-sm">
-          <p>&copy; 2025 Departamento de Gestão de Pessoas</p>
-          <p className="text-xs mt-1 text-slate-400">
-            {(database as DatabaseItem[]).length} documentos disponíveis
-          </p>
+        <footer className="w-full py-8 px-4">
+          {/* Logos */}
+          <div className="flex items-center justify-center gap-8 mb-6 flex-wrap">
+            <img src="/logos/dirad.png" alt="DIRAD" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="/logos/cgrh.png" alt="CGRH" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="/logos/acad.png" alt="ACAD" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="/logos/cetec.png" alt="CETEC" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
+          </div>
+          
+          {/* Divider */}
+          <div className="w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-4"></div>
+          
+          {/* Copyright */}
+          <div className="text-center text-slate-400 text-sm">
+            <p className="font-medium text-slate-500">&copy; 2025 Departamento de Gestão de Pessoas</p>
+            <p className="text-xs mt-1">
+              {(database as DatabaseItem[]).length} documentos disponíveis
+            </p>
+          </div>
         </footer>
       )}
     </div>
