@@ -18,8 +18,8 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
-      }
-      css: { // Add this block
+      },
+      css: { // Add this block for PostCSS and Tailwind CSS
         postcss: './postcss.config.js' // Explicitly tell Vite to use this PostCSS config
       }
     };
