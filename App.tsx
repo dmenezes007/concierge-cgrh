@@ -177,7 +177,7 @@ export default function App() {
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center px-8 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
+        className={`flex-1 flex flex-col items-center px-10 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
           ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12 justify-start' : 'pt-24 sm:pt-32 pb-12 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
@@ -266,7 +266,10 @@ export default function App() {
                     key={item.id}
                     className="w-full px-3 sm:px-5 py-3 sm:py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group"
                   >
-                    <div className="flex items-start gap-3 sm:gap-4 mb-3">
+                    <button
+                      onClick={() => handleSelect(item)}
+                      className="w-full text-left flex items-start gap-3 sm:gap-4 mb-3"
+                    >
                       <div 
                         className="p-1.5 sm:p-2 rounded-lg transition-colors flex-shrink-0"
                         style={{
@@ -278,7 +281,7 @@ export default function App() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold text-sm sm:text-base text-slate-700">
+                          <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
                             {item.title}
                           </span>
                         </div>
@@ -286,26 +289,20 @@ export default function App() {
                           {item.description}
                         </p>
                       </div>
-                    </div>
+                    </button>
                     
-                    <div className="flex gap-2 ml-10 sm:ml-12">
-                      <button
-                        onClick={() => handleSelect(item)}
-                        className="flex-1 px-3 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs sm:text-sm font-medium rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md"
-                      >
-                        Ver Detalhes
-                      </button>
-                      {item.externalLink && item.externalLink !== '#' && (
+                    {item.externalLink && item.externalLink !== '#' && (
+                      <div className="ml-10 sm:ml-12">
                         <a
                           href={item.externalLink}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex-1 px-3 py-2 bg-white border-2 border-slate-200 text-slate-700 text-xs sm:text-sm font-medium rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all text-center"
+                          className="inline-block px-4 py-2 bg-white border-2 border-slate-200 text-slate-700 text-xs sm:text-sm font-medium rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all"
                         >
                           Acesse na Intranet
                         </a>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 );
               })}
@@ -356,11 +353,11 @@ export default function App() {
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
                     {selectedItem.title}
                   </h2>
+                  <p className="text-sm sm:text-base text-slate-600 mt-2 font-light">
+                    {selectedItem.description}
+                  </p>
                 </div>
               </div>
-              <p className="text-base sm:text-lg text-slate-500 font-light leading-relaxed border-l-2 border-slate-200 pl-3 sm:pl-4">
-                {selectedItem.description}
-              </p>
               <div className="mt-3 sm:mt-4 flex items-center gap-2 text-[10px] sm:text-xs text-slate-400">
                 <span>Última atualização:</span>
                 <span className="font-medium text-slate-500">
