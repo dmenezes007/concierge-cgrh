@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Search, X, ChevronRight, Sparkles, ExternalLink, ArrowRight } from 'lucide-react';
+import Card from './components/Card'; // Import the Card component
 
 // --- Types ---
 interface DatabaseItem {
@@ -160,6 +161,216 @@ const DATABASE: DatabaseItem[] = [
         <p className="mt-6 text-slate-600">Necessário média superior a 6 (seis) para aprovação.</p>
       </>
     )
+  },
+  {
+    id: 'aposentadoria-e-abono',
+    title: 'Aposentadoria e Abono',
+    keywords: 'aposentadoria abono',
+    csvDescription: 'Documento sobre Aposentadoria e Abono.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Aposentadoria e Abono</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Aposentadoria e Abono.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'capacitacao-doc',
+    title: 'Capacitação',
+    keywords: 'capacitacao',
+    csvDescription: 'Documento sobre Capacitação.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Capacitação</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Capacitação.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'carta-de-servicos',
+    title: 'Carta de Serviços',
+    keywords: 'carta servicos',
+    csvDescription: 'Documento sobre Carta de Serviços.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Carta de Serviços</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Carta de Serviços.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'dados-cadastrais-doc',
+    title: 'Dados Cadastrais',
+    keywords: 'dados cadastrais',
+    csvDescription: 'Documento sobre Dados Cadastrais.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Dados Cadastrais</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Dados Cadastrais.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'estagio-probatorio-doc',
+    title: 'Estágio Probatório',
+    keywords: 'estagio probatorio',
+    csvDescription: 'Documento sobre Estágio Probatório.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Estágio Probatório</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Estágio Probatório.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'ferias-doc',
+    title: 'Férias',
+    keywords: 'ferias',
+    csvDescription: 'Documento sobre Férias.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Férias</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Férias.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'frequencia-doc',
+    title: 'Frequência',
+    keywords: 'frequencia',
+    csvDescription: 'Documento sobre Frequência.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Frequência</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Frequência.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'licencas-doc',
+    title: 'Licenças',
+    keywords: 'licencas',
+    csvDescription: 'Documento sobre Licenças.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Licenças</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Licenças.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'pagamento-doc',
+    title: 'Pagamento',
+    keywords: 'pagamento',
+    csvDescription: 'Documento sobre Pagamento.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Pagamento</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Pagamento.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'programa-gestao-desempenho',
+    title: 'Programa de Gestão e Desempenho',
+    keywords: 'programa gestao desempenho',
+    csvDescription: 'Documento sobre Programa de Gestão e Desempenho.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Programa de Gestão e Desempenho</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Programa de Gestão e Desempenho.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'remocao',
+    title: 'Remoção',
+    keywords: 'remocao',
+    csvDescription: 'Documento sobre Remoção.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Remoção</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Remoção.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'retribuicao-por-titulacao',
+    title: 'Retribuição por Titulação',
+    keywords: 'retribuicao titulacao',
+    csvDescription: 'Documento sobre Retribuição por Titulação.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Retribuição por Titulação</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Retribuição por Titulação.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'saude-ocupacional',
+    title: 'Saúde Ocupacional',
+    keywords: 'saude ocupacional',
+    csvDescription: 'Documento sobre Saúde Ocupacional.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Saúde Ocupacional</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Saúde Ocupacional.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'selecao-interna-e-externa',
+    title: 'Seleção Interna e Externa',
+    keywords: 'selecao interna externa',
+    csvDescription: 'Documento sobre Seleção Interna e Externa.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Seleção Interna e Externa</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Seleção Interna e Externa.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
+  },
+  {
+    id: 'utilizacao-sougov',
+    title: 'Utilização do SouGov',
+    keywords: 'utilizacao sougov',
+    csvDescription: 'Documento sobre Utilização do SouGov.',
+    externalLink: '#',
+    content: (
+      <>
+        <h3 className="text-xl font-semibold mb-3 text-slate-800">Utilização do SouGov</h3>
+        <p className="mb-6 text-slate-600 leading-relaxed">Conteúdo do documento 'Utilização do SouGov.docx' seria exibido aqui.</p>
+        <p className="text-sm text-slate-500 italic">Este é um placeholder. O conteúdo real do documento Word (.docx) precisaria ser convertido para um formato web (HTML, Markdown ou texto simples) para ser exibido dinamicamente.</p>
+      </>
+    )
   }
 ];
 
@@ -305,7 +516,7 @@ export default function App() {
         
         {selectedItem && (
           <main className="w-full max-w-3xl px-6 py-12 animate-fadeIn">
-            <div className="mb-8">
+            <Card className="mb-8">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-4">
                 RH / {selectedItem.title}
               </span>
@@ -313,11 +524,11 @@ export default function App() {
               <p className="text-lg text-slate-500 font-light leading-relaxed border-l-2 border-slate-200 pl-4">
                 {selectedItem.csvDescription}
               </p>
-            </div>
+            </Card>
 
-            <div className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-700">
+            <Card className="prose prose-slate prose-lg max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-700">
               {selectedItem.content}
-            </div>
+            </Card>
 
             {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
               <div className="mt-12 pt-8 border-t border-slate-100 flex justify-end">
