@@ -177,7 +177,7 @@ export default function App() {
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center px-10 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
+        className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto max-h-screen
           ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12 justify-start' : 'pt-24 sm:pt-32 pb-12 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
