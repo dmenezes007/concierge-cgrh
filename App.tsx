@@ -261,7 +261,7 @@ export default function App() {
               ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
-            <div className="max-h-[300px] sm:max-h-[400px] overflow-y-auto">
+            <div className="max-h-[200px] sm:max-h-[280px] overflow-y-scroll">
               {suggestions.map((item) => {
                 const IconComponent = getIconComponent(item.icon);
                 const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
