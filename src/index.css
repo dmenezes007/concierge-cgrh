@@ -42,14 +42,15 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / 3));
   }
 }
 
 .animate-slideLogos {
-  animation: slideLogos 20s linear infinite;
+  animation: slideLogos 30s linear infinite;
   display: inline-flex;
   align-items: center;
+  will-change: transform;
 }
 
 .animate-slideLogos:hover {
