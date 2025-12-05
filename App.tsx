@@ -60,6 +60,16 @@ const COLOR_GRADIENTS: Record<string, { from: string; to: string; hover: string 
   fuchsia: { from: '#d946ef', to: '#c026d3', hover: '#a21caf' },
 };
 
+// --- Normalize text for search (remove accents and special chars) ---
+function normalizeText(text: string): string {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '') // Remove diacritics
+    .replace(/ç/g, 'c')
+    .replace(/Ç/g, 'C')
+    .toLowerCase();
+}
+
 // --- Main App Component ---
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -82,11 +92,11 @@ export default function App() {
   // Filter logic
   const suggestions = useMemo(() => {
     if (!query) return [];
-    const lowerQuery = query.toLowerCase();
+    const normalizedQuery = normalizeText(query);
     return (database as DatabaseItem[]).filter(item => 
-      item.title.toLowerCase().includes(lowerQuery) || 
-      item.keywords.toLowerCase().includes(lowerQuery) ||
-      item.description.toLowerCase().includes(lowerQuery)
+      normalizeText(item.title).includes(normalizedQuery) || 
+      normalizeText(item.keywords).includes(normalizedQuery) ||
+      normalizeText(item.description).includes(normalizedQuery)
     );
   }, [query]);
 
