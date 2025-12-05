@@ -173,7 +173,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col overflow-hidden">
       
       {/* Fixed Header with Logo */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-br from-slate-50 via-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-6 py-3 flex items-center justify-center">
           <img src="/logos/inpi.png" alt="INPI" className="h-8 mt-2" />
         </div>
@@ -421,7 +421,7 @@ export default function App() {
       </div>
 
       {/* Footer with Sliding Logos */}
-      <footer className="relative bg-white border-t border-slate-200 py-3 sm:py-8 md:py-10 px-4 overflow-hidden">
+      <footer className="relative z-10 bg-white border-t border-slate-200 py-3 sm:py-8 md:py-10 px-4 overflow-hidden">
         {/* Animated Logos Slider */}
         <div className="mb-2 sm:mb-6 md:mb-8 relative overflow-hidden">
           <div className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-slideLogos whitespace-nowrap">
