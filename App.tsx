@@ -156,18 +156,18 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col overflow-hidden">
       
       {/* Fixed Header with Logo */}
       <header className="fixed top-0 left-0 right-0 z-50">
-        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-3 flex items-center justify-center">
+        <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-6 py-3 flex items-center justify-center">
           <img src="/logos/inpi.png" alt="INPI" className="h-8 mt-2" />
         </div>
       </header>
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center justify-center px-4 sm:px-6 w-full transition-all duration-700 ease-in-out
+        className={`flex-1 flex flex-col items-center justify-center px-6 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto
           ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12' : 'pt-24 sm:pt-32 pb-12 sm:pb-20'}`}
       >
         {!hasSelection && (
