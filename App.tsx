@@ -62,6 +62,7 @@ const COLOR_GRADIENTS: Record<string, { from: string; to: string; hover: string 
 
 // --- Main App Component ---
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
   const [query, setQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState<DatabaseItem | null>(null);
   const [isFocused, setIsFocused] = useState(false);
@@ -103,6 +104,57 @@ export default function App() {
 
   // Determine layout state
   const hasSelection = !!selectedItem;
+
+  // Splash Screen
+  if (showSplash) {
+    return (
+      <div className="min-h-screen bg-[#002258] relative overflow-hidden flex items-center justify-center">
+        {/* Grid Background */}
+        <div 
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}
+        />
+        
+        {/* Content */}
+        <div className="relative z-10 text-center animate-fadeIn">
+          {/* Icon */}
+          <div className="mb-8 flex justify-center">
+            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-white/20">
+              <i className="fas fa-bell-concierge text-6xl text-white"></i>
+            </div>
+          </div>
+          
+          {/* Title */}
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 tracking-tight">
+            Concierge RH Digital
+          </h1>
+          
+          <p className="text-white/70 text-lg md:text-xl mb-12 font-light">
+            Os serviços de gestão de pessoas na palma da sua mão
+          </p>
+          
+          {/* Access Button */}
+          <button
+            onClick={() => setShowSplash(false)}
+            className="group relative px-12 py-4 bg-white text-[#002258] rounded-full font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 hover:bg-white/95"
+          >
+            <span className="relative z-10">ACESSAR</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          </button>
+        </div>
+        
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-white/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 right-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
