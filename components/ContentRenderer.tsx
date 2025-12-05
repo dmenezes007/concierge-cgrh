@@ -4,20 +4,53 @@ import {
   CheckCircle, 
   Info, 
   List, 
-  ListOrdered 
+  ListOrdered,
+  ExternalLink
 } from 'lucide-react';
+
+interface Link {
+  text: string;
+  url: string;
+}
+
+interface ListItem {
+  text: string;
+  html?: string;
+  links?: Link[];
+}
 
 interface Section {
   type: 'heading' | 'paragraph' | 'highlight' | 'list' | 'table';
   level?: number;
   content?: string;
-  items?: string[];
+  html?: string;
+  links?: Link[];
+  items?: ListItem[];
   ordered?: boolean;
 }
 
 interface ContentRendererProps {
   sections: Section[];
   color?: { bg: string; text: string };
+}
+
+// Helper para renderizar texto com links
+function renderTextWithLinks(text: string, links?: Link[], html?: string) {
+  if (!links || links.length === 0) {
+    return text;
+  }
+  
+  // Se tiver HTML, usar dangerouslySetInnerHTML para preservar links
+  if (html) {
+    return (
+      <span 
+        dangerouslySetInnerHTML={{ __html: html }}
+        className="[&_a]:text-blue-600 [&_a]:underline [&_a]:hover:text-blue-800 [&_a]:inline-flex [&_a]:items-center [&_a]:gap-1"
+      />
+    );
+  }
+  
+  return text;
 }
 
 export default function ContentRenderer({ sections, color = { bg: 'blue', text: 'blue' } }: ContentRendererProps) {
@@ -40,7 +73,7 @@ export default function ContentRenderer({ sections, color = { bg: 'blue', text: 
       case 'paragraph':
         return (
           <p key={index} className="mb-4 text-slate-600 leading-relaxed">
-            {section.content}
+            {renderTextWithLinks(section.content || '', section.links, section.html)}
           </p>
         );
       
@@ -85,15 +118,15 @@ export default function ContentRenderer({ sections, color = { bg: 'blue', text: 
               `}>
                 <AlertIcon size={20} />
               </div>
-              <p className={`
+              <div className={`
                 flex-1 font-medium
                 ${alertColor === 'blue' ? 'text-blue-900' : ''}
                 ${alertColor === 'amber' ? 'text-amber-900' : ''}
                 ${alertColor === 'red' ? 'text-red-900' : ''}
                 ${alertColor === 'green' ? 'text-green-900' : ''}
               `}>
-                {section.content}
-              </p>
+                {renderTextWithLinks(section.content || '', section.links, section.html)}
+              </div>
             </div>
           </div>
         );
@@ -117,7 +150,7 @@ export default function ContentRenderer({ sections, color = { bg: 'blue', text: 
                       {section.ordered ? '' : (
                         <span className={`inline-block w-1.5 h-1.5 bg-${color.bg}-500 rounded-full mr-2`}></span>
                       )}
-                      {item}
+                      {typeof item === 'string' ? item : renderTextWithLinks(item.text, item.links, item.html)}
                     </li>
                   ))}
                 </ListTag>

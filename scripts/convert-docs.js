@@ -114,14 +114,42 @@ function parseStructuredContent(html) {
       const isImportant = $(elem).find('strong').length > 0 || 
                           /atenção|importante|prazo|data limite|obrigatório/i.test(text);
       
+      // Extrair links do parágrafo
+      const links = [];
+      $(elem).find('a').each((j, link) => {
+        const href = $(link).attr('href');
+        const linkText = $(link).text().trim();
+        if (href) {
+          links.push({ text: linkText, url: href });
+        }
+      });
+      
       sections.push({
         type: isImportant ? 'highlight' : 'paragraph',
-        content: text
+        content: text,
+        html: $.html(elem), // Preservar HTML para links
+        links: links.length > 0 ? links : undefined
       });
     } else if (tagName === 'ul' || tagName === 'ol') {
       const items = [];
       $(elem).find('li').each((j, li) => {
-        items.push($(li).text().trim());
+        const itemText = $(li).text().trim();
+        const itemLinks = [];
+        
+        // Extrair links de cada item da lista
+        $(li).find('a').each((k, link) => {
+          const href = $(link).attr('href');
+          const linkText = $(link).text().trim();
+          if (href) {
+            itemLinks.push({ text: linkText, url: href });
+          }
+        });
+        
+        items.push({
+          text: itemText,
+          html: $.html(li),
+          links: itemLinks.length > 0 ? itemLinks : undefined
+        });
       });
       sections.push({
         type: 'list',

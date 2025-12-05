@@ -42,3 +42,27 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Links styling */
+a {
+  color: #2563eb;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #1e40af;
+}
+
+/* Links dentro de parágrafos e highlights */
+p a, div a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+/* Links em listas */
+li a {
+  font-weight: 500;
+}
