@@ -361,10 +361,11 @@ export default function App() {
                       href={selectedItem.externalLink} 
                       target="_blank" 
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105"
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 no-underline"
                       style={{
                         background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`,
-                        color: '#ffffff'
+                        color: '#ffffff',
+                        textDecoration: 'none'
                       }}
                     >
                       <ExternalLink size={14} className="sm:w-4 sm:h-4" />
