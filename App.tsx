@@ -41,6 +41,25 @@ function getIconComponent(iconName: string): LucideIcon {
   return Icons[pascalCase] || Icons.FileText;
 }
 
+// --- Color mapping for gradients ---
+const COLOR_GRADIENTS: Record<string, { from: string; to: string; hover: string }> = {
+  blue: { from: '#3b82f6', to: '#2563eb', hover: '#1d4ed8' },
+  green: { from: '#10b981', to: '#059669', hover: '#047857' },
+  purple: { from: '#a855f7', to: '#9333ea', hover: '#7e22ce' },
+  indigo: { from: '#6366f1', to: '#4f46e5', hover: '#4338ca' },
+  amber: { from: '#f59e0b', to: '#d97706', hover: '#b45309' },
+  rose: { from: '#f43f5e', to: '#e11d48', hover: '#be123c' },
+  slate: { from: '#64748b', to: '#475569', hover: '#334155' },
+  cyan: { from: '#06b6d4', to: '#0891b2', hover: '#0e7490' },
+  violet: { from: '#8b5cf6', to: '#7c3aed', hover: '#6d28d9' },
+  orange: { from: '#f97316', to: '#ea580c', hover: '#c2410c' },
+  emerald: { from: '#10b981', to: '#059669', hover: '#047857' },
+  red: { from: '#ef4444', to: '#dc2626', hover: '#b91c1c' },
+  teal: { from: '#14b8a6', to: '#0d9488', hover: '#0f766e' },
+  sky: { from: '#0ea5e9', to: '#0284c7', hover: '#0369a1' },
+  fuchsia: { from: '#d946ef', to: '#c026d3', hover: '#a21caf' },
+};
+
 // --- Main App Component ---
 export default function App() {
   const [query, setQuery] = useState('');
@@ -154,15 +173,20 @@ export default function App() {
             <div className="max-h-[400px] overflow-y-auto">
               {suggestions.map((item) => {
                 const IconComponent = getIconComponent(item.icon);
+                const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
                 return (
                   <button
                     key={item.id}
                     onClick={() => handleSelect(item)}
                     className="w-full text-left px-5 py-4 hover:bg-slate-50 transition-colors border-b border-slate-50 last:border-0 group flex items-start gap-4"
                   >
-                    <div className={`
-                      p-2 rounded-lg bg-${item.color.bg}-50 text-${item.color.text}-600 group-hover:bg-${item.color.bg}-100 transition-colors flex-shrink-0
-                    `}>
+                    <div 
+                      className="p-2 rounded-lg transition-colors flex-shrink-0"
+                      style={{
+                        backgroundColor: `${gradient.from}15`,
+                        color: gradient.to
+                      }}
+                    >
                       <IconComponent size={20} />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -205,16 +229,22 @@ export default function App() {
             {/* Header Card with Icon */}
             <Card className="mb-8">
               <div className="flex items-start gap-4 mb-6">
-                <div className={`
-                  p-3 rounded-xl bg-gradient-to-br from-${selectedItem.color.bg}-500 to-${selectedItem.color.bg}-600 text-white shadow-lg
-                `}>
+                <div 
+                  className="p-3 rounded-xl text-white shadow-lg"
+                  style={{
+                    background: `linear-gradient(to bottom right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.from || '#3b82f6'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'})`
+                  }}
+                >
                   {React.createElement(getIconComponent(selectedItem.icon), { size: 32 })}
                 </div>
                 <div className="flex-1">
-                  <span className={`
-                    inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-3
-                    bg-${selectedItem.color.bg}-50 text-${selectedItem.color.text}-700
-                  `}>
+                  <span 
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold tracking-wide uppercase mb-3"
+                    style={{
+                      backgroundColor: `${COLOR_GRADIENTS[selectedItem.color.bg]?.from || '#3b82f6'}15`,
+                      color: COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'
+                    }}
+                  >
                     RH / {selectedItem.title}
                   </span>
                   <h2 className="text-4xl font-bold text-slate-900 tracking-tight">
@@ -245,11 +275,16 @@ export default function App() {
                   href={selectedItem.externalLink} 
                   target="_blank" 
                   rel="noreferrer"
-                  className={`
-                    group inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5
-                    bg-gradient-to-r from-${selectedItem.color.bg}-600 to-${selectedItem.color.bg}-700 text-white
-                    hover:from-${selectedItem.color.bg}-700 hover:to-${selectedItem.color.bg}-800
-                  `}
+                  className="group inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 text-white"
+                  style={{
+                    background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`;
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`;
+                  }}
                 >
                   Acessar Documentação Original
                   <ExternalLink size={16} className="group-hover:hidden" />
