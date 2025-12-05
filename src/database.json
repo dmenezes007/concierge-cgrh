@@ -1,0 +1,3277 @@
+[
+  {
+    "id": "aposentadoria-e-abono",
+    "title": "Aposentadoria e Abono",
+    "keywords": "solicitação salário gratificação sougov licença aposentadoria abono permanência voluntária tempo",
+    "description": "Emissão de declarações com teor similar a certidão de tempo de contribuição",
+    "icon": "home",
+    "color": {
+      "bg": "rose",
+      "text": "rose"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Aposentadoria e Abono"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal:",
+          "§  19 do art.40 da Constituição de 1988,",
+          "§ 3º do art. 3º, art. 8º e § 5º do art. 10 da Emenda Constitucional nº 103 de 12 de novembro de 2019.",
+          "Público-alvo: servidor que atenda os requisitos para se aposentar por um dos fundamentos legais previstos na legislação, desde que haja a previsão expressa para a percepção do benefício, optando por permanecer em atividade.",
+          "Documentos necessários: requerimento (clique aqui)",
+          "Como requerer: preencher o requerimento e encaminhar para serap@inpi.gov.br."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal:",
+          "arts. 4º, 10 e 20 da Emenda Constitucional nº103/2019",
+          "art.3º da Emenda Constitucional nº103/2019 – assegura o direito adquirido.",
+          "Público-alvo: servidor que atenda os requisitos para se aposentar por um dos fundamentos legais previstos na legislação.",
+          "Documentos necessários:Formulário de requerimento de aposentadoria; (clique aqui)Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço.",
+          "Formulário de requerimento de aposentadoria; (clique aqui)",
+          "Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço.",
+          "Como requerer: preencher e encaminhar os documentos necessários para serap@inpi.gov.br.",
+          "Observação: o servidor deverá discriminar no formulário de requerimento de aposentadoria por qual fundamento legal deseja se aposentar."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de requerimento de aposentadoria; (clique aqui)",
+          "Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal:",
+          "art. 40 § 1º, inciso I da Constituição de 1988 com redação dada pela Emenda Constitucional nº103/2019, art.10 § 1º, inciso II da Emenda Constitucional nº103/2019.",
+          "Público-alvo: servidores de licença médica, nos casos em que a Junta Médica emite laudo médico pericial determinando a sua aposentadoria por incapacidade permanente.",
+          "Documentos necessários:",
+          "Laudo Médico Pericial concluindo pela necessidade de concessão de aposentadoria por invalidez ao servidor;",
+          "Formulário declarando se acumula ou não cargo público; (clique aqui)",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso seja do interesse do servidor, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço, se não tiver sido entregue anteriormente.",
+          "Como requerer: o processo é iniciado assim que o laudo médico pericial é emitido, independente de requerimento por parte do servidor."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Público-alvo: servidor ativo do INPI que tenha vínculos anteriores ao seu ingresso no órgão.",
+          "Documentos necessários: Requerimento feito no site ou aplicativo do SOUGOV (clique aqui) e Certidão(ões) original(is) contendo o(s) vínculo(s) anterior(es).",
+          "Como requerer: Acesse o site ou aplicativo do SOUGOV e, no item \"solicitações\", clique na opção \"averbação de tempo de contribuição\".",
+          "Observações:",
+          "No procedimento, será realizada a averbação no sistema dos períodos contidos no documento e serão lançados os salários de contribuição do RGPS ou as remunerações do RPPS. Após a finalização do processo, o servidor receberá cópia dos autos por email para que tenha ciência dos procedimentos realizados.",
+          "Períodos trabalhados após o mês de junho/1994 somente podem ser averbados caso a certidão apresentada pelo servidor contenha os respectivos salários de contribuições ou remunerações.",
+          "Apenas vínculos que estejam na certidão de tempo de contribuição podem ser averbados. Não podem ser averbados períodos que constem somente em carteira de trabalho, CNIS ou documentos similares."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Público-alvo: servidor ativo do INPI",
+          "Documentos necessários: requerimento (clique aqui)",
+          "Como requerer: encaminhar o requerimento para serap@inpi.gov.br.",
+          "Observações:",
+          "Caso o servidor queira abrir um processo de contagem de tempo de serviço e tenha vínculos anteriores ao seu ingresso no INPI, sugere-se que o mesmo traga certidão(ões) contendo esses períodos para averbação, para que a simulação de aposentadoria seja mais precisa e considere todo o tempo trabalhado pelo requerente.",
+          "Com base em simulações feitas no SIAPE, é informada a data prevista para o solicitante preencher os requisitos para se aposentar de acordo com diferentes fundamentos legais."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal: Portaria MPS nº 154/2008",
+          "Público-alvo: ex-servidores do INPI",
+          "Documentos necessários: formulário “solicitação de serviços ao SERAP” (clique aqui), devendo conter o órgão destinatário da certidão.",
+          "Como requerer: encaminhar o formulário para serap@inpi.gov.br.",
+          "Observação: o documento somente pode ser emitido após a publicação da portaria de exoneração ou vacância por posse em cargo inacumulável do solicitante."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Emissão de declarações com teor similar a certidão de tempo de contribuição"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal: Lei nº 8.647/1993, Portaria MPS nº 154/2008, Lei nº 8.745/93 e IN INSS nº 77/2015",
+          "Público-alvo: pessoas que ocuparam cargos exclusivamente em comissão no INPI, ex-ocupantes de cargos temporários segundo a Lei nº 8.745/93 e aqueles que trabalharam no INPI em período exclusivamente celetista.",
+          "Documentos necessários: formulário de “solicitação de serviços ao SERAP” (clique aqui), contendo o órgão/entidade destinatário da certidão.",
+          "Como requerer: enviar o formulário para serap@inpi.gov.br.",
+          "Observação: A declaração será elaborada com base nos dados encontrados nos assentamentos funcionais do solicitante."
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T23:13:12.002Z"
+  },
+  {
+    "id": "capacitacao",
+    "title": "Capacitação",
+    "keywords": "prazo solicitação remuneração treinamento curso pdp proamb cetec capacitação licença",
+    "description": "Responsável, junto à CGRH, por planejar, organizar, dirigir e controlar o Plano de Desenvolvimento de Pessoas (PDP) do INPI, o CETEC visa à promoçã...",
+    "icon": "graduation-cap",
+    "color": {
+      "bg": "indigo",
+      "text": "indigo"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Capacitação"
+      },
+      {
+        "type": "paragraph",
+        "content": "Responsável, junto à CGRH, por planejar, organizar, dirigir e controlar o Plano de Desenvolvimento de Pessoas (PDP) do INPI, o CETEC visa à promoção da capacitação necessária ao desenvolvimento do servidor nas carreiras inerentes ao INPI, evidenciadas na Lei nº 11.355/2006, valorizando o aprendizado e desenvolvimento contínuo do seu corpo funcional, e, desta forma, contribuindo para o aprendizado e desenvolvimento organizacional."
+      },
+      {
+        "type": "highlight",
+        "content": "DEVOLUTIVAS PDP"
+      },
+      {
+        "type": "paragraph",
+        "content": "CETEC disponibiliza as devolutivas do PDP de todas as áreas do INPI para consulta:"
+      },
+      {
+        "type": "paragraph",
+        "content": "2024 (CLIQUE AQUI)."
+      },
+      {
+        "type": "paragraph",
+        "content": "2023 (CLIQUE AQUI)."
+      },
+      {
+        "type": "paragraph",
+        "content": "CETEC disponibiliza gravação da palestra sobre teletrabalho (CLIQUE AQUI)."
+      },
+      {
+        "type": "paragraph",
+        "content": "A EV.G disponibiliza cursos para os servidores públicos de forma gratuita. Acesse o site www.escolavirtual.gov.br e descubra os cursos oferecidos nas seguintes temáticas:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Auditoria e Controle",
+          "Dados, Informação e Conhecimento",
+          "Desenvolvimento Gerencial",
+          "Educação e Docência",
+          "Gestão Estratégica",
+          "Gestão de Pessoas",
+          "Gestão de Políticas Públicas",
+          "Governança e Gestão de Riscos",
+          "Governo Digital e Transparência",
+          "Inovação",
+          "Logística e Compras Públicas",
+          "Orçamento e Finanças",
+          "Políticas Públicas Setoriais",
+          "Tecnologia da Informação",
+          "Transferências de Recursos da União",
+          "Ética e Cidadania"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 102, IV, da Lei nº 8.112, de 1990 e Decreto 9.991, de 2019"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "paragraph",
+        "content": "a)      SEM CUSTO"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de Solicitação de Capacitação",
+          "Confirmação de matrícula/inscrição",
+          "Programa do curso",
+          "Justificativa para participação"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "b)     COM CUSTO"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de Solicitação de Capacitação",
+          "Programa do Curso",
+          "Custo do evento de capacitação",
+          "Justificativa para participação"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:"
+      },
+      {
+        "type": "paragraph",
+        "content": "O processo será aberto pelo próprio servidor e encaminhado ao CETEC pela chefia por meio de despacho no SEI. Será feita uma análise em relação ao PDP (Plano de Desenvolvimento de Pessoas) pelo CETEC."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "considera-se treinamento regularmente instituído qualquer ação de desenvolvimento promovida ou apoiada pelo órgão ou pela entidade.",
+          "Ao término da capacitação, o servidor deverá encaminhar certificado e avaliação de reação para o CETEC.",
+          "Em caso de treinamento organizado pelas áreas do INPI, a área demandante deverá entrar em contato com o CETEC para o preenchimento do projeto instrucional e demais providências para a realização do curso e emissão de certificados, se for o caso."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 95 da Lei nº 8.112, de 11 de dezembro de 1990 e Decreto 9.991, de 28 de agosto de 2019."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: (além do formulário, quais documentos são necessários)"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de Afastamento Internacional (SEI)",
+          "Termo de Ciência para afastamento do País (SEI)",
+          "Carta-Convite ou similar (original e tradução)",
+          "Programação (original e tradução)",
+          "Formulário de Solicitação de Capacitação (intranet) assinado pelo servidor e as chefias.",
+          "Currículo (Banco de Talentos SIGEPE)"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:"
+      },
+      {
+        "type": "paragraph",
+        "content": "O Processo será aberto pelo próprio servidor no SEI como Pessoal: Capacitação no exterior (exceto pós-graduação). Após anexar as documentações acima listadas, o processo será encaminhado pela chefia do servidor ao CETEC para os trâmites necessários."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O trâmite para visto e passaporte, se necessário, será providenciado pela Presidência.",
+          "Caso o afastamento seja por período superior a trinta dias consecutivos, o servidor ocupante de cargo ou função de chefia deverá solicitar a dispensa da função de confiança ou exoneração do cargo em comissão, a contar da data de início do afastamento.",
+          "Ao servidor beneficiado pelo afastamento para estudo no exterior não será concedida exoneração ou licença para tratar de interesse particular antes de decorrido período igual ao do afastamento, ressalvada a hipótese de ressarcimento da despesa havida com seu afastamento.",
+          "É necessária a publicação em DOU do afastamento para o exterior.",
+          "Ao término da capacitação, o servidor deverá encaminhar certificado e avaliação de reação para o CETEC. A prestação de contas (bilhetes aéreos e relatório de viagem) também deverá ser realizada pelo servidor no processo aberto no SEI."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 87 da Lei nº 8.112, de 1990, Decreto 9.991/2019, Instrução Normativa INPI/PR nº 05, de 2013."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: Servidores ativos do INPI que não estejam em estágio probatório e tenham 5 anos de efetivo exercício."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário “Solicitação de Capacitação” – Anexo I da IN 05/2013 – devidamente assinado pelo(a) servidor(a) e por suas chefias.",
+          "Formulário “Solicitação de Licença para Capacitação” – Anexo II da IN 05/2013. Caso a licença seja para elaboração de dissertação ou tese, deverá estar explícito no formulário, devidamente assinado pelo(a) servidor(a) e por suas chefias.",
+          "Documento “Termo de Compromisso e Responsabilidade” – Anexo III da IN 05/2013, devidamente preenchido e assinado pelo(a) servidor(a).",
+          "Pedido formal redigido e assinado pelo(a) servidor(a), com concordância e assinatura também de sua chefia imediata, no qual conste:"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "a)  a razão de pedir;"
+      },
+      {
+        "type": "paragraph",
+        "content": "b) os dias a serem utilizados, devendo ser até 90 dias, podendo serem parcelados em, no máximo, seis períodos, com o menor período não podendo ser inferior a quinze dias;"
+      },
+      {
+        "type": "paragraph",
+        "content": "c)  nome do curso e da Instituição Educacional;"
+      },
+      {
+        "type": "paragraph",
+        "content": "d) carga horária total do curso (observamos que a licença capacitação só pode ser concedida quando a carga horária total da ação de desenvolvimento ou do conjunto de ações seja superior a trinta horas semanais);"
+      },
+      {
+        "type": "paragraph",
+        "content": "e)  justificativa para o requerimento, informando:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a impossibilidade da participação simultânea no curso com o exercício do cargo;"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a pertinência e relevância do curso no âmbito do INPI;"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a pertinência e relevância do curso na sua unidade de lotação; e"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a aplicabilidade do curso na vida funcional do(a) servidor(a)."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Currículo atualizado do servidor extraído do SIGEPE - Banco de Talentos;",
+          "Comprovante de matrícula no curso (até o 2º mês após o início do evento de capacitação) ou documento equivalente.",
+          "Programação completa do curso, incluindo a carga horária total e as disciplinas que irá cursar, com o cronograma de cumprimento das exigências da Instituição de Ensino para obtenção do título.",
+          "Projeto de pesquisa (com cronograma de atividades).",
+          "Em caso de licença para elaboração de dissertação ou tese:",
+          "Histórico escolar que comprove a conclusão dos créditos curriculares do programa cursado ou comprovação da qualificação, cronograma de atividades e comprovação do reconhecimento do curso pela CAPES.",
+          "Em caso de solicitação do custeio da ação pelo INPI: Documento da Instituição de Ensino com informação do valor total da ação."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:"
+      },
+      {
+        "type": "paragraph",
+        "content": "•             O procedimento para solicitar a Licença para Capacitação consiste na preparação pelo servidor da documentação indicada e encaminhamento ao Centro de Educação Corporativa, com assessoria do CETEC durante essa etapa para tirar qualquer dúvida a respeito do preenchimento ou outra que se faça necessária através do e-mail educacaocorporativa@inpi.gov.br."
+      },
+      {
+        "type": "paragraph",
+        "content": "•             O passo seguinte é a abertura pelo CETEC de processo correspondente no sistema SEI, e envio ao servidor do número do processo para acompanhamento de sua tramitação."
+      },
+      {
+        "type": "paragraph",
+        "content": "•             O CETEC fará análise posterior ao recebimento da documentação e, caso haja incorreção ou inadequação em algum documento entregue, será necessária a troca/correção do mesmo. Isso pode acarretar atraso no início do processo no sistema SEI e nas consequentes tramitação do processo e decisão sobre a concessão requerida. Assim, caso persistam dúvidas, deve-se entrar em contato com o CETEC através do e-mail educacaocorporativa@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "paragraph",
+        "content": "•             Caso a licença seja por período superior a trinta dias consecutivos, o servidor ocupante de cargo ou função de chefia deverá solicitar a dispensa da função de confiança ou exoneração do cargo em comissão, a contar da data de início do afastamento."
+      },
+      {
+        "type": "highlight",
+        "content": "•             O servidor que abandonar ou não concluir a ação de desenvolvimento ressarcirá o gasto com seu afastamento ao INPI, exceto na hipótese de caso fortuito ou força maior."
+      },
+      {
+        "type": "highlight",
+        "content": "•             A licença para capacitação poderá ser concedida para: ações de desenvolvimento presenciais ou à distância; elaboração de monografia, trabalho de conclusão de curso, dissertação de mestrado, tese de doutorado, de livre-docência ou estágio pós-doutoral; participação em curso presencial ou intercâmbio para aprendizado de língua estrangeira, quando recomendável ao exercício de suas atividades, conforme atestado pela chefia imediata; ou curso conjugado com: a)atividades práticas em posto de trabalho, em órgão ou entidade da administração pública direta ou indireta dos entes federativos, dos Poderes da União ou de outros países ou em organismos internacionais; ou b) realização de atividade voluntária em entidade que preste serviços dessa natureza no País."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A licença para capacitação poderá ser parcelada em, no máximo, seis períodos e o menor período não poderá ser inferior a quinze dias."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 96-A da Lei nº 8112/1990 e Decreto 9.991/2019"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário “Solicitação de Capacitação” – Anexo I da IN 05/2013 – devidamente assinado pelo(a) servidor(a) e por suas chefias.",
+          "Currículo atualizado do servidor extraído do SIGEPE - Banco de Talentos.",
+          "Comprovante de matrícula no curso (até o 2º mês após o início do evento de capacitação) ou documento equivalente.",
+          "Projeto de pesquisa (com cronograma de atividades)."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:"
+      },
+      {
+        "type": "highlight",
+        "content": "•     O procedimento para solicitar o afastamento para participação em programa de pós-graduação stricto sensu consiste na preparação pelo servidor da documentação indicada e encaminhamento ao Centro de Educação Corporativa, com assessoria do CETEC durante essa etapa para tirar qualquer dúvida a respeito do preenchimento ou outra que se faça necessária através do e-mail educacaocorporativa@inpi.gov.br."
+      },
+      {
+        "type": "paragraph",
+        "content": "•       O passo seguinte é a abertura pelo CETEC de processo correspondente no sistema SEI, e envio ao servidor do número do processo para acompanhamento de sua tramitação."
+      },
+      {
+        "type": "paragraph",
+        "content": "•       O CETEC fará análise posterior ao recebimento da documentação e, caso haja incorreção ou inadequação em algum documento entregue, será necessária a troca/correção do mesmo. Isso pode acarretar atraso no início do processo no sistema SEI e nas consequentes tramitação do processo e decisão sobre a concessão requerida. Assim, caso persistam dúvidas, deve-se entrar em contato com o CETEC através do e-mail educacaocorporativa@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "highlight",
+        "content": "•        Para elaboração de trabalho de conclusão de curso, de dissertação de mestrado ou de tese de doutorado deve ser solicitada licença para capacitação."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        O projeto de pesquisa a ser desenvolvida durante o período de afastamento deverá estar alinhado à área de atribuição do cargo efetivo, do cargo em comissão ou da função de confiança do servidor ou à área de competências da sua unidade de exercício."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        Se o afastamento for por período superior a trinta dias consecutivos, o servidor ocupante de cargo ou função de chefia deverá solicitar a dispensa da função de confiança ou exoneração do cargo em comissão, a contar da data de início do afastamento."
+      },
+      {
+        "type": "highlight",
+        "content": "•        A solicitação de afastamento deve observar os seguintes prazos: mestrado: até vinte e quatro meses; doutorado: até quarenta e oito meses e pós-doutorado: até doze meses."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        O afastamento poderá ser concedido quando a ação de desenvolvimento estiver prevista no PDP do INPI, estiver alinhada ao desenvolvimento do servidor nas competências relativas ao INPI, à sua carreira ou cargo efetivo e ao seu cargo em comissão ou à sua função de confiança, e se o horário ou o local da ação de desenvolvimento inviabilizar o cumprimento da jornada semanal de trabalho do servidor. Serão priorizadas concessões de afastamentos para atividades de pós-graduação profissionais."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        O afastamento será precedido de processo seletivo, conduzido e regulado pelo INPI, com critérios de elegibilidade levando em consideração a nota da avaliação de desempenho individual, o alcance das metas de desempenho individual e também avaliações oficialmente reconhecidas de qualidade dos programas de pós-graduação stricto sensu efetuadas por instituições da área de educação para fins de classificação do servidor no processo seletivo, cuja regulamentação está em andamento no âmbito do INPI."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        O afastamento é exclusivo para servidores ocupantes de cargos efetivos, em regime integral de jornada de trabalho, salvo nas hipóteses previstas nos parágrafos 2º e 3º, do art. 98, da Lei nº 8.112, de 11 de dezembro de 1990 (servidor portador de deficiência ou que tenha cônjuge, filho ou dependente com deficiência), e só é concedido caso a atividade de pós-graduação não possa ocorrer, simultaneamente, com o exercício do cargo ou mediante compensação de horário."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        O servidor que abandonar ou não concluir a ação de desenvolvimento, não obtendo o título ou grau objeto do afastamento, deverá ressarcir ao erário gastos com o aperfeiçoamento, incluindo a remuneração recebida durante o período de afastamento, salvo se comprovar motivo de força maior ou caso fortuito, ficando a decisão a critério da Presidência do INPI."
+      },
+      {
+        "type": "paragraph",
+        "content": "•        Servidor beneficiado por afastamento terá que permanecer no exercício de suas funções após o retorno ao trabalho por período igual ao do afastamento concedido. Caso seja exonerado ou solicite exoneração do cargo, aposentadoria ou licença para tratar de assuntos particulares, antes de cumprido o período de permanência estipulado, deverá ressarcir ao erário gastos com seu aperfeiçoamento, incluindo o valor da remuneração recebida durante o período de afastamento, proporcionalmente ao tempo que reste para completar o referido período, nos termos dos arts. 46 e 47 da Lei nº 8112, de 1990."
+      },
+      {
+        "type": "paragraph",
+        "content": "O Programa de Ambientação e Formação de Novos Servidores (PROAMB) integra o Programa de Orientação e Integração de Novos Servidores (PROINS), instituído por meio da Portaria INPI/PR nº. 527/10 e que tem por finalidade permitir a correta lotação, a integração ao corpo funcional do INPI e o desenvolvimento de servidores durante o período de estágio probatório (três anos), a partir do mapeamento do perfil de competências e características, contribuindo para a melhoria do desempenho e do ambiente organizacional."
+      },
+      {
+        "type": "paragraph",
+        "content": "O acesso a gastos diretos do INPI, incluindo as despesas diretas e indiretas com capacitação, pode ser efetuado por meio de consulta ao Portal da Transparência do Governo Federal, com o seguinte passo a passo:"
+      },
+      {
+        "type": "paragraph",
+        "content": "1) Acessar o painel do Portal da Transparência (www.portaldatransparencia.gov.br);"
+      },
+      {
+        "type": "paragraph",
+        "content": "2) Acessar o link “Despesas e Receitas” /“Despesas”/“Consulta”;"
+      },
+      {
+        "type": "paragraph",
+        "content": "3) Acesse o link “por órgão/entidade executora\";"
+      },
+      {
+        "type": "paragraph",
+        "content": "4) Escolher o filtro “Período” e/ou “Órgão” (30204) e clicar em “Adicionar”;"
+      },
+      {
+        "type": "paragraph",
+        "content": "5) Clicar em “Consultar” para obter informações sobre “ “Valor Pago”, por mês."
+      },
+      {
+        "type": "paragraph",
+        "content": "6) Escolher o mês desejado e clicar em “Detalhar” para obter informações sobre “Unidade Gestora”, “Função”, \"Subfunção”, “Programa Orçamentário”, “Ação Orçamentária”, “Grupo de Despesa”, “Elemento de Despesa” e “Modalidade de Aplicação”."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T23:15:40.284Z"
+  },
+  {
+    "id": "carta-de-servicos",
+    "title": "Carta de Serviços",
+    "keywords": "prazo solicitação remuneração contracheque salário gratificação auxílio ponto sisref sougov",
+    "description": "Veja o Tutorial em PDF",
+    "icon": "book-open",
+    "color": {
+      "bg": "fuchsia",
+      "text": "fuchsia"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Carta de Serviços"
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "§  19 do art.40 da Constituição de 1988,",
+          "§ 3º do art. 3º, art. 8º e § 5º do art. 10 da Emenda Constitucional nº 103 de 12 de novembro de 2019."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidor que atenda os requisitos para se aposentar por um dos fundamentos legais previstos na legislação, desde que haja a previsão expressa para a percepção do benefício, optando por permanecer em atividade."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui)"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: preencher o requerimento e encaminhar para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento de alteração de dados bancários disponível no SouGov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: Feito através do app ou site do SouGov.br (clique aqui para acessar o site). Clique aqui para acessar o tutorial em vídeo."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "a alteração da conta para fins de recebimento da remuneração deve ser em um dos bancos conveniados, nos termos do Ofício-Circular nº 170/2016-MP: Bancoop, Banrisul, Banco do Brasil, Bradesco, Caixa Econômica Federal, Itaú, Santander ou Sicredi.",
+          "sugere-se que o pedido seja feito enquanto a folha de pagamento estiver aberta (a data de fechamento será informada previamente e disponível na intranet), sendo de inteira responsabilidade do servidor verificar se a nova conta está apta a receber valores.",
+          "recomenda-se que seja anexada uma cópia de um documento que contenha o número da agência e da conta do requerente."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Portaria SGP/SEDGG/ME Nº 1455/2022Público alvo: Servidores ativos do INPIComo requerer: Com o app ou site SouGov.br, o próprio servidor passa a ser o responsável pela atualização de seus dados pessoais, sem a intervenção da CGRH.  Acesse o caminho \"meu perfil\"/\"meus dados pessoais\" e altere endereço residencial, documentos de identificação e/ou outros dados pessoais."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A manutenção dos dados cadastrais pessoais é atividade de caráter obrigatório e será objeto de validação anual, entre os dias 1º de março e 30 abril, ou sempre que solicitado pela administração do INPI, sendo exigível, inclusive, para aqueles que se encontram cedidos, afastados, licenciados ou fora do País.",
+          "Caso haja inconsistência em seus dados pessoais e funcionais e não seja possível realizar a atualização por autosserviço na plataforma SOUGOV.BR, o o servidor deverá solicitar a atualização do seu cadastro, exclusivamente por meio da referida plataforma, à CGRH.",
+          "Os servidores responsáveis pela gestão de equipes deverão validar anualmente, no período compreendido entre os dias 1º de março e 30 de abril, ou sempre que solicitado pela administração do INPI, a composição do quadro de pessoal da sua unidade e das chefias subordinadas, caso existam.",
+          "Em caso de inconsistência na composição do quadro de pessoal da sua unidade ou das chefias subordinadas, o servidor responsável pela gestão de equipe deverá solicitar a atualização, exclusivamente por meio da plataforma SOUGOV.BR, à CGRH.",
+          "Expirados os prazos acima, o servidor que não realizar a validação ou a atualização de seus dados cadastrais ou a composição do quadro de pessoal (chefes) ou ainda realizá-las posteriormente por meio da plataforma SOUGOV.BR incorre na vedação do artigo 117, inciso XIX, da Lei nº 8.112, de 1990, cabendo à CGRH comunicar em até 30 dias o fato à Corregedoria para fins de apuração disciplinar."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "arts. 4º, 10 e 20 da Emenda Constitucional nº103/2019",
+          "art.3º da Emenda Constitucional nº103/2019 – assegura o direito adquirido."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidor que atenda os requisitos para se aposentar por um dos fundamentos legais previstos na legislação."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Documentos necessários:Formulário de requerimento de aposentadoria; (clique aqui)Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço.",
+          "Formulário de requerimento de aposentadoria; (clique aqui)",
+          "Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de requerimento de aposentadoria; (clique aqui)",
+          "Termo de opção de incorporação da gratificação de desempenho, caso atenda aos requisitos impostos pela Lei 13.326/2016 (clique aqui);",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso não tenha sido entregue anteriormente, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: preencher e encaminhar os documentos necessários para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O servidor deverá discriminar no formulário de requerimento de aposentadoria por qual fundamento legal deseja se aposentar.",
+          "O servidor deverá discriminar no formulário de requerimento de aposentadoria por qual fundamento legal deseja se aposentar."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O servidor deverá discriminar no formulário de requerimento de aposentadoria por qual fundamento legal deseja se aposentar."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "art. 40 § 1º, inciso I da Constituição de 1988 com redação dada pela Emenda Constitucional nº103/2019, art.10 § 1º, inciso II da Emenda Constitucional nº103/2019."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores de licença médica, nos casos em que a Junta Médica emite laudo médico pericial determinando a sua aposentadoria por incapacidade permanente."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Laudo Médico Pericial concluindo pela necessidade de concessão de aposentadoria por invalidez ao servidor;",
+          "Formulário declarando se acumula ou não cargo público; (clique aqui)",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF, título de eleitor ou certidão de quitação eleitoral e comprovante de residência.",
+          "Caso seja do interesse do servidor, certidão original de tempo de contribuição de regime próprio (RPPS) ou de regime geral (RGPS), para fins de comprovação de tempo anterior de serviço, se não tiver sido entregue anteriormente."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: o processo é iniciado assim que o laudo médico pericial é emitido, independente de requerimento por parte do servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Lei nº 8.112/1990, art. 97, inciso III, alínea “a”."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento no site ou app Sougov.br e certidão de casamento civil ou escritura declaratória de união estável"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: acesse o site ou app do Sougov.br (clique aqui)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Veja o Tutorial em PDF"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Deve haver o lançamento no SISREF pela chefia imediata, caso as informações não tenham sido automaticamente migradas.",
+          "Para cadastramento do cônjuge ou companheiro(a) nos assentamentos funcionais, acesse as opções: cadastramento de dependentes (cônjuge) ou designação de companheiro(a).",
+          "Serão 8 dias a partir da data do casamento civil, do casamento religioso com efeitos civis ou da escritura declaratória."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Lei nº 8.112/1990, art. 97, inciso III, alínea “b”."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:  requerimento no site ou app Sougov.br e certidão de óbito de um dos membros da família indicados na previsão legal (cônjuge, companheiro, pais, madrasta ou padrasto, filhos, enteados, menor sob guarda ou tutela, irmãos)."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:  acesse o site ou app do Sougov.br (clique aqui)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Veja o Tutorial em PDF"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Deve haver o lançamento no SISREF pela chefia imediata, caso as informações não tenham sido automaticamente migradas.",
+          "Serão 8 dias de afastamento a partir da data do óbito."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: Lei nº 8.112/1990, art. 97, inciso II."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento no site ou app Sougov.br e comprovante do alistamento eleitoral emitido pelo T.R.E.."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer:  acesse o site ou app do Sougov.br (clique aqui)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Veja o Tutorial em PDF"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A ausência será pelo período informado em declaração emitida pelo T.R.E., limitado a 2 dias.",
+          "Não deve ser confundida com a convocação para ser mesário nas eleições."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Instrução Normativa SGP/SEDGG/ME 207/2019"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos em exercício no INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento feito pelo app ou site do SouGov.br (clique aqui). Tutorial de acesso ao app SouGov.br (clique aqui)."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: acesse o tutorial em vídeo disponibilizado no site do SouGov.br (clique aqui). Para os servidores integrantes do PGD/INPI nas modalidades teletrabalho integral ou parcial, acessem o comunicado na seção \"Pagamento de Pessoal\"."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O servidor deverá manter atualizado o seu endereço residencial no SIGEPE (acesse o item \"Alteração de Endereço Residencial\"), atualizando o requerimento sempre que ocorrer alteração das circunstâncias que fundamentam a concessão do benefício.",
+          "É vedado o pagamento de auxílio transporte nos seguintes casos: 1) utilização de veículo próprio ou qualquer outro meio de transporte que não seja considerado transporte coletivo; 2) nos deslocamentos em intervalos para repouso ou alimentação, durante a jornada de trabalho; 3) nos deslocamentos durante a jornada de trabalho, em razão do serviço; 4) aos maiores de 65 anos; 5) nos deslocamentos entre residência e local de trabalho e vice-versa, quando utilizado serviço de transporte regular rodoviário seletivo ou especial (os veículos que transportam passageiros exclusivamente sentados, para percursos de médias e longas distâncias, conforme normas editadas pelas autoridades de transporte competentes), exceto se a localidade de residência não seja atendida por meios convencionais de transporte ou quando o transporte seletivo for comprovadamente menos oneroso para a Administração.",
+          "No caso de acumulação lícita de cargos ou empregos, poderá o servidor optar pela percepção do auxílio-transporte relativo ao deslocamento entre os locais de trabalho, em substituição àquele relativo ao deslocamento entre o local de trabalho e sua residência.",
+          "Entende-se por residência o local onde o servidor ou empregado público possui moradia habitual e, ainda que o servidor ou empregado público possua mais de uma residência, o auxílio-transporte será concedido considerando apenas uma delas."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Clique aqui para acessar as informações sobre avaliação de desempenho."
+      },
+      {
+        "type": "paragraph",
+        "content": "Clique aqui para acessar as informações sobre avaliação de desempenho."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidor ativo do INPI que tenha vínculos anteriores ao seu ingresso no órgão."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: Requerimento feito no site ou aplicativo do SOUGOV (clique aqui) e Certidão(ões) original(is) contendo o(s) vínculo(s) anterior(es)."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: Acesse o site ou aplicativo do SOUGOV e, no item \"solicitações\", clique na opção \"averbação de tempo de contribuição\"."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "No procedimento, será realizada a averbação no sistema dos períodos contidos no documento e serão lançados os salários de contribuição do RGPS ou as remunerações do RPPS. Após a finalização do processo, o servidor receberá cópia dos autos por email para que tenha ciência dos procedimentos realizados.",
+          "Períodos trabalhados após o mês de junho/1994 somente podem ser averbados caso a certidão apresentada pelo servidor contenha os respectivos salários de contribuições ou remunerações.",
+          "Apenas vínculos que estejam na certidão de tempo de contribuição podem ser averbados. Não podem ser averbados períodos que constem somente em carteira de trabalho, CNIS ou documentos similares."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Arts. 83, 196, 217 e 241 da Lei nº 8.112, de 1990, art.4º do Decreto nº977/93, arts.16 e 22 do Decreto nº3048/99."
+      },
+      {
+        "type": "paragraph",
+        "content": "-  Nota Técnica nº 02/2017/CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/O1SQmcILqoLQo1i"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: documento de identificação do dependente, comprovações de vínculo com o servidor, conforme o caso."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: através do módulo de requerimentos do SOUGOV.BR."
+      },
+      {
+        "type": "paragraph",
+        "content": "Tutorial em PDF"
+      },
+      {
+        "type": "paragraph",
+        "content": "Tutorial em vídeo: em breve."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "O(a) filho(a) poderá ser incluído como dependente para fins de auxílio-natalidade, auxílio-pré-escolar (de 0 a 5 anos), acompanhamento de pessoa da família e imposto de renda;",
+          "No caso em que o casal seja formado por servidores públicos, somente na dependência para fins de acompanhamento poderá haver o cadastro da dependência para ambos.",
+          "Em caso de auxílio natalidade solicitado pelo pai, deverá constar declaração da parturiente de que não é servidora pública regida pela Lei 8112/1990."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse o item \"Pagamento\", clicando aqui."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidor ativo do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui)"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar o requerimento para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Caso o servidor queira abrir um processo de contagem de tempo de serviço e tenha vínculos anteriores ao seu ingresso no INPI, sugere-se que o mesmo traga certidão(ões) contendo esses períodos para averbação, para que a simulação de aposentadoria seja mais precisa e considere todo o tempo trabalhado pelo requerente.",
+          "Com base em simulações feitas no SIAPE, é informada a data prevista para o solicitante preencher os requisitos para se aposentar de acordo com diferentes fundamentos legais."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: art. 98 da Lei nº 9.504/1997"
+      },
+      {
+        "type": "highlight",
+        "content": "Requisito: ser convocado pelo T.R.E. e, efetivamente, participar como mesário nas eleições. Serão 2 dias de folga a cada dia à disposição do T.R.E., obedecido o que constar expressamente nas declarações do referido Tribunal."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "O servidor deverá encaminhar o Termo de Posse e comprovantes de participação em treinamentos e nas eleições para o endereço diref@inpi.gov.br, com cópia para a chefia imediata;",
+          "O controle dos dias usufruídos é de competência da chefia imediata e do próprio servidor, devendo ser lançada a ocorrência 55 no SOUGOV Frequência.",
+          "Em caso de mudança de lotação do servidor ou alteração da chefia, a responsabilidade de apresentar a planilha de controle e informar os dias a usufruir é do próprio servidor."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário “Solicitação de serviços à DIREF”, com todos os seus dados e as informações solicitadas (quais documentos, bem como os números dos processos).  As cópias de documentos serão digitalizadas e enviadas por e-mail ou por meio de link do INPI Drive."
+      },
+      {
+        "type": "highlight",
+        "content": "Prazo de entrega: 5 dias."
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: art. 104 da Lei nº 8.112/1990."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: No SOUGOV, acesse \"AutoAtendimento\" e em seguida, \"Outras Opções\", na sequência escolha \"Declarações\", onde estarão as opções para emissão imediata em formato pdf."
+      },
+      {
+        "type": "paragraph",
+        "content": "As declarações disponíveis são:"
+      },
+      {
+        "type": "highlight",
+        "content": "        Declaração de Dados Funcionais (vínculos): contém nome do(a) servidor(a), CPF, matrícula, nome e CNPJ do INPI, regime previdenciário, data de ingresso no Instituto, cargo efetivo e jornada de trabalho do(a) servidor(a)."
+      },
+      {
+        "type": "highlight",
+        "content": "        Declaração de Abertura de Conta – Caixa Econômica Federal: destinada à abertura de conta-salário junto ao banco; contém os dados funcionais do(a) servidor(a) e o nome e CNPJ do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "        Declaração de Abertura de Conta – Outros Bancos: destinada à abertura de conta-salário junto a outras instituições bancárias; contém os dados funcionais do(a) servidor(a) e o nome e CNPJ do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Com o objetivo de facilitar o acesso e a utilização dessa funcionalidade, preparamos um tutorial de apoio, disponível na Intranet da CGRH e no link a seguir:"
+      },
+      {
+        "type": "paragraph",
+        "content": "https://inpidrive.inpi.gov.br/index.php/s/NIgj0FtoQRTWFqu"
+      },
+      {
+        "type": "paragraph",
+        "content": "Em caso de dúvidas contate: diref@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: art. 104 da Lei nº 8.112/1990."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: No SOUGOV, acesse Solicitações e, em seguida, Solicitação de Declaração. Selecione o tipo de declaração desejada. Caso a opção necessária não esteja disponível na lista, utilize o campo Observação para informar o tipo de declaração requerida. Indique também a data de referência necessária e clique em Avançar. Por fim, confirme o envio."
+      },
+      {
+        "type": "highlight",
+        "content": "A solicitação gerará um requerimento que será encaminhado à Divisão de Registros Funcionais (DIREF) para a elaboração da declaração. O documento será enviado ao requerente pelo e-mail diref@inpi.gov.br , contendo o solicitado e a assinatura digital por token, garantindo a autenticidade."
+      },
+      {
+        "type": "highlight",
+        "content": "No SOUGOV, ao acessar a opção Solicitação de Declarações, estão disponíveis os seguintes tipos (Podem ser marcadas multipas opções):"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Atribuições do Cargo",
+          "Benefício - Auxílio Alimentação",
+          "Benefício - Auxílio Transporte",
+          "Benefício - Moradia",
+          "Benefício - Saúde Suplementar",
+          "Cargos Ocupados",
+          "Endereço Funcional",
+          "Jornada de Trabalho",
+          "Lotação",
+          "Múltiplos Vínculos",
+          "Negativa de Demissão ou Destituição de Cargo",
+          "Programação de Férias",
+          "Remuneração",
+          "Tempo de Serviço no Órgão",
+          "Outro Tipo"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Há também o campo Observação, onde é possível especificar informações adicionais ou solicitar declarações que não estejam listadas."
+      },
+      {
+        "type": "highlight",
+        "content": "Prazo: 5 dias úteis, salvo eventual indisponibilidade do sistema para consulta e extração de informações. Em casos excepcionais que demandem a prorrogação do prazo, o requerente será informado pela DIREF."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos.  Para inativos e pensionistas, clique aqui (inserir hiperlink)."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar e-mail para missano@inpi.gov.br, informando nome completo, CPF, matrícula SIAPE, solicitando o desbloqueio no sistema SIGAC/SIGEPE."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Em caso de esquecimento da senha do SIGAC/SIGEPE, o servidor deverá, no próprio SIGEPE, selecionar a opção \"precisa de ajuda\".",
+          "Após a solicitação de desbloqueio, será enviado um e-mail ao requerente, com instruções para o cadastramento de uma nova senha."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art.83, 217, III e  241 da Lei nº 8.112, de 1990, Lei nº 9.278/1996 -  Nota Técnica nº 06/2017/CGRH/DILEG:"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento SIGEPE, documento de identificação do dependente com CPF, 2 provas de união estável (a escritura declaratória de união estável é considerada apenas uma das provas) e certidão de casamento com averbação do divórcio (se divorciado(a)) ou óbito (se viúvo(a))."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: através do módulo de requerimentos do SIGEPE."
+      },
+      {
+        "type": "paragraph",
+        "content": "Tutorial em PDF"
+      },
+      {
+        "type": "paragraph",
+        "content": "Tutorial em vídeo: como acessar o módulo de requerimentos do SIGEPE"
+      },
+      {
+        "type": "paragraph",
+        "content": "Tutorial em vídeo: como solicitar o cadastro de dependente (companheiro(a)) no módulo de requerimentos do SIGEPE"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Para o afastamento por motivo de casamento (possível apenas no caso de apresentação da escritura declaratória de união estável), deverá ser preenchido outro requerimento, veja o item “ausência por motivo de casamento”;",
+          "Dentre os documentos que comprovam união estável estão: filho havido em comum, escritura declaratória de união estável, domicílio em comum, conta conjunta, escritura de imóvel em nome de ambos, dependência em plano de saúde, dependência em imposto de renda, dentre outros (veja outros documentos na carta de serviços ao servidor);",
+          "No caso de cadastro como dependente de companheiro(a) para fins de imposto de renda, atualmente, na forma conforme artigos 35. II da Lei nº 9.250/95 e 71, §1º, II, do Regulamento do Imposto de Renda do Decreto nº 9.580 de 22 de novembro de 2018, o(a) companheiro(a) pode ser considerado(a) dependente para esse fim desde que haja vida em comum por mais de cinco anos, ou por período menor se da união resultou filho(a)."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Portaria MPS nº 154/2008"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: ex-servidores do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário “solicitação de serviços ao SERAP” (clique aqui), devendo conter o órgão destinatário da certidão."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar o formulário para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O documento somente pode ser emitido após a publicação da portaria de exoneração ou vacância por posse em cargo inacumulável do solicitante."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Lei nº 8.647/1993, Portaria MPS nº 154/2008, Lei nº 8.745/93 e IN INSS nº 77/2015"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: pessoas que ocuparam cargos exclusivamente em comissão no INPI, ex-ocupantes de cargos temporários segundo a Lei nº 8.745/93 e aqueles que trabalharam no INPI em período exclusivamente celetista."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário de “solicitação de serviços ao SERAP” (clique aqui), contendo o órgão/entidade destinatário da certidão."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: enviar o formulário para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observação: A declaração será elaborada com base nos dados encontrados nos assentamentos funcionais do solicitante."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 20 da Lei Nº 8.112 de 1990"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores com até 3 anos no cargo ocupado no INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: nenhum"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: não é necessário requerimento"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O SECAD realiza o acompanhamento dos prazos para que o servidor, ao completar 12 (doze) e 24 (vinte e quatro) meses de efetivo exercício, seja avaliado pela chefia imediata, com a validação da chefia mediata, e, ao completar 30 (trinta) meses de efetivo exercício, seja avaliado pela Comissão de Avaliação de Estágio Probatório (CAEPS), após consulta formal da chefia imediata e levando-se em consideração as avaliações anteriores.",
+          "Licença maternidade não interfere no período de avaliação, ficando este suspenso apenas durante as situações a seguir e a contagem do período será retomada a partir do término da mesma: licença para tratamento da própria saúde, licença por motivo de doença em pessoa da família; licença por motivo de afastamento do cônjuge ou companheiro, sem remuneração; licença para atividade política; afastamento de servidor para servir em organismo internacional de que o Brasil participe ou com o qual coopere; e participação em curso de formação decorrente de aprovação em concurso para outro cargo na Administração Pública Federal.",
+          "Será considerado aprovado no estágio probatório o servidor que obtiver resultado final igual ou superior a 06 (seis) na média das Avaliações de Estágio Probatório."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Arts. 33, incisos I e VIII, e 34 da Lei nº 8.112, de 1990."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota técnica nº12/2021/CGRH/DILEG - vacância por posse: https://inpidrive.inpi.gov.br/index.php/s/7AYg9DfMpNPDk21"
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota técnica nº13/2021/CGRH/DILEG - exoneração: https://inpidrive.inpi.gov.br/index.php/s/GfQB4tCmZToXUzE"
+      },
+      {
+        "type": "paragraph",
+        "content": "Impeditivos legais para exoneração: art.95 parágrafo 2º, 96-A parágrafo 5º e 172 da Lei nº8112, de 1990"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui) e publicação do diário oficial constando a nomeação para outro órgão (no caso de posse em outro cargo inacumulável)."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: requerimento eletrônico, com abertura de processo no SEI pelo próprio servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "O próprio servidor deverá abrir o processo no SEI e anexar o requerimento, com posterior envio à DIREF.",
+          "No SEI, os tipos de processo são: “pessoal: vacância por posse em outro cargo inacumulável” ou “pessoal: exoneração de cargo efetivo”.",
+          "Em ambos os casos, o servidor deverá solicitar o cancelamento do plano de saúde estabelecido no INPI, se for o caso.",
+          "Servidor que responde a processo administrativo disciplinar somente poderá ser exonerado a pedido após o término do processo e da penalidade, caso aplicada.",
+          "O servidor que tiver se afastado para ações de capacitação deverá ressarcir o INPI, na forma do art.95 parágrafo 2º, 96-A parágrafo 5º, ambos da Lei 8.112/1990.",
+          "No caso de exoneração, recomenda-se o preenchimento do requerimento com antecedência de 30 dias."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse aqui as informações sobre férias."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 105-B da Lei nº 8112/1990 e Instrução Normativa INPI nº 21/2013"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ocupantes de cargos de nível médio do Plano de Careiras e Cargos do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui) e documentos elencados no referido requerimento, conforme o caso."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar documentos para o e-mail secad@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações: O requerimento será analisado primeiramente pelo SECAD, e posteriormente, será encaminhado para avaliação do Comitê Especial para concessão da GQ."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: arts. 5º, 6º e 7º  da Medida Provisória nº 2.174-28/2001, do Capítulo IV da Instrução Normativa SGP/MP nº 2, de 12/09/2018 e Instrução Normativa INPI nº115/2019."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota técnica nº14/CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/RrRpK1ASAOknkw2"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário disponível no SEI, justificativa (opcional), manifestação das chefias imediata, mediata e do Diretor da unidade quanto á possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: 1) o próprio servidor deverá abrir o processo no SEI (pessoal:jornada de trabalho reduzida com remuneração proporcional), clicar em \"incluir documento\", escolher a opção \"Requerimento de redução da jornada de trabalho\", preencher todos os campos e assinar; 2) solicitar as manifestações das chefias imediata, mediata e do Diretor da unidade quanto à possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento, nos termos do art. 5º da Instrução Normativa INPI nº 115/2019; 3) somente após a inclusão desses documentos, o processo poderá ser encaminhado à Divisão de Registros Funcionais - DIREF."
+      },
+      {
+        "type": "paragraph",
+        "content": "ASSISTAM OS TUTORIAIS EM VÍDEO:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Passo 1: como abrir o processo da licença no SEI."
+      },
+      {
+        "type": "paragraph",
+        "content": "Passo 2: instrução processual e encaminhamentos necessários."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Somente após a ciência e de acordo das chefias imediata e superiores (inclusive diretor e presidente), o pedido será deferido, com publicação de Portaria no Boletim de Pessoal;",
+          "Recomenda-se, no mínimo, 45 dias de antecedência para requerer, informando data de início, o mesmo valendo para as solicitações de reversão de jornada reduzida para jornada integral;",
+          "Recomenda-se que seja anexada justificativa;",
+          "O servidor poderá reduzir a sua jornada de trabalho, de 8 horas diárias e 40 horas semanais, para 6 horas diárias e 30 horas semanais ou 4 horas diárias e 20 horas semanais, ambas a serem cumpridas de forma contínua;",
+          "Serão proporcionalizados: vencimento, GDAPI/GDACT, RT/GQ, além de parcelas referente a férias e gratificação natalina;",
+          "O auxílio-alimentação será mantido caso a redução seja para 6 horas diárias e 30 horas semanais e reduzido para 50% do valor, no caso de redução para 4 horas diárias e 20 horas semanais;",
+          "Caso o servidor queira reverter a jornada para 8 horas diárias e 40 horas semanais, deverá ser enviado e-mail à diref@inpi.gov.br, que será submetido à apreciação das chefias imediata e superiores, com posterior publicação de ato no Boletim de Pessoal.",
+          "É vedada a concessão de redução de jornada com efeitos retroativos."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Lei Complementar 64/1990, art. 86 da Lei 8.112/1990"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento solicitando a desincompatibilização a partir de 15/08/2020, para disputar as eleições, com base no art. 86 da Lei 8112/1990 e na LC 64/1990. É necessário, além do requerimento dirigido ao Presidente do INPI, encaminhar cópia do documento oficial do partido (ata da convenção ou qualquer outro documento) que demonstre a sua escolha para disputar cargo eletivo (prefeito ou vereador). Posteriormente, é necessário o envio de comprovante do registro da sua candidatura. A licença tem duração até o décimo dia após as eleições"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: basta abrir o processo no SEI (tipo de processo: \"pessoal/licença para atividade política/Desincompatibilização LC 64/90\"), juntar requerimento e documentos comprobatórios e encaminhar à Divisão de Registros Funcionais."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A licença tem início 3 (três) meses antes das eleições, com seu término no décimo dia seguinte ao seu final.",
+          "O servidor licenciado não fará jus ao auxílio-transporte e ao auxílio-alimentação.",
+          "a licença para atividade política pressupõe a escolha do servidor em convenção partidária e em um segundo momento o registro da candidatura, daí a necessidade de comprovação de ambos nos autos.",
+          "o registro de candidatura garante o deferimento da licença remunerada, e ainda, que havendo o indeferimento do mesmo, enquanto houver recurso, o direito ao afastamento permanece. Só esgotando todos os recursos e com o julgamento definitivo do registro de candidatura é que se pode falar em cessação da licença ora em comento.",
+          "em caso de cancelamento de registro da candidatura em razão de eventual falecimento, renúncia ou inelegibilidade, a Administração deverá registrar a interrupção da licença e computar como faltas injustificadas as ausências ao trabalho, caso o servidor não retorne imediatamente às suas funções."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Clique aqui para acessar as informações sobre capacitação."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 91 da Lei nº 8.112, de 11/12/1990 e Instrução Normativa INPI nº114/2019 ."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota Técnica nº16/CGRH/DILEG : https://inpidrive.inpi.gov.br/index.php/s/gVozmEDjn5PH7M2"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário disponível no SEI, justificativa (opcional), manifestação das chefias imediata, mediata e do Diretor da unidade quanto á possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: 1) o próprio servidor deverá abrir o processo no SEI (pessoal:licença para tratar de interesses particulares), clicar em \"incluir documento\", escolher a opção \"Req Licença para tratar de interesses particulares\", preencher todos os campos e assinar; 2) solicitar as manifestações das chefias imediata, mediata e do Diretor da unidade quanto à possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento, nos termos do art. 6º da Instrução Normativa INPI nº 114/2019; 3) somente após a inclusão desses documentos, o processo poderá ser encaminhado à Divisão de Registros Funcionais - DIREF."
+      },
+      {
+        "type": "paragraph",
+        "content": "ASSISTAM OS TUTORIAIS EM VÍDEO:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Passo 1: como abrir o processo da licença no SEI."
+      },
+      {
+        "type": "paragraph",
+        "content": "Passo 2: instrução processual e encaminhamentos necessários."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A licença somente poderá ser concedida ao servidor ocupante de cargo efetivo que não esteja em estágio probatório.",
+          "A licença não é remunerada.",
+          "O servidor pode optar por permanecer contribuindo para o regime próprio de previdência do servidor.",
+          "O servidor licenciado poderá exercer atividade privada, inclusive participar de gerência ou administração de sociedade privada, personificada ou não personificada, exercer o comércio, desde que não haja conflito de interesses com as atividades do INPI ( o conflito de interesses poderá ser verificado ou solicitado por meio do sistema SECI, da Controladoria-Geral da União - link: https://seci.cgu.gov.br/SeCI/Login/Externo.aspx?ReturnUrl=/SeCI/).",
+          "O servidor não poderá utilizar a licença para tomar posse em outro órgão/entidade em cargo inacumulável.",
+          "A duração da licença para tratar de interesses particulares é de até três anos, sendo que o total de licenças para tratar de assuntos particulares não poderá ultrapassar seis anos, consecutivos ou não, considerando toda a vida funcional do servidor.",
+          "O Ministro da Economia poderá, excepcionalmente, autorizar a concessão de licença para tratar de assuntos particulares por período superior a 6 anos.",
+          "O pedido de renovação da licença deverá ser apresentado com no mínimo dois meses de antecedência.",
+          "É vedada a concessão de licença com efeitos retroativos."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: Lei nº 8.112/1990, art. 208 (5 dias) e art. 2º do Decreto 8.737/2016 (prorrogação por 15 dias)."
+      },
+      {
+        "type": "highlight",
+        "content": "Requisito: nascimento do filho."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: através do app ou site Sougov.br (clique aqui para acessar o site). Tutorial em vídeo, com o passo a passo: clique aqui."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "deve ser anexada a cópia da certidão de nascimento do(a) filho(a).",
+          "Todas as informações sobre o SouGov.br estão no início desta carta de serviços.."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 84 da Lei nº 8.112, de 11/12/1990 e Instrução Normativa SGP/SEDGG/ME nº34/2021."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota Técnica nº15/CGRH/DILEG:https://inpidrive.inpi.gov.br/index.php/s/mF1NwvvPDwSlDLP"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui), certidão de casamento ou declaração de união estável firmada em cartório, ambos com data anterior ao deslocamento, ato que determinou o deslocamento do cônjuge ou companheiro ou diploma de mandato eletivo dos poderes Executivo ou Legislativo expedido pelo Tribunal Superior Eleitoral ou outro documento oficial."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhe os documentos acima para diref@inpi.gov.br, será aberto processo no SEI."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Caso o cônjuge ou companheiro seja servidor público, civil ou militar, de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios e seja deslocado para outro ponto do território nacional, poderá haver exercício provisório em órgão ou entidade da Administração Federal direta, autárquica ou fundacional, desde que para o exercício de atividade compatível com o seu cargo.",
+          "No caso da licença para acompanhar cônjuge, a licença não é remunerada. No caso do exercício provisório, haverá o recebimento da remuneração.",
+          "Caso deseje, o servidor licenciado poderá permanecer contribuindo para o regime próprio de previdência do servidor.",
+          "A licença para acompanhar cônjuge tem prazo indeterminado.",
+          "A licença será concedida quando o cônjuge ou companheiro desempenhar suas atividades no setor público ou no setor privado e for deslocado em decorrência de motivo alheio a sua vontade."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 87 da Lei nº 8112/1990 (redação original) e art. 7º da Lei nº 9.527/1997 - Nota técnica nº5 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/81ALZsqJUzFdsNi"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI que tenham direito à LPA, ou seja, que tenham completado pelo menos 5 anos de tempo de serviço ininterruptos desde seu ingresso no serviço público até 15 de outubro de 1996 (data do fim da contagem de tempo para LPA)."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: Solicitação de Licença Prêmio (clique aqui) assinada pelo servidor e por suas chefias imediata e mediata."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar a solicitação para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Se o servidor já tiver um processo de LPA, não será aberto outro quando solicitar o direito em outra ocasião; será preciso apenas juntar o requerimento ao processo inicial.",
+          "Solicita-se que o requerimento seja entregue com pelo menos 30 dias de antecedência, para que o pedido seja analisado a tempo e possíveis pendências sejam sanadas dentro do prazo.",
+          "Períodos já contados em dobro para concessão de abono de permanência não poderão ser usufruídos."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 93 parágrafo 7º da Lei nº8112, de 1990 e Decreto nº10835 de 2021."
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: unidades do INPI interessadas em recompor a equipe"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- Modalidade processo seletivo: edital de seleção"
+      },
+      {
+        "type": "paragraph",
+        "content": "- Modalidade indicação consensual entre os órgãos e entidades: anuência do candidato interessado, anuência do órgão de origem e, se for o caso, os custos salariais para reembolso."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar documentos para o e-mail secad@inpi.gov.br."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse o item \"Pagamento de Pessoal\", clicando aqui."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota técnica nº04 CGRH/DILEG:https://inpidrive.inpi.gov.br/index.php/s/5IRV75bYJDSRX5t"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Acesse o item \"Pagamento\", clicando aqui."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: arts. 215 a 225 da Lei nº 8112/1990, artigos 3º, §2º, 11, §4º e 23 da Emenda Constitucional nº 103/2019 e art. 40 §18 da Constituição de 1988"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: dependentes de servidores (ativos e inativos) que tenham falecido."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Formulário de requerimento de pensão civil (clique aqui);",
+          "Declaração de não acumulação de pensão (clique aqui);",
+          "Certidão de óbito do servidor;",
+          "Certidão de nascimento ou casamento do requerente;",
+          "Cópia de documento que tenha a data de nascimento do requerente (ex: carteira de identidade ou de motorista), CPF e comprovante de residência;",
+          "Comprovante de dados bancários do solicitante;",
+          "Caso o requerente seja aposentado, o seu contracheque mais recente;"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar os documentos para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Dependentes habilitados a solicitarem a pensão: a) o cônjuge; b) o cônjuge divorciado ou separado judicialmente ou de fato, com percepção de pensão alimentícia estabelecida judicialmente; c) o companheiro ou companheira que comprove união estável como entidade familiar; d) o filho menor de 21 anos ou inválido ou com deficiência grave ou com deficiência intelectual ou mental; e) a mãe e o pai que comprovem dependência econômica do servidor; e f) o irmão que comprove dependência econômica do servidor e que seja menor de 21 anos ou inválido ou com deficiência grave, ou com deficiência intelectual ou mental.",
+          "Pais e irmão somente farão jus se o servidor não tiver nenhum dos demais dependentes qualificados como beneficiários de pensão.",
+          "Se mãe ou pai do servidor solicitar pensão ao comprovar dependência econômica do mesmo, irmão não poderá se qualificar como beneficiário.",
+          "O enteado e o menor tutelado equiparam-se a filho mediante declaração do servidor e desde que comprovada dependência econômica, na forma estabelecida em regulamento.",
+          "A pensão por morte será devida a contar da data: a) do óbito, quando solicitada em 180 dias após o falecimento do servidor, para filhos menores de 16 anos, ou em 90 dias após o falecimento, para os demais dependentes; b) do requerimento, quando solicitada após os prazos citados no item “a”; c) da decisão judicial, na hipótese de morte presumida."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Clique aqui para acessar as informações sobre avaliação de desempenho."
+      },
+      {
+        "type": "highlight",
+        "content": "Por enquanto, estão vedadas as remoções a pedido, nos termos do Relatório de Auditoria nº 05/2017."
+      },
+      {
+        "type": "highlight",
+        "content": "Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 36, parágrafo único, inciso I, da Lei nº 8112/1990 e Instrução Normativa INPI nº 39/2013. Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Público alvo: chefias imediatas ou mediatas da unidade de origem ou de destino do servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: documento do SEI denominado “Requerimento de Remoção a Pedido da Unidade”."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: a unidade de origem ou de destino requerente deverá abrir processo no SEI, inserir o formulário do SEI acima denominado, que deverá conter:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Assinatura dos gestores imediato e mediato da unidade requerente da remoção (unidade de origem ou de destino do servidor);",
+          "Assinatura do dirigente máximo da unidade requerente da remoção; e",
+          "Ciência e assinatura do servidor em questão."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Procedimento:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Após preenchimento e assinaturas, enviar os autos ao Serviço de Carreira e Desempenho (SECAD)."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 36, parágrafo único, inciso III, alínea “c”, da Lei nº 8112/1990 e Instrução Normativa INPI nº 39/2013. Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: Diretores ou o Presidente do INPI Unidades do INPI interessadas em realizar processo seletivo interno"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento de Preenchimento de Vaga (clique aqui)"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: deverá ser aberto processo no SEI pela unidade requerente do processo seletivo, remetido à aprovação do dirigente máximo da unidade e, após, enviado ao SECAD para orientações acerca da elaboração do edital de seleção e acompanhamento de todo o processo."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 105 da Lei nº 11.355/2006 e Instrução Normativa INPI nº 27/2013. Nota técnica nº01 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/BxLuxHDiErtBPog"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ocupantes de cargos de nível superior, do Plano de Carreiras e Cargos do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui), termo de compromisso (clique aqui) (no caso de não ter o diploma), demais documentos relacionados no requerimento, conforme o caso."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar documentos para o e-mail secad@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Não é necessário ter o Diploma do curso para requerer a RT, porém é necessária a Ata de Defesa de Tese ou da Dissertação indicando a aprovação e Declaração de conclusão do curso da Universidade, além do Termo de Compromisso."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse o item \"Pagamento de pessoal\", clicando aqui."
+      },
+      {
+        "type": "highlight",
+        "content": "Público alvo: servidores ativos, aposentados e pensionistas"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: formulário (clique aqui)"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar formulário exclusivamente para dipag@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Necessário nos casos em que se desejar esclarecimento(s) sobre contracheque ou informações sobre pagamento e eventuais documentos relacionados ao seu recebimento como declaração ou cópia de ficha financeira.",
+          "As solicitações à DIPAG deverão ser feitas, preferencialmente, por meio do e-mail institucional ou por e-mail devidamente cadastrado no Sistema Integrado de Administração de Recursos Humanos – SIAPE.",
+          "Prazo de atendimento (a contar do recebimento pela DIPAG): até 05 (cinco) dias úteis, prorrogáveis em caso de indisponibilidade do SIAPE.",
+          "Mais informações poderão ser obtidas acessando o item \"Contracheques e outros pagamentos\"."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Programa de Gestão e Desempenho - Teletrabalho"
+      },
+      {
+        "type": "paragraph",
+        "content": "Clique no item PGD e acesse as todas as informações."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T23:19:09.814Z"
+  },
+  {
+    "id": "dados-cadastrais",
+    "title": "Dados Cadastrais",
+    "keywords": "prazo remuneração sougov cadastro atualização dados pessoais perfil",
+    "description": "Informações sobre recursos humanos.",
+    "icon": "user",
+    "color": {
+      "bg": "slate",
+      "text": "slate"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Dados Cadastrais"
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Portaria SGP/SEDGG/ME Nº 1455/2022Público alvo: Servidores ativos do INPIComo requerer: Com o app ou site SouGov.br, o próprio servidor passa a ser o responsável pela atualização de seus dados pessoais, sem a intervenção da CGRH.  Acesse o caminho \"meu perfil\"/\"meus dados pessoais\" e altere endereço residencial, documentos de identificação e/ou outros dados pessoais."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A manutenção dos dados cadastrais pessoais é atividade de caráter obrigatório e será objeto de validação anual, entre os dias 1º de março e 30 abril, ou sempre que solicitado pela administração do INPI, sendo exigível, inclusive, para aqueles que se encontram cedidos, afastados, licenciados ou fora do País.",
+          "Caso haja inconsistência em seus dados pessoais e funcionais e não seja possível realizar a atualização por autosserviço na plataforma SOUGOV.BR, o o servidor deverá solicitar a atualização do seu cadastro, exclusivamente por meio da referida plataforma, à CGRH.",
+          "Os servidores responsáveis pela gestão de equipes deverão validar anualmente, no período compreendido entre os dias 1º de março e 30 de abril, ou sempre que solicitado pela administração do INPI, a composição do quadro de pessoal da sua unidade e das chefias subordinadas, caso existam.",
+          "Em caso de inconsistência na composição do quadro de pessoal da sua unidade ou das chefias subordinadas, o servidor responsável pela gestão de equipe deverá solicitar a atualização, exclusivamente por meio da plataforma SOUGOV.BR, à CGRH.",
+          "Expirados os prazos acima, o servidor que não realizar a validação ou a atualização de seus dados cadastrais ou a composição do quadro de pessoal (chefes) ou ainda realizá-las posteriormente por meio da plataforma SOUGOV.BR incorre na vedação do artigo 117, inciso XIX, da Lei nº 8.112, de 1990, cabendo à CGRH comunicar em até 30 dias o fato à Corregedoria para fins de apuração disciplinar."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento de alteração de dados bancários disponível no SouGov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: Feito através do app ou site do SouGov.br (clique aqui para acessar o site). Clique aqui para acessar o tutorial em vídeo."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "a alteração da conta para fins de recebimento da remuneração deve ser em um dos bancos conveniados, nos termos do Ofício-Circular nº 170/2016-MP: Bancoop, Banrisul, Banco do Brasil, Bradesco, Caixa Econômica Federal, Itaú, Santander ou Sicredi.",
+          "sugere-se que o pedido seja feito enquanto a folha de pagamento estiver aberta (a data de fechamento será informada previamente e disponível na intranet), sendo de inteira responsabilidade do servidor verificar se a nova conta está apta a receber valores.",
+          "recomenda-se que seja anexada uma cópia de um documento que contenha o número da agência e da conta do requerente."
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T10:50:12.061Z"
+  },
+  {
+    "id": "estagio-probatorio",
+    "title": "Estágio Probatório",
+    "keywords": "prazo remuneração curso licença saúde doença cônjuge avaliação desempenho probatório",
+    "description": "Informações sobre recursos humanos.",
+    "icon": "briefcase",
+    "color": {
+      "bg": "cyan",
+      "text": "cyan"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Estágio Probatório"
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 20 da Lei Nº 8.112 de 1990"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores com até 3 anos no cargo ocupado no INPI"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: nenhum"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: não é necessário requerimento"
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O SECAD realiza o acompanhamento dos prazos para que o servidor, ao completar 12 (doze) e 24 (vinte e quatro) meses de efetivo exercício, seja avaliado pela chefia imediata, com a validação da chefia mediata, e, ao completar 30 (trinta) meses de efetivo exercício, seja avaliado pela Comissão de Avaliação de Estágio Probatório (CAEPS), após consulta formal da chefia imediata e levando-se em consideração as avaliações anteriores.",
+          "Licença maternidade não interfere no período de avaliação, ficando este suspenso apenas durante as situações a seguir e a contagem do período será retomada a partir do término da mesma: licença para tratamento da própria saúde, licença por motivo de doença em pessoa da família; licença por motivo de afastamento do cônjuge ou companheiro, sem remuneração; licença para atividade política; afastamento de servidor para servir em organismo internacional de que o Brasil participe ou com o qual coopere; e participação em curso de formação decorrente de aprovação em concurso para outro cargo na Administração Pública Federal.",
+          "Será considerado aprovado no estágio probatório o servidor que obtiver resultado final igual ou superior a 06 (seis) na média das Avaliações de Estágio Probatório."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Instrução Normativa INPI/PR Nº 04, de 04 de setembro de 2024. – Dispõe sobre o acompanhamento e avaliação de desempenho para fins de estágio probatório dos servidores nomeados para cargo de provimento efetivo do Instituto Nacional da Propriedade Industrial.",
+          "Instrução Normativa INPI/PR Nº 06, de 04 de novembro de 2024 – Altera a Instrução Normativa INPI/PR nº 04, de 4 de setembro de 2024, que dispõe sobre o acompanhamento e avaliação de desempenho para fins de estágio probatório dos servidores nomeados para cargo de provimento do Instituto Nacional da Propriedade Industrial.",
+          "Decreto nº 12.374, de 06 de fevereiro de 2025. - Dispõe sobre os critérios e os procedimentos a serem observados pelos órgãos e pelas entidades integrantes do Sistema de Pessoal Civil da Administração Federal, para avaliação de desempenho de servidores ocupantes de cargo público efetivo durante o estágio probatório previsto no art.20 da Lei nº 8.112, de 11 de dezembro de 1990.",
+          "Instrução Normativa SGP/MGI nº 122, de 21 de março de 2025. - Estabelece normas complementares sobre os critérios e os procedimentos a serem observados pelos órgãos e entidades integrantes do Sistema de Pessoal Civil da Administração Federal - Sipec, para avaliação de desempenho de servidores ocupantes de cargo público efetivo durante o estágio probatório, e dispõe sobre a implementação de solução digital gerenciadora do processo de avaliação de desempenho para fins de estágio probatório."
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T10:50:26.374Z"
+  },
+  {
+    "id": "frequencia",
+    "title": "Frequência",
+    "keywords": "homologação prazo remuneração sisref sougov ausência banco de horas curso perfil desempenho",
+    "description": "Este código será registrado automaticamente pelo sistema para quem registra frequência.",
+    "icon": "clock",
+    "color": {
+      "bg": "purple",
+      "text": "purple"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Frequência"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A convite do Ministério da Gestão e da Inovação em Serviços Públicos (MGI), o Instituto Nacional da Propriedade Industrial (INPI) implantou o SOUGOV frequência a partir de 01 de setembro de 2023, inabilitando o SISREF.",
+          "Acessos disponíveis pelo aplicativo de celular (SOUGOV) em auto-atendimento \"Frequência\" ou pelo computador: https://sougov.sigepe.gov.br/sougov/",
+          "Orientamos que os servidores mantenham a guarda mensal de suas frequências. Caso o(a) servidor(a) queira consultar suas fichas de frequências no antigo sistema SISREF do qual o INPI utilizou de maio de 2021 a de agosto de 2023, acesse o link: https://sisref.sigepe.gov.br/sisref/entrada.php",
+          "Orientações, passo a passo e tutoriais sobre o SOUGOV Frequência foram disponiblizados pelo MGI no Portal do Servidor. Link de acesso: https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/frequencia",
+          "Contato: sougovfrequencia@inpi.gov.br",
+          "Apresentação do SOUGOV frequência"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Atenção a orientação importante sobre os novos servidores: As frequências de novembro de 2025 dos novos servidores serão lançadas e homologadas pela DIREF. Os servidores ingressantes a partir de 10/11/2025, devem registrar suas frequências no SOUGOV \"Frequência\" a partir de 08/12/2025. A ficha de dezembro de 2025 será homologada normalmente pela chefia imediata em janeiro de 2026."
+      },
+      {
+        "type": "highlight",
+        "content": "Tutorial sobre como pedir dilação de prazo para homologação da frequência - clique aqui"
+      },
+      {
+        "type": "highlight",
+        "content": "Tabela de ocorrências disponibilizadas pelo SOUGOV Frequência aos servidores - clique aqui"
+      },
+      {
+        "type": "highlight",
+        "content": "Tabela de ocorrências disponibiizadas pelo SOUGOV Frequência aos líderes - clique aqui"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "O recesso para comemoração das festas de final de ano (Natal e Ano Novo) compreenderá os períodos de 22 a 26 de dezembro de 2025 e de 29 de dezembro de 2025 a 2 de janeiro de 2026.",
+          "Os agentes públicos devem se revezar nos dois períodos comemorativos estabelecidos no caput, preservando os serviços essenciais, em especial o atendimento ao público.",
+          "O recesso deverá ser compensado no período de 1º de outubro de 2025 até 31 de maio de 2026.",
+          "Para os agentes públicos que exercem as suas atividades presencialmente e não participam do Programa de Gestão e Desempenho - PGD, a compensação deverá ser realizada mediante antecipação do início da jornada diária de trabalho ou de sua postergação, observado o horário de funcionamento do órgão ou entidade.",
+          "Para os agentes públicos que estão participando do PGD, a compensação deverá ser realizada pelo cumprimento de todas as entregas pactuadas no plano de trabalho equivalentes às horas a serem compensadas.",
+          "O agente público que não compensar as horas usufruídas em razão do recesso, no período estabelecido no § 2º, sofrerá desconto em sua remuneração, proporcionalmente às horas não compensadas."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "🔄Uso das ocorrências \"1004 e 1005\""
+      },
+      {
+        "type": "highlight",
+        "content": "1004 - Efetivo deslocamento - Para agentes públicos fora do Programa de Gestão e Desempenho (PGD), que deslocam ao trabalho."
+      },
+      {
+        "type": "paragraph",
+        "content": "Este código será registrado automaticamente pelo sistema para quem registra frequência."
+      },
+      {
+        "type": "highlight",
+        "content": "1005 - Efetivo deslocamento - Para agentes públicos em qualquer modalidade do Programa de Gestão e Desempenho (PGD)."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve registrar essa ocorrência no dia em que comparecer ao INPI. Primeiro será preciso inativar a ocorrência do PGD do dia e em seguida inserir a ocorrência indicada."
+      },
+      {
+        "type": "highlight",
+        "content": "Segue o TUTORIAL para auxiliar no procedimento: TUTORIAL"
+      },
+      {
+        "type": "highlight",
+        "content": "Caso na frequência não reflita automaticamente a ocorrência correta referente ao PGD (1001,1002 e 1003) da qual o servidor participa (integral, parcial, exterior ou presencial), a chefia imediata deve fazer o procedimento no SOUGOV indicado a seguir: Tutorial"
+      },
+      {
+        "type": "highlight",
+        "content": "SOUGOV FREQUÊNCIA para servidores"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Material disponibilizado pelo MGI. Acesse o Portal do servidor em: https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/frequencia/frequencia-perfil-servidor"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "SOUGOV FREQUÊNCIA para líderes (chefias)"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Material disponibilizado pelo MGI. Acesse: https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/frequencia/perfil-lider/frequencia-perfil-lider"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "INSTRUÇÃO NORMATIVA INPI Nº 119, DE 18 /05/2021 (publicada no B.P X, de maio/2021)",
+          "Lei nº 8.112, de 11 de dezembro de 1990: dispõe sobre o regime jurídico dos servidores públicos civis da União, das autarquias e das fundações públicas federais.",
+          "Decreto nº 1.590, de 10 de agosto de 1995: dispõe sobre a jornada de trabalho dos servidores da Administração Pública Federal direta, das autarquias e das fundações públicas federais, e dá outras providências",
+          "Decreto nº 1.867, de 17 de abril de 1996: dispõe sobre instrumento de registro de assiduidade e pontualidade dos servidores públicos federais da Administração Pública Federal direta, autárquica e fundacional, e dá outras providências.",
+          "Instrução Normativa SRT/MGI nº 38, de 20 de novembro de 2023: Altera a Instrução Normativa nº 2, de 12 de setembro de 2018, que estabelece orientação, critérios e procedimentos gerais a serem observados pelos órgãos e entidades integrantes do Sistema de Pessoal Civil da Administração Federal - SIPEC, quanto à jornada de trabalho de que trata o art. 19 da Lei nº 8.112, de 11 de dezembro de 1990, regulamentado pelo Decreto nº 1.590, de 10 de agosto de 1995, e pelo Decreto nº 1.867, de 17 de abril de 1996, que dispõem sobre o controle eletrônico de frequência e a compatibilidade de horários na acumulação remunerada de cargos, empregos e funções, aplicáveis aos servidores públicos em exercício nos órgãos e entidades integrantes da Administração Pública Federal direta, autárquica e fundacional.",
+          "Instrução Normativa SRT/MGI nº34, de 17 de novembro de 2023: Altera a Instrução Normativa SGP nº 2, de 12 de setembro de 2018. (REVOGADA)",
+          "Instrução normativa SGP/SEDGG/ME Nº 125, DE 3 DE DEZEMBRO DE 2020: Altera a Instrução Normativa SGP nº 2, de 12 de setembro de 2018.",
+          "Instrução normativa SGP nº 2, de 12 de setembro de 2018: orientação, critérios e procedimentos sobre a jornada de trabalho."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Ocorrência código 33333: Refere-se ao acúmulo de horas excedentes utilizadas para cobrir entradas e saídas em atraso dentro do próprio mês. Essas horas têm validade exclusivamente mensal e não são migradas para o mês seguinte. Portanto, caso não sejam utilizadas até o fechamento do mês, são descartadas automaticamente pelo sistema. Pedimos ao servidor(a) atenção ao gerenciamento de suas horas excedentes.",
+          "Ocorrência código 362: Refere-se ao banco de horas, cujas horas acumuladas podem ser utilizadas em meses subsequentes. Para o uso desse banco, a chefia imediata deve lançar, no dia da ausência do servidor, a ocorrência 356 – “Ausência para usufruto de banco de horas”.",
+          "Importante destacar que, para utilizar o banco de horas (ocorrência 362), é necessário: 1- Ter acumulado previamente as horas excedentes;  2- Estabelecer prévia combinação com a chefia imediata quanto ao período de usufruto."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "🕐 PRAZOS DE HOMOLOGAÇÃO"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A frequência do mês anterior deverá ser homologada até o 5º dia útil do mês subsequente.",
+          "É importante que todos os chefes de unidades e servidores realizem os lançamentos de maneira precisa e dentro do prazo para garantir a regularidade administrativa."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "📜 FUNDAMENTAÇÃO LEGAL"
+      },
+      {
+        "type": "highlight",
+        "content": "A obrigação de homologação da frequência está prevista no Decreto nº 1.590, de 1995, especialmente no artigo 8º, que estabelece que:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A frequência deve ser encaminhada até o quinto dia útil do mês subsequente à unidade de recursos humanos do respectivo órgão ou entidade.",
+          "O documento de frequência deve conter todas as informações das ocorrências funcionais verificadas."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "🔍 IMPORTÂNCIA DA CONFORMIDADE E REGULARIDADE"
+      },
+      {
+        "type": "highlight",
+        "content": "A homologação de frequência é fundamental para a conformidade dos registros funcionais e para garantir que todos os servidores sejam pagos corretamente, com a devida consideração das ocorrências verificadas. É essencial que todos os chefes de unidades e servidores mantenham a responsabilidade, regularidade e conformidade legal."
+      },
+      {
+        "type": "highlight",
+        "content": "DÚVIDAS? Estamos à disposição! Mande sua dúvida para o endereço de e-mail: sougovfrequencia@inpi.gov.br"
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T11:00:15.923Z"
+  },
+  {
+    "id": "ferias",
+    "title": "Férias",
+    "keywords": "marcação homologação prazo contracheque gratificação sougov",
+    "description": "A Divisão de Registros Funcionais informa e orienta sobre:",
+    "icon": "calendar",
+    "color": {
+      "bg": "blue",
+      "text": "blue"
+    },
+    "sections": [
+      {
+        "type": "highlight",
+        "content": "Férias"
+      },
+      {
+        "type": "paragraph",
+        "content": "A Divisão de Registros Funcionais informa e orienta sobre:"
+      },
+      {
+        "type": "paragraph",
+        "content": "a) marcação de férias;"
+      },
+      {
+        "type": "paragraph",
+        "content": "b) alteração de férias; e"
+      },
+      {
+        "type": "paragraph",
+        "content": "c) homologação das férias pela chefia imediata."
+      },
+      {
+        "type": "highlight",
+        "content": "COMUNICADO SOBRE PRAZO DE HOMOLOGAÇÕES DE FÉRIAS - Clique abaixo:"
+      },
+      {
+        "type": "highlight",
+        "content": "Prazo para homologação de férias - Encerramento da folha em DEZEMBRO/2025 -  Data limite: 09/12/2025"
+      },
+      {
+        "type": "highlight",
+        "content": "MARCAÇÃO DE FÉRIAS"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A marcação de férias é feita pelo aplicativo ou site do SouGov - acesse: www.gov.br/sougov",
+          "No menu \"autoatendimento\", clique na opção \"férias\" e realize marcação, clicando em \"programar férias\".",
+          "Após o término, a chefia imediata receberá uma mensagem do SouGov, para que faça a homologação, se de acordo."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Como consultar as férias marcadas no aplicativo do celular SOUGOV servidor"
+      },
+      {
+        "type": "highlight",
+        "content": "ATENÇÃO: Somente com a homologação há o efetivo registro das férias, podendo o servidor usufrui-las. Não se esqueça de homologar as férias!"
+      },
+      {
+        "type": "highlight",
+        "content": "HOMOLOGAÇÃO DAS FÉRIAS DO SERVIDOR:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "A homologação das férias será feita através do site ou aplicativo do Sougov.",
+          "Como homologar as férias pelo app SOUGOV - Líder (chefia imediata do servidor)",
+          "Sou.Gov-Líder - Apresentação do Ministério da Economia -SEDGGG/SGDP (Chefia imediata do servidor) - Acesse pelo app no celular ou pelo computador (chefia imediata do servidor)"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "FIQUE ATENTO:"
+      },
+      {
+        "type": "highlight",
+        "content": "1) Após o prazo, não serão aceitos ofícios ou e-mails com marcação/alteração de férias cujo novo início seja no mês corrente. 2) Após o prazo, também não será possível inserir ou excluir na folha valores referentes à adicional de férias e adiantamento de gratificação natalina para marcação/alteração de férias cujo início seja no mês seguinte.            3) após o prazo, alterações de 1º período de férias, cujas datas originais sejam no mês corrente (ou seja, com valores lançados na prévia do próximo contracheque), são passíveis de devolução das parcelas do adiantamento de gratificação natalina e do um terço de férias."
+      },
+      {
+        "type": "paragraph",
+        "content": "Em casos de dúvidas ou orientações, envie e-mail para  feriasweb@inpi.gov.br"
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T10:50:47.484Z"
+  },
+  {
+    "id": "licencas",
+    "title": "Licenças",
+    "keywords": "agendamento prazo solicitação remuneração auxílio ponto sougov ausência curso cetec",
+    "description": "A licença de 1 a 14 dias para tratamento da própria saúde do servidor será dispensada de perícia, desde que atendidos os seguintes requisitos previ...",
+    "icon": "file-text",
+    "color": {
+      "bg": "amber",
+      "text": "amber"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Licenças"
+      },
+      {
+        "type": "paragraph",
+        "content": "A licença de 1 a 14 dias para tratamento da própria saúde do servidor será dispensada de perícia, desde que atendidos os seguintes requisitos previamente:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Os atestados médicos ou odontológicos concedam até 14 dias corridos, contando finais de semana e feriados. (DECRETO Nº 11.255, DE 9 DE NOVEMBRO DE 2022)",
+          "O número total de dias de licença seja inferior a 15 dias no período dos últimos 12 meses.",
+          "O atestado deve conter o CID, período do afastamento, data, identificação do servidor e do profissional com seu registro e assinatura.",
+          "O atestado deverá ser apresentado à DISAO no prazo máximo de cinco dias corridos da data do mesmo, salvo motivo justificado aceito pela instituição."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Atenção: No caso de o atestado não atender às regras estabelecidas no Decreto nº 7.003/2009, ou no caso de o servidor optar por não especificar o diagnóstico de sua doença no atestado, ele deverá ser submetido a avaliação pericial, ainda que se trate de atestado que conceda licença por período inferior ou igual a cinco dias."
+      },
+      {
+        "type": "paragraph",
+        "content": "Aplicar-se-á a avaliação pericial:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Para licenças a partir de 15 dias.",
+          "Para atestados médicos ou odontológicos que concedam a partir de 15 dias corridos, contando finais de semana e feriados. (DECRETO Nº 11.255, DE 9 DE NOVEMBRO DE 2022)",
+          "Se o número total de licença nos últimos 12 meses for igual ou superior a 15 dias.",
+          "O atestado deve conter o CID, período do afastamento, data, identificação do servidor e do profissional com seu registro e assinatura.",
+          "O atestado deverá ser apresentado à DISAO no prazo máximo de cinco dias corridos da data do mesmo, salvo motivo justificado aceito pela instituição."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "As licenças em saúde (afastamentos médicos, acompanhamento familiar, entre outras), que necessitem de perícia oficial singular ou Junta Médica Oficial, serão homologadas na Unidade SIASS."
+      },
+      {
+        "type": "highlight",
+        "content": "Atenção: os servidores lotados no Rio de Janeiro e em outros estados deverão entrar em contato  com a DISAO para agendamento de sua perícia."
+      },
+      {
+        "type": "paragraph",
+        "content": "Para concessão dessa licença, considera-se pessoa da família: cônjuge ou companheiro, mãe e pai, filhos, madrasta ou padrasto, enteados, dependente que viva às expensas do servidor e conste em seu assentamento funcional. Todos devem estar cadastrados previamente para acompanhamento familiar no SIAPE (procedimento feito pela DIREF)."
+      },
+      {
+        "type": "paragraph",
+        "content": "O atestado deverá conter a informação que a assistência pessoal do servidor à pessoa da família é necessária, com o nome do dependente e do servidor que o acompanhará, o CID, data e o tempo provável de afastamento, além dos dados do profissional médico ou dentista e sua assinatura."
+      },
+      {
+        "type": "paragraph",
+        "content": "A licença para acompanhamento de pessoa da família, incluída as prorrogações, poderá ser concedida a cada período de 12 meses, nas seguintes condições:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "por até 60 dias, consecutivos ou não, mantida a remuneração do servidor; e",
+          "após 60 dias, por até mais 90 dias, consecutivos ou não, sem remuneração, não ultrapassando o total de 150 dias, incluídas as prorrogações."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "O atestado deverá ser apresentado à DISAO  no prazo máximo de cinco dias corridos da data do mesmo, salvo motivo justificado aceito pela instituição."
+      },
+      {
+        "type": "paragraph",
+        "content": "Há dispensa de perícia nesses casos:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "para atestados médicos e odontológicos de até 14 dias corridos, computados finais de semana e feriados. (DECRETO Nº 11.255, DE 9 DE NOVEMBRO DE 2022)",
+          "quando o número total de dias de licença for inferior a 15 dias no período dos últimos 12 meses."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "No caso do atestado não atender às regras estabelecidas no Decreto nº 7.003, de 2009, ou se o servidor optar por não especificar o diagnóstico da doença no atestado, o familiar ou dependente deverá ser submetido a avaliação pericial ainda que se trate de atestados inferiores ou iguais a três dias."
+      },
+      {
+        "type": "paragraph",
+        "content": "Aplicar-se-á a avaliação pericial:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Para licença a partir de 15 dias;",
+          "Para atestados médicos ou odontológicos concedam a partir de 15 dias corridos, contando finais de semana e feriados; (DECRETO Nº 11.255, DE 9 DE NOVEMBRO DE 2022) e",
+          "Quando o número total de licença nos últimos 12 meses for igual ou superior a 15 dias.",
+          "O atestado deverá conter a informação que a assistência pessoal do servidor à pessoa da família é necessária, com o nome do dependente e do servidor que o acompanhará, o CID, data e o tempo provável de afastamento, além dos dados do profissional médico ou dentista e sua assinatura.",
+          "O atestado deverá ser apresentado à DISAO  no prazo máximo de cinco dias corridos da data do mesmo, salvo motivo justificado aceito pela instituição."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "As licenças em saúde (afastamentos médicos, acompanhamento familiar, dentre outras), que necessitem de perícia oficial singular ou Junta Médica Oficial, serão homologadas na Unidade SIASS."
+      },
+      {
+        "type": "highlight",
+        "content": "Atenção: os servidores lotados no Rio de Janeiro e em outros estados deverão entrar em contato  com a DISAO para agendamento de sua perícia."
+      },
+      {
+        "type": "paragraph",
+        "content": "A duração do afastamento para a licença à gestante é de 120 dias consecutivos."
+      },
+      {
+        "type": "paragraph",
+        "content": "A prorrogação da licença por mais 60 dias será concedida administrativamente, desde que requerida pela servidora até o trigésimo dia, a contar do dia do parto (§1°, do art 2°, do Decreto 6.690 de 2008)."
+      },
+      {
+        "type": "highlight",
+        "content": "O requerimento licença à gestante ou adotante (concessão e prorrogação) deve ser feito pelo sougov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Amparo legal: Lei nº 8.112/1990, art. 208 (5 dias) e art. 2º do Decreto 8.737/2016 (prorrogação por 15 dias)."
+      },
+      {
+        "type": "highlight",
+        "content": "Requisito: nascimento do filho."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: através do app ou site Sougov.br (clique aqui para acessar o site). Tutorial em vídeo, com o passo a passo: clique aqui."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações: deve ser anexada a cópia da certidão de nascimento do(a) filho(a)."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal: Lei Complementar 64/1990, art. 86 da Lei 8.112/1990",
+          "Público-alvo: servidores ativos do INPI",
+          "Documentos necessários: requerimento solicitando a desincompatibilização a partir de 15/08/2020, para disputar as eleições, com base no art. 86 da Lei 8112/1990 e na LC 64/1990. É necessário, além do requerimento dirigido ao Presidente do INPI, encaminhar cópia do documento oficial do partido (ata da convenção ou qualquer outro documento) que demonstre a sua escolha para disputar cargo eletivo (prefeito ou vereador). Posteriormente, é necessário o envio de comprovante do registro da sua candidatura. A licença tem duração até o décimo dia após as eleições",
+          "Como requerer: basta abrir o processo no SEI (tipo de processo: \"pessoal/licença para atividade política/Desincompatibilização LC 64/90\"), juntar requerimento e documentos comprobatórios e encaminhar à Divisão de Registros Funcionais.",
+          "Observações:",
+          "A licença tem início 3 (três) meses antes das eleições, com seu término no décimo dia seguinte ao seu final.",
+          "O servidor licenciado não fará jus ao auxílio-transporte e ao auxílio-alimentação.",
+          "a licença para atividade política pressupõe a escolha do servidor em convenção partidária e em um segundo momento o registro da candidatura, daí a necessidade de comprovação de ambos nos autos.",
+          "o registro de candidatura garante o deferimento da licença remunerada, e ainda, que havendo o indeferimento do mesmo, enquanto houver recurso, o direito ao afastamento permanece. Só esgotando todos os recursos e com o julgamento definitivo do registro de candidatura é que se pode falar em cessação da licença ora em comento.",
+          "em caso de cancelamento de registro da candidatura em razão de eventual falecimento, renúncia ou inelegibilidade, a Administração deverá registrar a interrupção da licença e computar como faltas injustificadas as ausências ao trabalho, caso o servidor não retorne imediatamente às suas funções."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal: Art. 87 da Lei nº 8.112, de 1990, Decreto 9.991/2019, Instrução Normativa INPI/PR nº 05, de 2013.",
+          "Público-alvo: Servidores ativos do INPI que não estejam em estágio probatório e tenham 5 anos de efetivo exercício.",
+          "Documentos necessários:",
+          "Formulário “Solicitação de Capacitação” – Anexo I da IN 05/2013 – devidamente assinado pelo(a) servidor(a) e por suas chefias.",
+          "Formulário “Solicitação de Licença para Capacitação” – Anexo II da IN 05/2013. Caso a licença seja para elaboração de dissertação ou tese, deverá estar explícito no formulário, devidamente assinado pelo(a) servidor(a) e por suas chefias.",
+          "Documento “Termo de Compromisso e Responsabilidade” – Anexo III da IN 05/2013, devidamente preenchido e assinado pelo(a) servidor(a).",
+          "Pedido formal redigido e assinado pelo(a) servidor(a), com concordância e assinatura também de sua chefia imediata, no qual conste:"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "a)  a razão de pedir;"
+      },
+      {
+        "type": "paragraph",
+        "content": "b) os dias a serem utilizados, devendo ser até 90 dias, podendo serem parcelados em, no máximo, seis períodos, com o menor período não podendo ser inferior a quinze dias;"
+      },
+      {
+        "type": "paragraph",
+        "content": "c)  nome do curso e da Instituição Educacional;"
+      },
+      {
+        "type": "paragraph",
+        "content": "d) carga horária total do curso (observamos que a licença capacitação só pode ser concedida quando a carga horária total da ação de desenvolvimento ou do conjunto de ações seja superior a trinta horas semanais);"
+      },
+      {
+        "type": "paragraph",
+        "content": "e)  justificativa para o requerimento, informando:"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a impossibilidade da participação simultânea no curso com o exercício do cargo;"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a pertinência e relevância do curso no âmbito do INPI;"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a pertinência e relevância do curso na sua unidade de lotação; e"
+      },
+      {
+        "type": "paragraph",
+        "content": "- a aplicabilidade do curso na vida funcional do(a) servidor(a)."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Currículo atualizado do servidor extraído do SIGEPE - Banco de Talentos;",
+          "Comprovante de matrícula no curso (até o 2º mês após o início do evento de capacitação) ou documento equivalente.",
+          "Programação completa do curso, incluindo a carga horária total e as disciplinas que irá cursar, com o cronograma de cumprimento das exigências da Instituição de Ensino para obtenção do título.",
+          "Projeto de pesquisa (com cronograma de atividades).",
+          "Em caso de licença para elaboração de dissertação ou tese:",
+          "Histórico escolar que comprove a conclusão dos créditos curriculares do programa cursado ou comprovação da qualificação, cronograma de atividades e comprovação do reconhecimento do curso pela CAPES.",
+          "Em caso de solicitação do custeio da ação pelo INPI: Documento da Instituição de Ensino com informação do valor total da ação.",
+          "Como requerer:",
+          "O procedimento para solicitar a Licença para Capacitação consiste na preparação pelo servidor da documentação indicada e encaminhamento ao Centro de Educação Corporativa, com assessoria do CETEC durante essa etapa para tirar qualquer dúvida a respeito do preenchimento ou outra que se faça necessária através do e-mail educacaocorporativa@inpi.gov.br.",
+          "O passo seguinte é a abertura pelo CETEC de processo correspondente no sistema SEI, e envio ao servidor do número do processo para acompanhamento de sua tramitação.",
+          "O CETEC fará análise posterior ao recebimento da documentação e, caso haja incorreção ou inadequação em algum documento entregue, será necessária a troca/correção do mesmo. Isso pode acarretar atraso no início do processo no sistema SEI e nas consequentes tramitação do processo e decisão sobre a concessão requerida. Assim, caso persistam dúvidas, deve-se entrar em contato com o CETEC através do e-mail educacaocorporativa@inpi.gov.br.",
+          "Observações:",
+          "Caso a licença seja por período superior a trinta dias consecutivos, o servidor ocupante de cargo ou função de chefia deverá solicitar a dispensa da função de confiança ou exoneração do cargo em comissão, a contar da data de início do afastamento.",
+          "O servidor que abandonar ou não concluir a ação de desenvolvimento ressarcirá o gasto com seu afastamento ao INPI, exceto na hipótese de caso fortuito ou força maior.",
+          "A licença para capacitação poderá ser concedida para: ações de desenvolvimento presenciais ou à distância; elaboração de monografia, trabalho de conclusão de curso, dissertação de mestrado, tese de doutorado, de livre-docência ou estágio pós-doutoral; participação em curso presencial ou intercâmbio para aprendizado de língua estrangeira, quando recomendável ao exercício de suas atividades, conforme atestado pela chefia imediata; ou curso conjugado com: a)atividades práticas em posto de trabalho, em órgão ou entidade da administração pública direta ou indireta dos entes federativos, dos Poderes da União ou de outros países ou em organismos internacionais; ou b) realização de atividade voluntária em entidade que preste serviços dessa natureza no País.",
+          "A licença para capacitação poderá ser parcelada em, no máximo, seis períodos e o menor período não poderá ser inferior a quinze dias."
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Previsão legal: art. 91 da Lei nº 8.112, de 11/12/1990 e Instrução Normativa INPI nº114/2019 .",
+          "Nota Técnica nº16/CGRH/DILEG : https://inpidrive.inpi.gov.br/index.php/s/gVozmEDjn5PH7M2",
+          "Documentos necessários: formulário disponível no SEI, justificativa (opcional), manifestação das chefias imediata, mediata e do Diretor da unidade quanto á possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento.",
+          "Como requerer: 1) o próprio servidor deverá abrir o processo no SEI (pessoal:licença para tratar de interesses particulares), clicar em \"incluir documento\", escolher a opção \"Req Licença para tratar de interesses particulares\", preencher todos os campos e assinar; 2) solicitar as manifestações das chefias imediata, mediata e do Diretor da unidade quanto à possibilidade de redistribuição das atividades do servidor que pleiteia o afastamento, nos termos do art. 6º da Instrução Normativa INPI nº 114/2019; 3) somente após a inclusão desses documentos, o processo poderá ser encaminhado à Divisão de Registros Funcionais - DIREF.",
+          "ASSISTAM OS TUTORIAIS EM VÍDEO:",
+          "Passo 1: como abrir o processo da licença no SEI.",
+          "Passo 2: instrução processual e encaminhamentos necessários.",
+          "Observações:",
+          "A licença somente poderá ser concedida ao servidor ocupante de cargo efetivo que não esteja em estágio probatório.",
+          "A licença não é remunerada.",
+          "O servidor pode optar por permanecer contribuindo para o regime próprio de previdência do servidor.",
+          "O servidor licenciado poderá exercer atividade privada, inclusive participar de gerência ou administração de sociedade privada, personificada ou não personificada, exercer o comércio, desde que não haja conflito de interesses com as atividades do INPI ( o conflito de interesses poderá ser verificado ou solicitado por meio do sistema SECI, da Controladoria-Geral da União - link: https://seci.cgu.gov.br/SeCI/Login/Externo.aspx?ReturnUrl=/SeCI/).",
+          "O servidor não poderá utilizar a licença para tomar posse em outro órgão/entidade em cargo inacumulável.",
+          "A duração da licença para tratar de interesses particulares é de até três anos, sendo que o total de licenças para tratar de assuntos particulares não poderá ultrapassar seis anos, consecutivos ou não, considerando toda a vida funcional do servidor.",
+          "O Ministro da Economia poderá, excepcionalmente, autorizar a concessão de licença para tratar de assuntos particulares por período superior a 6 anos.",
+          "O pedido de renovação da licença deverá ser apresentado com no mínimo dois meses de antecedência.",
+          "É vedada a concessão de licença com efeitos retroativos."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 84 da Lei nº 8.112, de 11/12/1990 e Instrução Normativa SGP/SEDGG/ME nº34/2021."
+      },
+      {
+        "type": "paragraph",
+        "content": "Nota Técnica nº15/CGRH/DILEG:https://inpidrive.inpi.gov.br/index.php/s/mF1NwvvPDwSlDLP"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento (clique aqui), certidão de casamento ou declaração de união estável firmada em cartório, ambos com data anterior ao deslocamento, ato que determinou o deslocamento do cônjuge ou companheiro ou diploma de mandato eletivo dos poderes Executivo ou Legislativo expedido pelo Tribunal Superior Eleitoral ou outro documento oficial."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhe os documentos acima para diref@inpi.gov.br, será aberto processo no SEI."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Caso o cônjuge ou companheiro seja servidor público, civil ou militar, de qualquer dos Poderes da União, dos Estados, do Distrito Federal e dos Municípios e seja deslocado para outro ponto do território nacional, poderá haver exercício provisório em órgão ou entidade da Administração Federal direta, autárquica ou fundacional, desde que para o exercício de atividade compatível com o seu cargo.",
+          "No caso da licença para acompanhar cônjuge, a licença não é remunerada. No caso do exercício provisório, haverá o recebimento da remuneração.",
+          "Caso deseje, o servidor licenciado poderá permanecer contribuindo para o regime próprio de previdência do servidor.",
+          "A licença para acompanhar cônjuge tem prazo indeterminado.",
+          "A licença será concedida quando o cônjuge ou companheiro desempenhar suas atividades no setor público ou no setor privado e for deslocado em decorrência de motivo alheio a sua vontade."
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: Art. 87 da Lei nº 8112/1990 (redação original) e art. 7º da Lei nº 9.527/1997 - Nota técnica nº5 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/81ALZsqJUzFdsNi"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: servidores ativos do INPI que tenham direito à LPA, ou seja, que tenham completado pelo menos 5 anos de tempo de serviço ininterruptos desde seu ingresso no serviço público até 15 de outubro de 1996 (data do fim da contagem de tempo para LPA)."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: Solicitação de Licença Prêmio (clique aqui) assinada pelo servidor e por suas chefias imediata e mediata."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: encaminhar a solicitação para serap@inpi.gov.br."
+      },
+      {
+        "type": "highlight",
+        "content": "Observações:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Se o servidor já tiver um processo de LPA, não será aberto outro quando solicitar o direito em outra ocasião; será preciso apenas juntar o requerimento ao processo inicial.",
+          "Solicita-se que o requerimento seja entregue com pelo menos 30 dias de antecedência, para que o pedido seja analisado a tempo e possíveis pendências sejam sanadas dentro do prazo.",
+          "Períodos já contados em dobro para concessão de abono de permanência não poderão ser usufruídos."
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T11:01:08.998Z"
+  },
+  {
+    "id": "pagamento",
+    "title": "Pagamento",
+    "keywords": "homologação prazo remuneração contracheque salário gratificação auxílio sougov curso cadastro",
+    "description": "A Coordenação de Administração de Recursos Humanos (COARH) e a Divisão de Pagamento (DIPAG) informam que o contracheque definitivo, com a gratifica...",
+    "icon": "dollar-sign",
+    "color": {
+      "bg": "green",
+      "text": "green"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Pagamento"
+      },
+      {
+        "type": "paragraph",
+        "content": "A Coordenação de Administração de Recursos Humanos (COARH) e a Divisão de Pagamento (DIPAG) informam que o contracheque definitivo, com a gratificação natalina, será disponibilizado após a homologação da folha em 17/11/2025. A prévia, que será liberada em 13/11 (folha normal), ainda não incluirá a gratificação. Os servidores devem, portanto, aguardar a conclusão do processamento no dia 17/11/2025."
+      },
+      {
+        "type": "highlight",
+        "content": "Importante: no adiantamento da gratificação natalina não houve recolhimento de IR e PSS; esses descontos serão realizados nesta folha, conforme o procedimento habitual."
+      },
+      {
+        "type": "highlight",
+        "content": "A DIPAG orienta os substitutos a verificarem se todos os períodos de substituição de 2025 já foram solicitados e, caso ainda não tenham feito, realizarem o pedido com urgência, considerando que as folhas de novembro e dezembro são mais curtas."
+      },
+      {
+        "type": "highlight",
+        "content": "Importante: os dias de substituição referentes a dezembro/2025 devem ser solicitados até 3 dias antes do fechamento da folha de janeiro/2026. Nos casos em que o afastamento do titular abranger dezembro/2025 e janeiro/2026, os dias de dezembro/2025 devem ser solicitados no início de janeiro/2026, também até 3 dias antes do fechamento da folha."
+      },
+      {
+        "type": "paragraph",
+        "content": "Link para o passo a passo do pedido: clique aqui."
+      },
+      {
+        "type": "paragraph",
+        "content": "Dúvidas sobre substituição exclusivamente pelo e-mail substituicao@inpi.gov.br"
+      },
+      {
+        "type": "paragraph",
+        "content": "Dúvidas sobre demais assuntos: dipag@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Dados bancários: mantenha-os sempre atualizados!"
+      },
+      {
+        "type": "highlight",
+        "content": "       Atenção! Antes de mudar sua conta para a Caixa Econômica, procure o RH!"
+      },
+      {
+        "type": "paragraph",
+        "content": "       Não são permitidos bancos digitais!"
+      },
+      {
+        "type": "paragraph",
+        "content": "Como mudar o banco? Antes do fechamento da folha, no app ou site do SouGov.br, anexando documento comprobatório. Veja aqui como solicitar."
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Pagamento de substituição: pedido somente no SouGov"
+      },
+      {
+        "type": "highlight",
+        "content": "A DIPAG pede aos substitutos que cumpram os prazos e que sigam as orientações referentes ao pagamento de substituição disponibilizadas no perguntas e respostas do SouGov.br."
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores ativos que tenham substituído o chefe, inclusive se não houver titular designado."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve acessar o SouGov e seguir as orientações. Confira aqui o passo a passo de como solicitar."
+      },
+      {
+        "type": "highlight",
+        "content": "O pagamento acontecerá no mês subsequente caso o pedido seja feito até três dias antes do fechamento da folha e somente após encerrado o afastamento do titular. Essa data varia entre a segunda e a terceira sexta-feira do mês. O calendário é divulgado mensalmente para todos do INPI. Informe:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "CPF",
+          "Nome",
+          "Denominação do cargo comissionado ou função do titular",
+          "Opção de remuneração da função",
+          "Portaria de designação de substituição (PDF ou imagem)",
+          "Portaria de nomeação do titular (PDF ou imagem)"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Os documentos necessários (portarias de titular e do substituto interessado) podem ser solicitados pelo e-mail diref@inpi.gov.br."
+      },
+      {
+        "type": "paragraph",
+        "content": "Dúvidas sobre substituição exclusivamente pelo e-mail substituicao@inpi.gov.br"
+      },
+      {
+        "type": "paragraph",
+        "content": "Dúvidas sobre demais assuntos: dipag@inpi.gov.br"
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Auxílio-transporte"
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores ativos que trabalham de forma presencial ou semipresencial."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve acessar o SouGov e clicar em Solicitações > Auxílio-Transporte. Informe:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Endereços residencial e do trabalho",
+          "Percursos de ida e de volta: o meio de transporte, o número e nome da linha e o valor da tarifa"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Após o envio, a equipe de Gestão de Pessoas analisará o pedido, que pode ser consultado no item “Solicitações” do SouGov."
+      },
+      {
+        "type": "highlight",
+        "content": "O cadastro de auxílio-transporte gera o desconto obrigatório de 6% do salário do servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Servidores no Programa de Gestão e Desempenho (PGD):"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Regime integral - o servidor participante deixa de ter direito ao auxílio-transporte, uma vez que, para recebê-lo, é obrigatório que ocorra o deslocamento entre a casa e o trabalho.",
+          "Regime parcial – o servidor terá o desconto obrigatório de 6% do vencimento. Portanto, recomenda-se que calcule o desconto nesta planilha para conferir se o resultado é positivo. Caso seja negativo, sugere-se que o servidor cancele o auxílio-transporte. Veja o passo a passo para o cancelamento."
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Informações financeiras"
+      },
+      {
+        "type": "paragraph",
+        "content": "Abaixo, seguem os links para o passo a passo no SouGov.br:"
+      },
+      {
+        "type": "highlight",
+        "content": "Comprovante de rendimentos para fins de Imposto de Renda:"
+      },
+      {
+        "type": "paragraph",
+        "content": "https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/comprovante-de-rendimentos/1-como-faco-para-consultar-o-meu-comprovante-de-rendimentos"
+      },
+      {
+        "type": "highlight",
+        "content": "Contra cheques mensais:"
+      },
+      {
+        "type": "paragraph",
+        "content": "https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/contracheque/contracheque"
+      },
+      {
+        "type": "highlight",
+        "content": "Ficha financeira anual – de todas as matrículas do (a) servidor (a):"
+      },
+      {
+        "type": "paragraph",
+        "content": "https://www.gov.br/servidor/pt-br/acesso-a-informacao/faq/sou-gov.br/ficha-financeira-anual/ficha-financeira-anual"
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Consignações em folha de pagamento"
+      },
+      {
+        "type": "highlight",
+        "content": "No SouGov.br acesse o autoatendimento. Confira o passo a passo aqui."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Observações:",
+          "A Divisão de Pagamento não atua no Módulo de Consignações, não consegue incluir, alterar ou excluir consignações; o servidor deve atuar diretamente no módulo de consignações.",
+          "O consignatário (instituição financeira) não precisa da sua senha para liberar a consignação: nunca forneça sua senha.",
+          "Nem o INPI nem os Bancos ligam pedindo informações pessoais e/ou senhas, tenha cuidado com golpes!!"
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Retribuição por titulação (RT)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores de nível superior do Plano de Carreiras e Cargos do INPI que tenham completado curso de pós-graduação stricto sensu ou lato sensu."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve escrever para o e-mail secad@inpi.gov.br com os seguintes documentos:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Requerimento",
+          "Termo de compromisso (no caso de não ter o diploma ainda)",
+          "Demais documentos relacionados, conforme o caso"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Não é obrigatório ter o diploma do curso para requerer a RT. Porém, são necessários: a ata de defesa da tese ou da dissertação indicando a aprovação, além da declaração de conclusão de curso emitida pela instituição de ensino."
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Gratificação por qualificação (GQ)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores de cargos de nível médio do Plano de Careiras e Cargos do INPI."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve escrever para o e-mail secad@inpi.gov.br com os seguintes documentos:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Requerimento",
+          "Documentos listados no requerimento, conforme o caso"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "O requerimento será analisado primeiramente pelo SECAD e, posteriormente, pelo Comitê Especial para concessão da GQ."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T11:01:46.231Z"
+  },
+  {
+    "id": "programa-de-gestao-e-desempenho",
+    "title": "Programa de Gestão e Desempenho",
+    "keywords": "sougov tempo desempenho",
+    "description": "Um dos principais pilares do teletrabalho é o “Princípio de Valorização da Qualidade de Vida dos Servidores”, que permite aos participantes do prog...",
+    "icon": "target",
+    "color": {
+      "bg": "violet",
+      "text": "violet"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Programa de Gestão e Desempenho"
+      },
+      {
+        "type": "highlight",
+        "content": "O Programa de Gestão e Desempenho (PGD-INPI) na modalidade teletrabalho iniciou-se em 2016 no INPI, a partir da necessidade de se aumentar a produtividade dos servidores com vistas à melhoria da eficiência operacional das áreas finalísticas do Instituto, bem como dos serviços de apoio, visto que é uma ferramenta que disciplina o exercício de atividades em que os resultados possam ser efetivamente mensurados e sua execução realizada pelos participantes."
+      },
+      {
+        "type": "paragraph",
+        "content": "Um dos principais pilares do teletrabalho é o “Princípio de Valorização da Qualidade de Vida dos Servidores”, que permite aos participantes do programa organizarem sua jornada de trabalho de acordo com os horários de melhor produtividade."
+      },
+      {
+        "type": "paragraph",
+        "content": "O PGD-INPI promove ao participante uma otimização do tempo e uma redução do estresse físico decorrente dos deslocamentos diários para o trabalho, e de todos os impactos psicológicos desta obrigação, bem como permite ao INPI a redução de despesas operacionais."
+      },
+      {
+        "type": "paragraph",
+        "content": "Evolução do número de pessoas no PGD-INPI:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI as estatísticas atuais do PGD-INPI (BI da CGRH: Estatísticas de Pessoal)"
+      },
+      {
+        "type": "highlight",
+        "content": "O PETRVS é o novo sistema de acompanhamento do PGD foi implantado em dezembro de 2024, quando as unidades que possuem participantes do programa cadastraram seus Planos de Entrega, contendo as entregas de cada unidade homologadas pela unidade imediatamente superior."
+      },
+      {
+        "type": "paragraph",
+        "content": "A partir de janeiro 2025 passou a ser obrigatória a utilização do sistema PETRVS para registro e acompanhamento do PGD-INPI, iniciando o cadastramento também dos Planos de Trabalho Individuais de todos os participantes do PGD-INPI."
+      },
+      {
+        "type": "paragraph",
+        "content": "O Plano de Trabalho contém as tarefas que cada servidor irá realizar para atender a(s) entrega(s) da unidade, podendo ser elaborado e cadastrado pela chefia ou pelo servidor e aprovado pela outra parte."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI as Orientações para o Programa de Gestão e Desempenho do INPI (PGD-INPI)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI o FAQ PGD - Perguntas Frequentes do Portal do Servidor."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI a apresentação sobre o novo sistema."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI o passo a passo para criação de um Plano de Entregas (unidade)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI o passo a passo para criação de um Plano de Trabalho (servidor)."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como realizar o registro de execução de um Plano de Trabalho."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como avaliar um Plano de Trabalho."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como realizar o registro de execução de um Plano de Entregas."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como realizar a Correção dos Afastamentos."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como realizar a Correção dos Registros de Execução."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI como realizar o registro no SOUGOV do PGD de servidor(a) da equipe, mediante publicação de Portaria de concessão."
+      },
+      {
+        "type": "paragraph",
+        "content": "Acesse AQUI as orientações sobre o usufruto e a compensação de horas no Petrvs."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-05T11:03:16.966Z"
+  },
+  {
+    "id": "remocao",
+    "title": "Remoção",
+    "keywords": "desempenho remoção",
+    "description": "Read Time: 1 min",
+    "icon": "map-pin",
+    "color": {
+      "bg": "orange",
+      "text": "orange"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Remoção"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 1 min"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 30 de junho de 2025"
+      },
+      {
+        "type": "paragraph",
+        "content": "Por enquanto, estão vedadas as remoções a pedido, nos termos do Relatório de Auditoria nº 05/2017."
+      },
+      {
+        "type": "highlight",
+        "content": "Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 36, parágrafo único, inciso I, da Lei nº 8112/1990 e Instrução Normativa INPI nº 39/2013. Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Público alvo: chefias imediatas ou mediatas da unidade de origem ou de destino do servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: documento do SEI denominado “Requerimento de Remoção a Pedido da Unidade”."
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: a unidade de origem ou de destino requerente deverá abrir processo no SEI, inserir o formulário do SEI acima denominado, que deverá conter:"
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Assinatura dos gestores imediato e mediato da unidade requerente da remoção (unidade de origem ou de destino do servidor);",
+          "Assinatura do dirigente máximo da unidade requerente da remoção; e",
+          "Ciência e assinatura do servidor em questão."
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "Procedimento:"
+      },
+      {
+        "type": "paragraph",
+        "content": "Após preenchimento e assinaturas, enviar os autos ao Serviço de Carreira e Desempenho (SECAD)."
+      },
+      {
+        "type": "highlight",
+        "content": "Previsão legal: art. 36, parágrafo único, inciso III, alínea “c”, da Lei nº 8112/1990 e Instrução Normativa INPI nº 39/2013. Nota técnica nº09 CGRH/DILEG: https://inpidrive.inpi.gov.br/index.php/s/wx88JCbfRyJeBOm"
+      },
+      {
+        "type": "highlight",
+        "content": "Público-alvo: Diretores ou o Presidente do INPI Unidades do INPI interessadas em realizar processo seletivo interno"
+      },
+      {
+        "type": "highlight",
+        "content": "Documentos necessários: requerimento de Preenchimento de Vaga (clique aqui)"
+      },
+      {
+        "type": "highlight",
+        "content": "Como requerer: deverá ser aberto processo no SEI pela unidade requerente do processo seletivo, remetido à aprovação do dirigente máximo da unidade e, após, enviado ao SECAD para orientações acerca da elaboração do edital de seleção e acompanhamento de todo o processo."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T15:33:16.000Z"
+  },
+  {
+    "id": "retribuicao-por-titulacao",
+    "title": "Retribuição por Titulação",
+    "keywords": "gratificação curso titulação retribuição",
+    "description": "Read Time: 2 mins",
+    "icon": "award",
+    "color": {
+      "bg": "emerald",
+      "text": "emerald"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Retribuição por Titulação"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 2 mins"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 27 de junho de 2025"
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Retribuição por titulação (RT)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores de nível superior do Plano de Carreiras e Cargos do INPI que tenham completado curso de pós-graduação stricto sensu ou lato sensu."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve escrever para o e-mail secad@inpi.gov.br com os seguintes documentos:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Requerimento",
+          "Termo de compromisso (no caso de não ter o diploma ainda)",
+          "Demais documentos relacionados, conforme o caso"
+        ]
+      },
+      {
+        "type": "highlight",
+        "content": "Não é obrigatório ter o diploma do curso para requerer a RT. Porém, são necessários: a ata de defesa da tese ou da dissertação indicando a aprovação, além da declaração de conclusão de curso emitida pela instituição de ensino."
+      },
+      {
+        "type": "heading",
+        "level": 4,
+        "content": "Gratificação por qualificação (GQ)"
+      },
+      {
+        "type": "paragraph",
+        "content": "Servidores de cargos de nível médio do Plano de Careiras e Cargos do INPI."
+      },
+      {
+        "type": "paragraph",
+        "content": "O servidor deve escrever para o e-mail secad@inpi.gov.br com os seguintes documentos:"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Requerimento",
+          "Documentos listados no requerimento, conforme o caso"
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": "O requerimento será analisado primeiramente pelo SECAD e, posteriormente, pelo Comitê Especial para concessão da GQ."
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T15:32:52.000Z"
+  },
+  {
+    "id": "saude-ocupacional",
+    "title": "Saúde Ocupacional",
+    "keywords": "ponto treinamento curso licença saúde doença perfil avaliação desempenho",
+    "description": "Read Time: 2 mins",
+    "icon": "heart",
+    "color": {
+      "bg": "red",
+      "text": "red"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Saúde Ocupacional"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 2 mins"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 22 de agosto de 2023"
+      },
+      {
+        "type": "highlight",
+        "content": "Área administrativa e Saúde Suplementar"
+      },
+      {
+        "type": "paragraph",
+        "content": "Recebimento de licenças médicas. Procedimentos referentes a outras licenças, saúde suplementar (planos de saúde), per capita (subsídio para titulares de plano de saúde) e direitos relacionados à saúde do servidor."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de atendimento: 8h às 17h | Ramais: 3415 | 4424 | E-mail: disao@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Serviço social"
+      },
+      {
+        "type": "paragraph",
+        "content": "Ações de assistência, orientação, esclarecimento e apoio, visando ao desenvolvimento e bem-estar social. Mediação de situações de conflito vivenciadas no local de trabalho."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 10h às 19h | E-mail: disao@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Enfermagem do trabalho"
+      },
+      {
+        "type": "paragraph",
+        "content": "Primeiro atendimento de medicina do trabalho. Assistência integral em enfermagem ao público do INPI."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 7h às 19h | Ramal: 4041 | E-mail: disao@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Medicina do trabalho"
+      },
+      {
+        "type": "paragraph",
+        "content": "Assistência integral em medicina do trabalho. Atendimento médico de suporte básico e imediato de vida."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 8h às 16h | Ramal: 4041 | E-mail: disao@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Odontologia"
+      },
+      {
+        "type": "paragraph",
+        "content": "Medidas de prevenção a doenças; tratamento de endodontia leve (para lesões e doenças no interior do dente) e de periodontia leve (para inflamações na gengiva); extração e restauração de dentes."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 8h às 17h | Ramal: 3421| E-mail: odonto@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Psicologia"
+      },
+      {
+        "type": "paragraph",
+        "content": "Clínica - Orientação com o objetivo de ajudar no alívio de sintomas de sofrimento psíquico."
+      },
+      {
+        "type": "paragraph",
+        "content": "Organizacional - Ações ligadas às políticas de Recursos Humanos. Oferta de treinamentos, avaliação de desempenho, perfil profissiográfico (habilidades cognitivas, técnicas e comportamentais de um profissional) e outras tarefas para valorizar e desenvolver servidores, gestores e equipes."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: mediante demanda | E-mail: psico@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Fisioterapia e práticas complementares"
+      },
+      {
+        "type": "paragraph",
+        "content": "Fisioterapia do trabalho, acupuntura (aplicação de pequenas agulhas em áreas do corpo), auriculoterapia (pressão em pontos específicos da orelha) e demais técnicas terapêuticas aplicáveis."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 7h30 às 19h | Ramais: 3427 | 3428 | E-mail: fisio@inpi.gov.br"
+      },
+      {
+        "type": "highlight",
+        "content": "Educação física e práticas coletivas"
+      },
+      {
+        "type": "paragraph",
+        "content": "Ginástica laboral, fortalecimento, circuito funcional, pilates e outras atividades. Consulte a tabela de horários com todas as práticas disponíveis na intranet."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: 7h às 19h | E-mail: ginastica@inpi.gov.br  | Consulte a lista completa e tabela de horários"
+      },
+      {
+        "type": "highlight",
+        "content": "Ergonomia"
+      },
+      {
+        "type": "paragraph",
+        "content": "Avaliação e orientação ergonômica. O objetivo é prevenir dores e doenças por meio de adequações no ambiente de trabalho e da adoção de posturas corretas durante o uso de equipamentos. O serviço atende aos servidores em trabalho presencial ou remoto. Acesse o Manual de Orientações Ergonômicas."
+      },
+      {
+        "type": "highlight",
+        "content": "Horário de funcionamento: mediante demanda | E-mail: ergonomia@inpi.gov.br"
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T15:26:16.000Z"
+  },
+  {
+    "id": "selecao-interna-e-externa",
+    "title": "Seleção Interna e Externa",
+    "keywords": "curso remoção",
+    "description": "Read Time: 1 min",
+    "icon": "users",
+    "color": {
+      "bg": "teal",
+      "text": "teal"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Seleção Interna e Externa"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 1 min"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 28 de junho de 2025"
+      },
+      {
+        "type": "paragraph",
+        "content": "Acompanhe aqui os Processos Seletivos internos em andamento ou finalizados."
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo para cargo efetivo na Ouvidoria do INPI:"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Edital nº 1/2025/OUVID/PR/2025"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo para a Unidade Regional Norte:"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Edital Nº 03/2025 – remoção de servidores para Regional Norte"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo interno e externo para recebimento de GSISP - TI:"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Edital Nº 02/2025 - INPI/DIRAD/CGTI",
+          "Edital Nº 535, de 01 de maio de 2025 – Resultado Final"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo de examinadores para a CGREC:"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Edital nº 001/2025, de 04/04/2025",
+          "Edital nº 002/2025, de 12/06/2025 – Resultado Final"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo para composição da Comissão de Carreiras e Cargos do INPI (CCINPI):"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Portaria INPI/PR nº 12, de 22 de março de 2024",
+          "Edital nº 001/2024 - processo seletivo",
+          "Edital nº 002/2024 - relação preliminar dos inscritos",
+          "Edital nº 003/2024 - relação final dos inscritos e regras de votação",
+          "Edital nº 004/2024 - Resultado final da votação dos candidatos"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo seletivo para composição de CEGDI - Comissão de Gênero, Diversidade e Inclusão :"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": true,
+        "items": [
+          "Portaria INPI/PR nº53/2023, publicada em 19 de dezembro de 2023 - Estabelece o Regimento Interno do CEGDI",
+          "Edital Nº001/2024 - Processo seletivo CEGDI",
+          "Ficha de inscrição CEGDI",
+          "Modelo de carta de intenções",
+          "Cartas de intenções CEGDI",
+          "Edital 002/2024 - Cronograma",
+          "Edital 003/2024 - Relação dos candidatos inscritos aptos no processo seletivo e orientações para recurso",
+          "Edital 004/2024 -  Relação de candidatos inscritos e aptos no processo seletivo pós fase recursal",
+          "Edital 005/2024 -  Abertura de votação dos candidatos considerados aptos na primeira etapa",
+          "Edital 006/2024 - Resultado final da votação de composição dos membros CEGDI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processos Seletivos 2016"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "Processo Seletivo Interno ''Edital n° 001/2018 - Remoção de Servidores para unidades regionais do INPI"
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T15:26:58.000Z"
+  },
+  {
+    "id": "utilizacao-do-sougov",
+    "title": "Utilização do SouGov",
+    "keywords": "prazo sougov atualização perfil",
+    "description": "Read Time: 2 mins",
+    "icon": "monitor",
+    "color": {
+      "bg": "sky",
+      "text": "sky"
+    },
+    "sections": [
+      {
+        "type": "heading",
+        "level": 1,
+        "content": "Utilização do SouGov"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 2 mins"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 30 de junho de 2025"
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "COMO FAZER A SUA CONTA NO SOUGOV.BR - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "ACESSO AO SITE DO SOUGOV.BR (PELO COMPUTADOR) - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "TUTORIAL DE ACESSO A APLICATIVO SOUGOV.BR - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "TUTORIAL SOBRE COMO NAVEGAR NO SOUGOV.BR - CLIQUE AQUI E AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "ENTENDA AS DIFERENÇAS ENTRE: login GOV.BR, aplicativo GOV.BR e Sou GOV.BR - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "PERGUNTAS E RESPOSTAS SOBRE A INSTALAÇÃO E SERVIÇOS DISPONÍVEIS NO SOUGOV.BR - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "ACESSO AO MÓDULO LÍDER E TUTORIAL MÓDULO LÍDER NO SOUGOV.BR - CLIQUE AQUI E AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "TUTORIAIS DO SOUGOV.BR DISPONÍVEIS NO SITE DO SIGEPE - CLIQUE AQUI"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "RECUPERAÇÃO DE SENHA NO SOUGOV.BR: POR E-MAIL, MENSAGEM DE TEXTO NO CELULAR, APP DO BANCO, NO BANCO, VALIDAÇÃO FACIAL E PELO SUPORTE GOV.BR"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "CGRH INFORMA CLIQUE AQUI - ATUALIZAÇÃO E VALIDAÇÃO CADASTRAL OBRIGATÓRIAS NO SOUGOV.BR - PRAZO DE 01/03/22 A 30/04/22"
+        ]
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          "LINK DE COMO UTILIZAR O SOUGOV-LÍDER (ACESSO,PERFIL E FUNÇÕES) CLIQUE AQUI"
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-04T15:31:58.000Z"
+  }
+]
