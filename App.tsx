@@ -129,7 +129,7 @@ export default function App() {
                   <i className="fas fa-bell-concierge text-2xl sm:text-3xl"></i>
                 </div>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 tracking-tight leading-tight pb-2">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold animate-title-shine tracking-tight leading-tight pb-2">
                 Concierge RH Digital
               </h1>
             </div>
