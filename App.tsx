@@ -142,7 +142,7 @@ export default function App() {
           {/* Access Button */}
           <button
             onClick={() => setShowSplash(false)}
-            className="group relative px-12 py-4 animate-button-shimmer text-[#002258] rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
+            className="group relative px-12 py-4 animate-button-shimmer text-[#002258] rounded-full font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
           >
             <span className="relative z-10">ACESSAR</span>
           </button>
