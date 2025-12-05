@@ -431,7 +431,7 @@ export default function App() {
               <Sparkles size={24} />
             </div>
             <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 tracking-tight">
-              Concierge Digital
+              Concierge RH Digital
             </h1>
           </div>
           {!hasSelection && (
