@@ -108,9 +108,9 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
       
       {/* Fixed Header with Logo */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+      <header className="fixed top-0 left-0 right-0 z-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 py-3 flex items-center justify-center">
-          <img src="/logos/inpi.png" alt="INPI" className="h-8" />
+          <img src="/logos/inpi.png" alt="INPI" className="h-8 mt-2" />
         </div>
       </header>
 
