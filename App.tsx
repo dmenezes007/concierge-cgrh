@@ -156,9 +156,9 @@ export default function App() {
 
         {/* Search Container */}
         <div className="w-full max-w-3xl relative z-20 mb-6 sm:mb-8 px-2 sm:px-0" ref={searchContainerRef}>
-          <div 
+          <div
             className={`
-              relative flex items-center w-full transition-all duration-300
+              relative flex items-center w-full transition-all duration-300 animate-shimmer
               ${isFocused ? 'shadow-2xl ring-2 ring-blue-500/20' : 'shadow-xl hover:shadow-2xl'}
               bg-white rounded-2xl border-2 ${isFocused ? 'border-blue-500' : 'border-slate-200'}
             `}
