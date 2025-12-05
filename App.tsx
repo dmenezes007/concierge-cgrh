@@ -273,7 +273,7 @@ export default function App() {
                   >
                     <button
                       onClick={() => handleSelect(item)}
-                      className="w-full text-left flex items-start gap-3 sm:gap-4 mb-3"
+                      className="w-full text-left flex items-start gap-3 sm:gap-4"
                     >
                       <div 
                         className="p-1.5 sm:p-2 rounded-lg transition-colors flex-shrink-0"
@@ -285,29 +285,11 @@ export default function App() {
                         <IconComponent size={18} className="sm:w-5 sm:h-5" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
-                            {item.title}
-                          </span>
-                        </div>
-                        <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">
-                          {item.description}
-                        </p>
+                        <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
+                          {item.title}
+                        </span>
                       </div>
                     </button>
-                    
-                    {item.externalLink && item.externalLink !== '#' && (
-                      <div className="ml-10 sm:ml-12">
-                        <a
-                          href={item.externalLink}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-block px-4 py-2 bg-white border-2 border-slate-200 text-slate-700 text-xs sm:text-sm font-medium rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all"
-                        >
-                          Acesse na Intranet
-                        </a>
-                      </div>
-                    )}
                   </div>
                 );
               })}
@@ -365,9 +347,10 @@ export default function App() {
                       href={selectedItem.externalLink} 
                       target="_blank" 
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 text-white"
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105"
                       style={{
-                        background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
+                        background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`,
+                        color: '#ffffff'
                       }}
                     >
                       <ExternalLink size={14} className="sm:w-4 sm:h-4" />
