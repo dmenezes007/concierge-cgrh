@@ -257,7 +257,7 @@ export default function App() {
           {/* Autocomplete Dropdown */}
           <div 
             className={`
-              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0
+              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0 z-[100]
               ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
