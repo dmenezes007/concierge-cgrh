@@ -132,7 +132,7 @@ export default function App() {
         />
         
         {/* Content */}
-        <div className="relative z-10 text-center animate-fadeIn">
+        <div className="relative z-10 text-center animate-fadeIn px-[75px]">
           {/* Icon */}
           <div className="mb-8 flex justify-center">
             <div className="bg-white/10 backdrop-blur-sm p-6 rounded-3xl shadow-2xl border border-white/20">
