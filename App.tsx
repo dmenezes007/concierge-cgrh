@@ -111,11 +111,11 @@ export default function App() {
       <div className="min-h-screen bg-[#002258] relative overflow-hidden flex items-center justify-center">
         {/* Grid Background */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 animate-grid-shine"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)
+              linear-gradient(to right, rgba(255,255,255,0.25) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255,255,255,0.25) 1px, transparent 1px)
             `,
             backgroundSize: '40px 40px'
           }}
@@ -142,10 +142,9 @@ export default function App() {
           {/* Access Button */}
           <button
             onClick={() => setShowSplash(false)}
-            className="group relative px-12 py-4 bg-white text-[#002258] rounded-full font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 hover:bg-white/95"
+            className="group relative px-12 py-4 animate-button-shimmer text-[#002258] rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
           >
             <span className="relative z-10">ACESSAR</span>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </button>
         </div>
         

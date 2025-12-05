@@ -59,6 +59,46 @@ h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, a, li {
   animation: titleShine 3s linear infinite;
 }
 
+/* Grid shine animation for splash screen */
+@keyframes gridShine {
+  0% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.35;
+  }
+  100% {
+    opacity: 0.15;
+  }
+}
+
+.animate-grid-shine {
+  animation: gridShine 2s ease-in-out infinite;
+}
+
+/* Button shimmer effect */
+@keyframes buttonShimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-button-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 40%,
+    #e0f2fe 50%,
+    #ffffff 60%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  animation: buttonShimmer 2s linear infinite;
+}
+
 /* Custom scrollbar for a cleaner look */
 ::-webkit-scrollbar {
   width: 8px;
