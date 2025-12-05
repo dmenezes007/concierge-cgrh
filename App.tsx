@@ -95,8 +95,7 @@ export default function App() {
     const normalizedQuery = normalizeText(query);
     return (database as DatabaseItem[]).filter(item => 
       normalizeText(item.title).includes(normalizedQuery) || 
-      normalizeText(item.keywords).includes(normalizedQuery) ||
-      normalizeText(item.description).includes(normalizedQuery)
+      normalizeText(item.keywords).includes(normalizedQuery)
     );
   }, [query]);
 
@@ -288,6 +287,21 @@ export default function App() {
                         <span className="font-semibold text-sm sm:text-base text-slate-700 group-hover:text-blue-600 transition-colors">
                           {item.title}
                         </span>
+                        {/* Tags/Keywords */}
+                        <div className="flex flex-wrap gap-1.5 mt-2">
+                          {item.keywords.split(' ').slice(0, 5).map((keyword, idx) => (
+                            <span 
+                              key={idx}
+                              className="inline-block px-2 py-0.5 rounded text-[10px] sm:text-xs font-medium"
+                              style={{
+                                backgroundColor: `${gradient.from}10`,
+                                color: gradient.to
+                              }}
+                            >
+                              {keyword}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </button>
                   </div>
