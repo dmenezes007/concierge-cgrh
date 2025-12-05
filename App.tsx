@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search, X, ChevronRight, Sparkles, ExternalLink, ArrowRight, LucideIcon } from 'lucide-react';
+import { Search, X, ChevronRight, ExternalLink, ArrowRight, LucideIcon } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import Card from './components/Card';
 import ContentRenderer from './components/ContentRenderer';
@@ -105,49 +105,68 @@ export default function App() {
   const hasSelection = !!selectedItem;
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
       
-      {/* Header / Logo Area - Dynamically positions based on state */}
-      <div 
-        className={`transition-all duration-700 ease-in-out flex flex-col items-center justify-center px-4 w-full
-          ${hasSelection ? 'pt-8 pb-6' : 'min-h-[60vh]'}`}
-      >
-        {/* Logo INPI */}
-        <div className={`transition-all duration-700 ${hasSelection ? 'scale-75 mb-4' : 'scale-100 mb-6'}`}>
-          <img 
-            src="/logos/inpi.png" 
-            alt="INPI" 
-            className={`transition-all duration-700 ${hasSelection ? 'h-16' : 'h-24'}`}
-          />
-        </div>
-
-        <div className={`transition-all duration-700 flex flex-col items-center ${hasSelection ? 'scale-75 mb-4' : 'scale-100 mb-8'}`}>
-          <div className="flex items-center gap-2 mb-2">
-            <div className="bg-gradient-to-tr from-blue-600 to-indigo-600 p-2 rounded-lg text-white shadow-lg shadow-blue-500/30">
-              <Sparkles size={24} />
-            </div>
-            <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 tracking-tight">
-              Concierge Digital
-            </h1>
+      {/* Fixed Header with Logo */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/logos/inpi.png" alt="INPI" className="h-10" />
           </div>
-          {!hasSelection && (
-            <p className="text-slate-400 text-sm font-medium tracking-wide uppercase mt-2">
-              Base de Conhecimento Interna
-            </p>
-          )}
         </div>
+      </header>
+
+      {/* Main Content Area with Hero Section */}
+      <div 
+        className={`flex-1 flex flex-col items-center justify-center px-4 w-full transition-all duration-700 ease-in-out
+          ${hasSelection ? 'pt-24 pb-12' : 'pt-32 pb-20'}`}
+      >
+        {!hasSelection && (
+          <div className="max-w-4xl w-full text-center mb-12 animate-fadeIn">
+            {/* Icon and Title */}
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 blur-xl opacity-30"></div>
+                <div className="relative bg-gradient-to-br from-blue-600 to-indigo-700 p-4 rounded-2xl text-white shadow-2xl">
+                  <i className="fas fa-bell-concierge text-3xl"></i>
+                </div>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 tracking-tight">
+                Concierge Digital
+              </h1>
+            </div>
+            
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+              Os serviços de gestão de pessoas na palma da sua mão
+            </p>
+          </div>
+        )}
+
+        {hasSelection && (
+          <div className="max-w-4xl w-full text-center mb-8">
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="bg-gradient-to-br from-blue-600 to-indigo-700 p-2 rounded-xl text-white shadow-lg">
+                <i className="fas fa-bell-concierge text-lg"></i>
+              </div>
+              <h1 className="text-2xl font-bold text-slate-900">
+                Concierge Digital
+              </h1>
+            </div>
+          </div>
+        )}
 
         {/* Search Container */}
-        <div className="w-full max-w-2xl relative z-20" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-20 mb-8" ref={searchContainerRef}>
           <div 
             className={`
               relative flex items-center w-full transition-all duration-300
-              ${isFocused ? 'shadow-2xl scale-[1.01]' : 'shadow-lg hover:shadow-xl'}
-              bg-white rounded-2xl border border-slate-100
+              ${isFocused ? 'shadow-2xl ring-2 ring-blue-500/20' : 'shadow-xl hover:shadow-2xl'}
+              bg-white rounded-2xl border-2 ${isFocused ? 'border-blue-500' : 'border-slate-200'}
             `}
           >
-            <div className="pl-5 text-slate-400">
-              <Search size={20} />
+            <div className="pl-6 text-slate-400">
+              <Search size={22} />
             </div>
             <input
               type="text"
@@ -158,8 +177,8 @@ export default function App() {
                 setIsFocused(true);
               }}
               onFocus={() => setIsFocused(true)}
-              placeholder="Como posso ajudar você hoje?"
-              className="w-full py-4 px-4 bg-transparent outline-none text-lg text-slate-700 placeholder:text-slate-300 rounded-2xl"
+              placeholder="Pesquisar em Recursos Humanos..."
+              className="w-full py-5 px-5 bg-transparent outline-none text-lg text-slate-700 placeholder:text-slate-400 rounded-2xl font-medium"
               autoComplete="off"
             />
             {query && (
@@ -305,29 +324,36 @@ export default function App() {
         )}
       </div>
 
-      {/* Footer (Only visible when no selection to keep look clean) */}
-      {!hasSelection && (
-        <footer className="w-full py-8 px-4">
-          {/* Logos */}
-          <div className="flex items-center justify-center gap-8 mb-6 flex-wrap">
-            <img src="/logos/dirad.png" alt="DIRAD" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
-            <img src="/logos/cgrh.png" alt="CGRH" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
-            <img src="/logos/acad.png" alt="ACAD" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
-            <img src="/logos/cetec.png" alt="CETEC" className="h-12 opacity-60 hover:opacity-100 transition-opacity" />
+      {/* Footer with Sliding Logos */}
+      <footer className="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white py-8 px-4 overflow-hidden">
+        {/* Animated Logos Slider */}
+        <div className="mb-6 relative">
+          <div className="flex items-center gap-12 animate-slideLogos whitespace-nowrap">
+            <img src="/logos/dirad.png" alt="DIRAD" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/cgrh.png" alt="CGRH" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/acad.png" alt="ACAD" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/cetec.png" alt="CETEC" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            {/* Duplicate for seamless loop */}
+            <img src="/logos/dirad.png" alt="DIRAD" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/cgrh.png" alt="CGRH" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/acad.png" alt="ACAD" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
+            <img src="/logos/cetec.png" alt="CETEC" className="h-10 opacity-70 hover:opacity-100 transition-opacity inline-block" />
           </div>
-          
-          {/* Divider */}
-          <div className="w-full max-w-md mx-auto h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent mb-4"></div>
-          
-          {/* Copyright */}
-          <div className="text-center text-slate-400 text-sm">
-            <p className="font-medium text-slate-500">&copy; 2025 Departamento de Gestão de Pessoas</p>
-            <p className="text-xs mt-1">
-              {(database as DatabaseItem[]).length} documentos disponíveis
-            </p>
-          </div>
-        </footer>
-      )}
+        </div>
+        
+        {/* Divider */}
+        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-600 to-transparent mb-6"></div>
+        
+        {/* Copyright and Info */}
+        <div className="text-center">
+          <p className="text-slate-300 text-sm font-medium mb-2">
+            &copy; 2025 Academia de Propriedade Intelectual, Inovação e Desenvolvimento
+          </p>
+          <p className="text-slate-500 text-xs">
+            {(database as DatabaseItem[]).length} documentos disponíveis
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -35,6 +35,26 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
+/* Sliding logos animation */
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slideLogos {
+  animation: slideLogos 20s linear infinite;
+  display: inline-flex;
+  align-items: center;
+}
+
+.animate-slideLogos:hover {
+  animation-play-state: paused;
+}
+
 /* Line clamp utility */
 .line-clamp-2 {
   display: -webkit-box;
