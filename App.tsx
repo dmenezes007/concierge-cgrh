@@ -181,7 +181,7 @@ export default function App() {
           ${hasSelection ? 'pt-20 sm:pt-24 pb-8 sm:pb-12 justify-start' : 'pt-24 sm:pt-32 pb-12 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
-          <div className="max-w-4xl w-full text-center mb-6 sm:mb-10 animate-fadeIn">
+          <div className="max-w-4xl w-full text-center mb-4 sm:mb-6 md:mb-10 animate-fadeIn">
             {/* Icon and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-4">
               <div className="relative mb-2 sm:mb-0">
@@ -196,7 +196,7 @@ export default function App() {
             </div>
             
             {/* Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-10 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-10 px-4">
               Os serviços de gestão de pessoas na palma da sua mão
             </p>
           </div>
@@ -216,7 +216,7 @@ export default function App() {
         )}
 
         {/* Search Container */}
-        <div className="w-full max-w-3xl relative z-20 mb-4 sm:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-20 mb-3 sm:mb-4 md:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
           <div
             className={`
               relative flex items-center w-full transition-all duration-300 animate-shimmer
@@ -401,9 +401,9 @@ export default function App() {
       </div>
 
       {/* Footer with Sliding Logos */}
-      <footer className="relative bg-white border-t border-slate-200 py-6 sm:py-8 md:py-10 px-4 overflow-hidden">
+      <footer className="relative bg-white border-t border-slate-200 py-4 sm:py-8 md:py-10 px-4 overflow-hidden">
         {/* Animated Logos Slider */}
-        <div className="mb-6 sm:mb-8 relative overflow-hidden">
+        <div className="mb-3 sm:mb-6 md:mb-8 relative overflow-hidden">
           <div className="flex items-center gap-8 sm:gap-12 md:gap-16 animate-slideLogos whitespace-nowrap">
             {/* First set */}
             <img src="/logos/dirad.png" alt="DIRAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
@@ -427,7 +427,7 @@ export default function App() {
         </div>
         
         {/* Divider */}
-        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-4 sm:mb-6"></div>
+        <div className="w-full max-w-4xl mx-auto h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent mb-3 sm:mb-4 md:mb-6"></div>
         
         {/* Copyright and Info */}
         <div className="text-center px-4">
