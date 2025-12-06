@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search, X, ChevronRight, ExternalLink, ArrowRight, LucideIcon } from 'lucide-react';
+import { Search, X, ChevronRight, ExternalLink, ArrowRight, LucideIcon, Volume2, VolumeX } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import Card from './components/Card';
 import ContentRenderer from './components/ContentRenderer';
@@ -77,7 +77,46 @@ export default function App() {
   const [selectedItem, setSelectedItem] = useState<DatabaseItem | null>(null);
   const [isFocused, setIsFocused] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [isReading, setIsReading] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Text-to-Speech handlers
+  const handleReadText = () => {
+    if (!selectedItem) return;
+
+    if (isReading) {
+      // Parar leitura
+      window.speechSynthesis.cancel();
+      setIsReading(false);
+      return;
+    }
+
+    // Extrair todo o texto do conteúdo
+    const textToRead = [
+      selectedItem.title,
+      selectedItem.description,
+      ...selectedItem.sections.map(section => section.content || section.items?.join('. ') || '').filter(Boolean)
+    ].join('. ');
+
+    const utterance = new SpeechSynthesisUtterance(textToRead);
+    utterance.lang = 'pt-BR';
+    utterance.rate = 0.9;
+    utterance.pitch = 1.0;
+
+    utterance.onstart = () => setIsReading(true);
+    utterance.onend = () => setIsReading(false);
+    utterance.onerror = () => setIsReading(false);
+
+    window.speechSynthesis.speak(utterance);
+  };
+
+  // Parar leitura quando trocar de documento
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis.cancel();
+      setIsReading(false);
+    };
+  }, [selectedItem]);
 
   // Voice recognition handler
   const handleVoiceSearch = () => {
@@ -428,23 +467,42 @@ export default function App() {
                     {selectedItem.title}
                   </h2>
                   
-                  {/* Botão Acessar na Intranet */}
-                  {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
-                    <a 
-                      href={selectedItem.externalLink} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 mt-3 sm:mt-4 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 no-underline"
+                  {/* Botões de ação */}
+                  <div className="flex items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
+                    {/* Botão Ler Texto */}
+                    <button
+                      onClick={handleReadText}
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105"
                       style={{
-                        background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`,
-                        color: '#ffffff',
-                        textDecoration: 'none'
+                        background: isReading 
+                          ? `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
+                          : `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`,
+                        color: '#ffffff'
                       }}
+                      title={isReading ? 'Parar leitura' : 'Ler texto'}
                     >
-                      <ExternalLink size={14} className="sm:w-4 sm:h-4" />
-                      ACESSAR NA INTRANET
-                    </a>
-                  )}
+                      {isReading ? <VolumeX size={14} className="sm:w-4 sm:h-4" /> : <Volume2 size={14} className="sm:w-4 sm:h-4" />}
+                      {isReading ? 'PARAR' : 'LER TEXTO'}
+                    </button>
+                    
+                    {/* Botão Acessar na Intranet */}
+                    {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
+                      <a 
+                        href={selectedItem.externalLink} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 no-underline"
+                        style={{
+                          background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`,
+                          color: '#ffffff',
+                          textDecoration: 'none'
+                        }}
+                      >
+                        <ExternalLink size={14} className="sm:w-4 sm:h-4" />
+                        ACESSAR NA INTRANET
+                      </a>
+                    )}
+                  </div>
                   
                   <p className="text-sm sm:text-base text-slate-600 mt-3 sm:mt-4 font-light">
                     {selectedItem.description}
