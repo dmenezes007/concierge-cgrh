@@ -76,7 +76,48 @@ export default function App() {
   const [query, setQuery] = useState('');
   const [selectedItem, setSelectedItem] = useState<DatabaseItem | null>(null);
   const [isFocused, setIsFocused] = useState(false);
+  const [isListening, setIsListening] = useState(false);
   const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Voice recognition handler
+  const handleVoiceSearch = () => {
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+    
+    if (!SpeechRecognition) {
+      alert('Reconhecimento de voz não suportado neste navegador. Use Chrome ou Edge.');
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'pt-BR';
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      setIsListening(true);
+    };
+
+    recognition.onresult = (event: any) => {
+      const transcript = event.results[0][0].transcript;
+      setQuery(transcript);
+      setSelectedItem(null);
+      setIsFocused(true);
+    };
+
+    recognition.onerror = (event: any) => {
+      console.error('Erro no reconhecimento de voz:', event.error);
+      setIsListening(false);
+      if (event.error === 'not-allowed') {
+        alert('Permissão de microfone negada. Permita o acesso ao microfone nas configurações do navegador.');
+      }
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.start();
+  };
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -244,6 +285,20 @@ export default function App() {
               className="w-full py-3 sm:py-4 md:py-5 px-3 sm:px-4 md:px-5 bg-transparent outline-none text-base sm:text-lg text-slate-700 placeholder:text-slate-400 rounded-2xl font-medium"
               autoComplete="off"
             />
+            
+            {/* Voice Search Button */}
+            <button 
+              onClick={handleVoiceSearch}
+              className={`px-3 text-slate-400 hover:text-blue-500 transition-colors ${isListening ? 'animate-pulse text-red-500' : ''}`}
+              title="Pesquisar por voz"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" x2="12" y1="19" y2="22"></line>
+              </svg>
+            </button>
+            
             {query && (
               <button 
                 onClick={handleClear}
