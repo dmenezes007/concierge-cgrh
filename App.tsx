@@ -134,10 +134,18 @@ export default function App() {
   const suggestions = useMemo(() => {
     if (!query) return [];
     const normalizedQuery = normalizeText(query);
-    return (database as DatabaseItem[]).filter(item => 
-      normalizeText(item.title).includes(normalizedQuery) || 
-      normalizeText(item.keywords).includes(normalizedQuery)
-    );
+    return (database as DatabaseItem[]).filter(item => {
+      // Busca no título e keywords
+      const titleMatch = normalizeText(item.title).includes(normalizedQuery);
+      const keywordsMatch = normalizeText(item.keywords).includes(normalizedQuery);
+      
+      // Busca no conteúdo completo (todas as seções)
+      const contentMatch = item.sections.some(section => 
+        normalizeText(section.content).includes(normalizedQuery)
+      );
+      
+      return titleMatch || keywordsMatch || contentMatch;
+    });
   }, [query]);
 
   const handleSelect = (item: DatabaseItem) => {
@@ -379,7 +387,7 @@ export default function App() {
           {/* Aviso sobre IA */}
           <div className="mt-3 text-center px-4">
             <p className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-2">
-              <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
+              <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
               <strong>AVISO:</strong> Não utilizamos recursos de IA. Digite palavras-chave para encontrar a informação que você procura.
             </p>
           </div>
