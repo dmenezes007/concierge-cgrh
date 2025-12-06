@@ -130,18 +130,18 @@ h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select, a, li {
   animation: fadeIn 0.5s ease-out;
 }
 
-/* Sliding logos animation */
+/* Sliding logos animation - Infinite seamless loop */
 @keyframes slideLogos {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-100% / 3));
+    transform: translateX(-50%);
   }
 }
 
 .animate-slideLogos {
-  animation: slideLogos 10s linear infinite;
+  animation: slideLogos 20s linear infinite;
   display: inline-flex;
   align-items: center;
   will-change: transform;

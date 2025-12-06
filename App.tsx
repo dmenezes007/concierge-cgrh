@@ -773,13 +773,7 @@ export default function App() {
             <img src="/logos/coarh.png" alt="COARH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
             <img src="/logos/acad.png" alt="ACAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
             <img src="/logos/cetec.png" alt="CETEC" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            {/* Second set - seamless duplicate */}
-            <img src="/logos/dirad.png" alt="DIRAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            <img src="/logos/cgrh.png" alt="CGRH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            <img src="/logos/coarh.png" alt="COARH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            <img src="/logos/acad.png" alt="ACAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            <img src="/logos/cetec.png" alt="CETEC" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
-            {/* Third set - extra buffer */}
+            {/* Second set - seamless duplicate for infinite loop */}
             <img src="/logos/dirad.png" alt="DIRAD" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
             <img src="/logos/cgrh.png" alt="CGRH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
             <img src="/logos/coarh.png" alt="COARH" className="h-8 sm:h-10 opacity-40 hover:opacity-100 transition-opacity inline-block grayscale hover:grayscale-0 flex-shrink-0" />
