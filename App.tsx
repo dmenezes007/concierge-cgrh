@@ -140,9 +140,9 @@ export default function App() {
       const keywordsMatch = normalizeText(item.keywords).includes(normalizedQuery);
       
       // Busca no conteúdo completo (todas as seções)
-      const contentMatch = item.sections.some(section => 
-        normalizeText(section.content).includes(normalizedQuery)
-      );
+      const contentMatch = item.sections?.some(section => 
+        section?.content && normalizeText(section.content).includes(normalizedQuery)
+      ) || false;
       
       return titleMatch || keywordsMatch || contentMatch;
     });
