@@ -134,17 +134,19 @@ export default function App() {
   const suggestions = useMemo(() => {
     if (!query) return [];
     const normalizedQuery = normalizeText(query);
+    const queryWords = normalizedQuery.split(/\s+/).filter(word => word.length > 0);
+    
     return (database as DatabaseItem[]).filter(item => {
-      // Busca no título e keywords
-      const titleMatch = normalizeText(item.title).includes(normalizedQuery);
-      const keywordsMatch = normalizeText(item.keywords).includes(normalizedQuery);
-      
-      // Busca no conteúdo completo (todas as seções)
-      const contentMatch = item.sections?.some(section => 
-        section?.content && normalizeText(section.content).includes(normalizedQuery)
-      ) || false;
-      
-      return titleMatch || keywordsMatch || contentMatch;
+      // Para cada palavra da busca, verifica se existe no título, keywords ou conteúdo
+      return queryWords.every(word => {
+        const titleMatch = normalizeText(item.title).includes(word);
+        const keywordsMatch = normalizeText(item.keywords).includes(word);
+        const contentMatch = item.sections?.some(section => 
+          section?.content && normalizeText(section.content).includes(word)
+        ) || false;
+        
+        return titleMatch || keywordsMatch || contentMatch;
+      });
     });
   }, [query]);
 
