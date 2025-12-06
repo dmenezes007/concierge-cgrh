@@ -102,18 +102,43 @@ export default function App() {
     }
   }, [selectedItem]);
 
-  // Função para carregar avaliações da API
+  // Função para carregar avaliações (API ou localStorage)
   const loadRatings = async (documentId: string) => {
     try {
+      // Tentar carregar da API primeiro
       const response = await fetch(`/api/ratings?documentId=${documentId}`);
-      const data = await response.json();
       
-      setRatings(prev => ({
-        ...prev,
-        [documentId]: data
-      }));
+      if (response.ok) {
+        const data = await response.json();
+        setRatings(prev => ({
+          ...prev,
+          [documentId]: data
+        }));
+      } else {
+        // Fallback para localStorage
+        loadRatingsFromLocalStorage(documentId);
+      }
     } catch (error) {
-      console.error('Erro ao carregar avaliações:', error);
+      // Fallback para localStorage em caso de erro
+      loadRatingsFromLocalStorage(documentId);
+    }
+  };
+
+  // Carregar avaliações do localStorage
+  const loadRatingsFromLocalStorage = (documentId: string) => {
+    const storedRatings = localStorage.getItem('concierge-ratings');
+    if (storedRatings) {
+      try {
+        const allRatings = JSON.parse(storedRatings);
+        if (allRatings[documentId]) {
+          setRatings(prev => ({
+            ...prev,
+            [documentId]: allRatings[documentId]
+          }));
+        }
+      } catch (e) {
+        console.error('Erro ao carregar avaliações do localStorage:', e);
+      }
     }
   };
 
@@ -124,6 +149,7 @@ export default function App() {
     const documentId = selectedItem.id;
     
     try {
+      // Tentar salvar na API
       const response = await fetch('/api/ratings', {
         method: 'POST',
         headers: {
@@ -132,25 +158,63 @@ export default function App() {
         body: JSON.stringify({ documentId, rating })
       });
 
-      if (!response.ok) {
-        throw new Error('Erro ao salvar avaliação');
+      if (response.ok) {
+        const data = await response.json();
+        
+        // Atualizar estado com dados da API
+        setRatings(prev => ({
+          ...prev,
+          [documentId]: data
+        }));
+        
+        // Salvar avaliação do usuário no localStorage
+        setUserRating(rating);
+        localStorage.setItem(`user-rating-${documentId}`, rating.toString());
+      } else {
+        // Fallback para localStorage
+        saveRatingToLocalStorage(documentId, rating);
       }
-
-      const data = await response.json();
-      
-      // Atualizar estado com dados da API
-      setRatings(prev => ({
-        ...prev,
-        [documentId]: data
-      }));
-      
-      // Salvar avaliação do usuário no localStorage
-      setUserRating(rating);
-      localStorage.setItem(`user-rating-${documentId}`, rating.toString());
     } catch (error) {
-      console.error('Erro ao salvar avaliação:', error);
-      alert('Erro ao salvar avaliação. Tente novamente.');
+      console.error('API indisponível, usando localStorage:', error);
+      // Fallback para localStorage
+      saveRatingToLocalStorage(documentId, rating);
     }
+  };
+
+  // Salvar avaliação no localStorage
+  const saveRatingToLocalStorage = (documentId: string, rating: number) => {
+    const storedRatings = localStorage.getItem('concierge-ratings');
+    let allRatings: Record<string, Rating> = {};
+    
+    if (storedRatings) {
+      try {
+        allRatings = JSON.parse(storedRatings);
+      } catch (e) {
+        console.error('Erro ao parsear ratings:', e);
+      }
+    }
+
+    const currentRatings = allRatings[documentId] || { documentId, ratings: [], average: 0, count: 0 };
+    const newRatings = [...currentRatings.ratings, rating];
+    const newAverage = newRatings.reduce((sum, r) => sum + r, 0) / newRatings.length;
+    
+    const updatedRating: Rating = {
+      documentId,
+      ratings: newRatings,
+      average: Math.round(newAverage * 10) / 10,
+      count: newRatings.length
+    };
+
+    allRatings[documentId] = updatedRating;
+    localStorage.setItem('concierge-ratings', JSON.stringify(allRatings));
+    
+    setRatings(prev => ({
+      ...prev,
+      [documentId]: updatedRating
+    }));
+    
+    setUserRating(rating);
+    localStorage.setItem(`user-rating-${documentId}`, rating.toString());
   };
 
   // Text-to-Speech handlers
