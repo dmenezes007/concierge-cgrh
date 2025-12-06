@@ -94,11 +94,20 @@ export default function App() {
     // Função para limpar texto antes da leitura
     const cleanTextForSpeech = (text: string): string => {
       return text
+        // Remover ícones e emojis (Unicode)
+        .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
+        // Remover símbolos de anexo/ícones comuns
+        .replace(/📎|📋|📄|📁|🔗|⚠️|ℹ️|✓|✔|✅|❌|⭐|🔔/g, '')
+        // Remover texto de ícones (ex: "anex", "icon", "emoji")
+        .replace(/\b(anex|icon|emoji|symbol|bullet|arrow)\b/gi, '')
         // Remover e-mails
         .replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '')
         // Remover URLs/links
         .replace(/https?:\/\/[^\s]+/g, '')
         .replace(/www\.[^\s]+/g, '')
+        // Remover caminhos de arquivo
+        .replace(/[A-Za-z]:\\[^\s]+/g, '')
+        .replace(/\/[^\s]+\.(jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|zip)/gi, '')
         // Remover caracteres especiais isolados (mantém pontuação normal)
         .replace(/[^\w\sáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ.,!?;:()\-]/g, ' ')
         // Remover múltiplos espaços
