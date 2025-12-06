@@ -90,52 +90,67 @@ export default function App() {
   const [hoveredStar, setHoveredStar] = useState<number>(0);
   const searchContainerRef = useRef<HTMLDivElement>(null);
 
-  // Carregar avaliações do localStorage
-  useEffect(() => {
-    const storedRatings = localStorage.getItem('concierge-ratings');
-    if (storedRatings) {
-      try {
-        setRatings(JSON.parse(storedRatings));
-      } catch (e) {
-        console.error('Erro ao carregar avaliações:', e);
-      }
-    }
-  }, []);
-
-  // Carregar avaliação do usuário para o documento atual
+  // Carregar avaliações do documento atual
   useEffect(() => {
     if (selectedItem) {
+      loadRatings(selectedItem.id);
+      
+      // Carregar avaliação do usuário do localStorage
       const userRatingKey = `user-rating-${selectedItem.id}`;
       const savedUserRating = localStorage.getItem(userRatingKey);
       setUserRating(savedUserRating ? parseInt(savedUserRating) : 0);
     }
   }, [selectedItem]);
 
+  // Função para carregar avaliações da API
+  const loadRatings = async (documentId: string) => {
+    try {
+      const response = await fetch(`/api/ratings?documentId=${documentId}`);
+      const data = await response.json();
+      
+      setRatings(prev => ({
+        ...prev,
+        [documentId]: data
+      }));
+    } catch (error) {
+      console.error('Erro ao carregar avaliações:', error);
+    }
+  };
+
   // Função para adicionar avaliação
-  const handleRate = (rating: number) => {
+  const handleRate = async (rating: number) => {
     if (!selectedItem) return;
 
     const documentId = selectedItem.id;
-    const currentRatings = ratings[documentId] || { documentId, ratings: [], average: 0, count: 0 };
     
-    // Adicionar nova avaliação
-    const newRatings = [...currentRatings.ratings, rating];
-    const newAverage = newRatings.reduce((sum, r) => sum + r, 0) / newRatings.length;
-    
-    const updatedRating: Rating = {
-      documentId,
-      ratings: newRatings,
-      average: Math.round(newAverage * 10) / 10, // Uma casa decimal
-      count: newRatings.length
-    };
+    try {
+      const response = await fetch('/api/ratings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ documentId, rating })
+      });
 
-    const updatedRatings = { ...ratings, [documentId]: updatedRating };
-    setRatings(updatedRatings);
-    localStorage.setItem('concierge-ratings', JSON.stringify(updatedRatings));
-    
-    // Salvar avaliação do usuário
-    setUserRating(rating);
-    localStorage.setItem(`user-rating-${documentId}`, rating.toString());
+      if (!response.ok) {
+        throw new Error('Erro ao salvar avaliação');
+      }
+
+      const data = await response.json();
+      
+      // Atualizar estado com dados da API
+      setRatings(prev => ({
+        ...prev,
+        [documentId]: data
+      }));
+      
+      // Salvar avaliação do usuário no localStorage
+      setUserRating(rating);
+      localStorage.setItem(`user-rating-${documentId}`, rating.toString());
+    } catch (error) {
+      console.error('Erro ao salvar avaliação:', error);
+      alert('Erro ao salvar avaliação. Tente novamente.');
+    }
   };
 
   // Text-to-Speech handlers
