@@ -91,12 +91,31 @@ export default function App() {
       return;
     }
 
-    // Extrair todo o texto do conteúdo
-    const textToRead = [
+    // Função para limpar texto antes da leitura
+    const cleanTextForSpeech = (text: string): string => {
+      return text
+        // Remover e-mails
+        .replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '')
+        // Remover URLs/links
+        .replace(/https?:\/\/[^\s]+/g, '')
+        .replace(/www\.[^\s]+/g, '')
+        // Remover caracteres especiais isolados (mantém pontuação normal)
+        .replace(/[^\w\sáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ.,!?;:()\-]/g, ' ')
+        // Remover múltiplos espaços
+        .replace(/\s+/g, ' ')
+        // Remover espaços antes de pontuação
+        .replace(/\s+([.,!?;:])/g, '$1')
+        .trim();
+    };
+
+    // Extrair e limpar todo o texto do conteúdo
+    const rawText = [
       selectedItem.title,
       selectedItem.description,
       ...selectedItem.sections.map(section => section.content || section.items?.join('. ') || '').filter(Boolean)
     ].join('. ');
+
+    const textToRead = cleanTextForSpeech(rawText);
 
     const utterance = new SpeechSynthesisUtterance(textToRead);
     utterance.lang = 'pt-BR';
