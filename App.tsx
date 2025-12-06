@@ -232,7 +232,7 @@ export default function App() {
 
       {/* Main Content Area with Hero Section */}
       <div 
-        className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out overflow-y-auto
+        className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out
           ${hasSelection ? 'pt-16 sm:pt-24 pb-4 sm:pb-12 justify-start' : 'pt-16 sm:pt-32 pb-4 sm:pb-20 justify-center'}`}
       >
         {!hasSelection && (
@@ -463,32 +463,6 @@ export default function App() {
             <Card className="prose prose-slate prose-lg max-w-none">
               <ContentRenderer sections={selectedItem.sections} color={selectedItem.color} />
             </Card>
-
-            {/* External Link */}
-            {selectedItem.externalLink && selectedItem.externalLink !== '#' && (
-              <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-100 flex justify-end">
-                <a 
-                  href={selectedItem.externalLink} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="group inline-flex items-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full text-sm sm:text-base font-medium shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 text-white"
-                  style={{
-                    background: `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = `linear-gradient(to right, ${COLOR_GRADIENTS[selectedItem.color.bg]?.to || '#2563eb'}, ${COLOR_GRADIENTS[selectedItem.color.bg]?.hover || '#1d4ed8'})`;
-                  }}
-                >
-                  <span className="hidden sm:inline">Acessar Documentação Original</span>
-                  <span className="sm:hidden">Ver Documentação</span>
-                  <ExternalLink size={14} className="sm:w-4 sm:h-4 group-hover:hidden" />
-                  <ArrowRight size={14} className="sm:w-4 sm:h-4 hidden group-hover:block animate-pulse" />
-                </a>
-              </div>
-            )}
           </main>
         )}
       </div>
