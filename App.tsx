@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Search, X, ChevronRight, ExternalLink, ArrowRight, LucideIcon, Volume2, VolumeX } from 'lucide-react';
+import { Search, X, ChevronRight, ExternalLink, ArrowRight, LucideIcon, Volume2, VolumeX, Star } from 'lucide-react';
 import * as Icons from 'lucide-react';
 import Card from './components/Card';
 import ContentRenderer from './components/ContentRenderer';
@@ -27,6 +27,13 @@ interface DatabaseItem {
   sections: Section[];
   externalLink: string;
   lastModified: string;
+}
+
+interface Rating {
+  documentId: string;
+  ratings: number[];
+  average: number;
+  count: number;
 }
 
 // --- Helper to get Icon Component ---
@@ -78,7 +85,58 @@ export default function App() {
   const [isFocused, setIsFocused] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [isReading, setIsReading] = useState(false);
+  const [ratings, setRatings] = useState<Record<string, Rating>>({});
+  const [userRating, setUserRating] = useState<number>(0);
+  const [hoveredStar, setHoveredStar] = useState<number>(0);
   const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Carregar avaliações do localStorage
+  useEffect(() => {
+    const storedRatings = localStorage.getItem('concierge-ratings');
+    if (storedRatings) {
+      try {
+        setRatings(JSON.parse(storedRatings));
+      } catch (e) {
+        console.error('Erro ao carregar avaliações:', e);
+      }
+    }
+  }, []);
+
+  // Carregar avaliação do usuário para o documento atual
+  useEffect(() => {
+    if (selectedItem) {
+      const userRatingKey = `user-rating-${selectedItem.id}`;
+      const savedUserRating = localStorage.getItem(userRatingKey);
+      setUserRating(savedUserRating ? parseInt(savedUserRating) : 0);
+    }
+  }, [selectedItem]);
+
+  // Função para adicionar avaliação
+  const handleRate = (rating: number) => {
+    if (!selectedItem) return;
+
+    const documentId = selectedItem.id;
+    const currentRatings = ratings[documentId] || { documentId, ratings: [], average: 0, count: 0 };
+    
+    // Adicionar nova avaliação
+    const newRatings = [...currentRatings.ratings, rating];
+    const newAverage = newRatings.reduce((sum, r) => sum + r, 0) / newRatings.length;
+    
+    const updatedRating: Rating = {
+      documentId,
+      ratings: newRatings,
+      average: Math.round(newAverage * 10) / 10, // Uma casa decimal
+      count: newRatings.length
+    };
+
+    const updatedRatings = { ...ratings, [documentId]: updatedRating };
+    setRatings(updatedRatings);
+    localStorage.setItem('concierge-ratings', JSON.stringify(updatedRatings));
+    
+    // Salvar avaliação do usuário
+    setUserRating(rating);
+    localStorage.setItem(`user-rating-${documentId}`, rating.toString());
+  };
 
   // Text-to-Speech handlers
   const handleReadText = () => {
@@ -545,9 +603,81 @@ export default function App() {
               </div>
             </Card>
 
+            {/* Rating Component - Top */}
+            <Card className="mb-6 sm:mb-8">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm sm:text-base font-medium text-slate-700">Avalie este conteúdo:</span>
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        onClick={() => handleRate(star)}
+                        onMouseEnter={() => setHoveredStar(star)}
+                        onMouseLeave={() => setHoveredStar(0)}
+                        className="transition-transform hover:scale-110 focus:outline-none"
+                      >
+                        <Star
+                          size={24}
+                          className={`${
+                            star <= (hoveredStar || userRating)
+                              ? 'fill-yellow-400 text-yellow-400'
+                              : 'text-slate-300'
+                          } transition-colors`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                {ratings[selectedItem.id] && ratings[selectedItem.id].count > 0 && (
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <Star size={20} className="fill-yellow-400 text-yellow-400" />
+                    <span className="font-bold text-slate-900">{ratings[selectedItem.id].average.toFixed(1)}</span>
+                    <span className="text-slate-500">({ratings[selectedItem.id].count} {ratings[selectedItem.id].count === 1 ? 'avaliação' : 'avaliações'})</span>
+                  </div>
+                )}
+              </div>
+            </Card>
+
             {/* Content Card */}
             <Card className="prose prose-slate prose-lg max-w-none">
               <ContentRenderer sections={selectedItem.sections} color={selectedItem.color} />
+            </Card>
+
+            {/* Rating Component - Bottom */}
+            <Card className="mt-6 sm:mt-8">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm sm:text-base font-medium text-slate-700">Avalie este conteúdo:</span>
+                  <div className="flex items-center gap-1">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <button
+                        key={star}
+                        onClick={() => handleRate(star)}
+                        onMouseEnter={() => setHoveredStar(star)}
+                        onMouseLeave={() => setHoveredStar(0)}
+                        className="transition-transform hover:scale-110 focus:outline-none"
+                      >
+                        <Star
+                          size={24}
+                          className={`${
+                            star <= (hoveredStar || userRating)
+                              ? 'fill-yellow-400 text-yellow-400'
+                              : 'text-slate-300'
+                          } transition-colors`}
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                {ratings[selectedItem.id] && ratings[selectedItem.id].count > 0 && (
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <Star size={20} className="fill-yellow-400 text-yellow-400" />
+                    <span className="font-bold text-slate-900">{ratings[selectedItem.id].average.toFixed(1)}</span>
+                    <span className="text-slate-500">({ratings[selectedItem.id].count} {ratings[selectedItem.id].count === 1 ? 'avaliação' : 'avaliações'})</span>
+                  </div>
+                )}
+              </div>
             </Card>
           </main>
         )}
