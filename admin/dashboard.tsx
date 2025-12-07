@@ -230,7 +230,7 @@ export default function AdminDashboard() {
                 <a
                   href="/"
                   className="px-6 py-2 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors"
-                  style={{ textDecoration: 'none' }}
+                  style={{ textDecoration: 'none', fontWeight: '700' }}
                 >
                   IR PARA CONCIERGE RH DIGITAL
                 </a>

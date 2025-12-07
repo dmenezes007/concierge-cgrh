@@ -132,7 +132,7 @@ export default function AdminLogin() {
           <a 
             href="/" 
             className="inline-block px-6 py-3 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors"
-            style={{ textDecoration: 'none' }}
+            style={{ textDecoration: 'none', fontWeight: '700' }}
           >
             IR PARA CONCIERGE RH DIGITAL
           </a>
