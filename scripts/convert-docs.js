@@ -198,7 +198,15 @@ function loadExcelData() {
     const link = row['Link'] || row['link'];
     
     if (pagina) {
-      excelMap[pagina] = {
+      // Normalizar o nome para matching
+      const normalizedName = pagina.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim();
+      
+      excelMap[normalizedName] = {
+        originalName: pagina,
         description: descricao || 'Informações sobre recursos humanos.',
         externalLink: link || '#'
       };
@@ -225,10 +233,44 @@ async function convertDocxToJson(docxPath, excelData = {}) {
     const icon = getIconForTitle(fileName);
     const color = getColorForTitle(fileName);
     
-    // Usar descrição e link da planilha se disponível
-    const excelInfo = excelData[fileName] || {};
-    const description = excelInfo.description || generateShortDescription(sections);
-    const externalLink = excelInfo.externalLink || '#';
+    // Normalizar nome do arquivo para buscar na planilha
+    const normalizedFileName = fileName.toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+    
+    // Mapeamento manual para casos especiais
+    const manualMapping = {
+      'selecao interna e externa': 'selecao interna/externa'
+    };
+    
+    const searchName = manualMapping[normalizedFileName] || normalizedFileName;
+    
+    // Buscar por correspondência exata ou parcial
+    let excelInfo = excelData[searchName];
+    
+    // Se não encontrou, tentar buscar por substring (ex: "Programa de Gestão" em "Programa de Gestão e Desempenho")
+    if (!excelInfo) {
+      const matchingKey = Object.keys(excelData).find(key => 
+        searchName.includes(key) || key.includes(searchName) ||
+        searchName.replace(/\//g, ' ').includes(key) || // Tentar substituir / por espaço
+        key.replace(/\//g, ' ').includes(searchName)
+      );
+      if (matchingKey) {
+        excelInfo = excelData[matchingKey];
+      }
+    }
+    
+    const description = excelInfo?.description || generateShortDescription(sections);
+    const externalLink = excelInfo?.externalLink || '#';
+    
+    // Log de matching para debug
+    if (excelInfo) {
+      console.log(`   ✅ ${fileName} → Planilha encontrada: "${excelInfo.originalName}"`);
+    } else {
+      console.log(`   ⚠️  ${fileName} → Sem match na planilha, usando descrição automática`);
+    }
     
     return {
       id,
