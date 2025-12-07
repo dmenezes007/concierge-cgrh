@@ -148,15 +148,37 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleDownload = (filename: string) => {
-    // Create a download link for the document
-    const link = document.createElement('a');
-    link.href = `/docs/${encodeURIComponent(filename)}`;
-    link.download = filename;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setSuccess(`Download de "${filename}" iniciado`);
+  const handleDownload = async (filename: string) => {
+    try {
+      const token = localStorage.getItem('admin_token');
+      const response = await fetch(`/api/admin/download?filename=${encodeURIComponent(filename)}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        setError(data.error || 'Erro ao fazer download');
+        return;
+      }
+
+      // Create blob from response
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+      
+      setSuccess(`Download de "${filename}" iniciado`);
+    } catch (err) {
+      setError('Erro ao fazer download do documento');
+      console.error(err);
+    }
   };
 
   const handleLogout = () => {
