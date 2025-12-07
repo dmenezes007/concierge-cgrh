@@ -1,13 +1,21 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import bcrypt from 'bcryptjs';
 
-// Tentar importar KV, mas não falhar se não estiver disponível
+// Tentar importar KV de forma lazy
 let kv: any = null;
-try {
-  const kvModule = await import('@vercel/kv');
-  kv = kvModule.kv;
-} catch (error) {
-  console.warn('Vercel KV not available, sessions will be token-only');
+let kvInitialized = false;
+
+async function getKV() {
+  if (!kvInitialized) {
+    try {
+      const kvModule = await import('@vercel/kv');
+      kv = kvModule.kv;
+    } catch (error) {
+      console.warn('Vercel KV not available');
+    }
+    kvInitialized = true;
+  }
+  return kv;
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
@@ -42,10 +50,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           // Gerar token de sessão
           const token = crypto.randomUUID();
           
-          if (kv) {
+          const kvInstance = await getKV();
+          if (kvInstance) {
             try {
               // Tentar salvar no Vercel KV (expira em 1 hora)
-              await kv.set(`admin_session:${token}`, { 
+              await kvInstance.set(`admin_session:${token}`, { 
                 authenticated: true, 
                 timestamp: Date.now() 
               }, { ex: 3600 });
@@ -75,9 +84,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.status(400).json({ error: 'Token é obrigatório' });
         }
 
-        if (kv) {
+        const kvInstance = await getKV();
+        if (kvInstance) {
           try {
-            const session = await kv.get(`admin_session:${token}`);
+            const session = await kvInstance.get(`admin_session:${token}`);
             
             if (session) {
               return res.status(200).json({ valid: true });
@@ -100,9 +110,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (action === 'logout') {
         const { token } = req.body;
         
-        if (token && kv) {
+        const kvInstance = await getKV();
+        if (token && kvInstance) {
           try {
-            await kv.del(`admin_session:${token}`);
+            await kvInstance.del(`admin_session:${token}`);
           } catch (kvError) {
             console.warn('Erro ao deletar sessão do KV');
           }

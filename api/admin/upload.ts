@@ -5,13 +5,21 @@ import path from 'path';
 import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 
-// Tentar importar KV, mas não falhar se não estiver disponível
+// Tentar importar KV de forma lazy
 let kv: any = null;
-try {
-  const kvModule = await import('@vercel/kv');
-  kv = kvModule.kv;
-} catch (error) {
-  console.warn('Vercel KV not available, using token-only auth');
+let kvInitialized = false;
+
+async function getKV() {
+  if (!kvInitialized) {
+    try {
+      const kvModule = await import('@vercel/kv');
+      kv = kvModule.kv;
+    } catch (error) {
+      console.warn('Vercel KV not available');
+    }
+    kvInitialized = true;
+  }
+  return kv;
 }
 
 export const config = {
@@ -30,9 +38,10 @@ async function isAuthenticated(req: VercelRequest): Promise<boolean> {
 
   const token = authHeader.split(' ')[1];
 
-  if (kv) {
+  const kvInstance = await getKV();
+  if (kvInstance) {
     try {
-      const session = await kv.get(`admin_session:${token}`);
+      const session = await kvInstance.get(`admin_session:${token}`);
       return !!session;
     } catch (error) {
       console.warn('Erro ao validar token no KV');
