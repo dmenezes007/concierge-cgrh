@@ -108,26 +108,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Converter para HTML (preview)
     const result = await mammoth.convertToHtml({ buffer });
     
-    // Salvar o arquivo na pasta docs/
-    const docsPath = path.join(process.cwd(), 'docs');
-    if (!fs.existsSync(docsPath)) {
-      fs.mkdirSync(docsPath, { recursive: true });
-    }
+    // IMPORTANTE: No ambiente Vercel, o sistema de arquivos é read-only
+    // Exceto a pasta /tmp que é temporária e apagada após cada execução
+    // Para persistência, seria necessário usar um serviço externo como:
+    // - Vercel Blob Storage
+    // - AWS S3
+    // - Cloudinary
+    // - etc.
+    
+    // Por enquanto, vamos salvar em /tmp (temporário) e retornar informações
+    const tmpPath = path.join('/tmp', docxFile.originalFilename);
+    fs.copyFileSync(docxFile.filepath, tmpPath);
 
-    const targetPath = path.join(docsPath, docxFile.originalFilename);
-    fs.copyFileSync(docxFile.filepath, targetPath);
-
-    // Limpar arquivo temporário
+    // Limpar arquivo temporário do formidable
     fs.unlinkSync(docxFile.filepath);
 
     // Resposta
     return res.status(200).json({
       success: true,
-      message: 'Documento enviado com sucesso',
+      message: 'Upload recebido com sucesso',
       filename: docxFile.originalFilename,
       size: docxFile.size,
       preview: result.value.substring(0, 500) + '...', // Preview limitado
-      note: 'Execute "npm run convert-docs" para processar o documento'
+      warning: 'IMPORTANTE: O ambiente Vercel é read-only. Para adicionar documentos permanentemente, você deve fazer commit no GitHub. O arquivo foi processado mas não foi salvo permanentemente.',
+      instructions: 'Para adicionar documentos: 1) Adicione o arquivo .docx na pasta docs/ localmente, 2) Execute "npm run convert-docs", 3) Faça commit e push para o GitHub'
     });
 
   } catch (error: any) {

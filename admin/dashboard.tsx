@@ -106,9 +106,11 @@ export default function AdminDashboard() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess(`Documento "${selectedFile.name}" enviado com sucesso! Execute "npm run convert-docs" para processá-lo.`);
+        const message = data.warning || data.message || 'Upload processado';
+        const instructions = data.instructions ? `\n\n${data.instructions}` : '';
+        setSuccess(`${message}${instructions}`);
         setSelectedFile(null);
-        loadDocuments();
+        // Não recarregar documentos pois o arquivo não foi salvo permanentemente
       } else {
         setError(data.error || 'Erro ao enviar documento');
       }
@@ -140,7 +142,9 @@ export default function AdminDashboard() {
         setSuccess(`Documento "${filename}" deletado com sucesso`);
         loadDocuments();
       } else {
-        setError(data.error || 'Erro ao deletar documento');
+        // Mostrar mensagem explicativa sobre limitação da Vercel
+        const message = data.message ? `${data.error}\n\n${data.message}` : data.error;
+        setError(message || 'Erro ao deletar documento');
       }
     } catch (err) {
       setError('Erro ao deletar documento');

@@ -105,18 +105,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Nome do arquivo é obrigatório' });
       }
 
-      const filePath = path.join(process.cwd(), 'docs', filename);
+      // IMPORTANTE: No ambiente Vercel, o sistema de arquivos é read-only
+      // Não é possível deletar arquivos que foram deployados
+      // Para remover documentos, é necessário remover do repositório Git e fazer deploy novamente
       
-      if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ error: 'Arquivo não encontrado' });
-      }
-
-      // Deletar arquivo
-      fs.unlinkSync(filePath);
-
-      return res.status(200).json({ 
-        success: true,
-        message: `Documento ${filename} deletado com sucesso` 
+      return res.status(403).json({ 
+        error: 'Operação não permitida no ambiente Vercel',
+        message: 'O sistema de arquivos da Vercel é read-only. Para remover documentos, delete o arquivo da pasta docs/ localmente, faça commit e push para o GitHub.',
+        filename: filename
       });
     }
 
