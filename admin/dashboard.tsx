@@ -8,7 +8,8 @@ import {
   AlertCircle,
   CheckCircle,
   BarChart3,
-  FileUp
+  FileUp,
+  Download
 } from 'lucide-react';
 
 interface Document {
@@ -147,6 +148,17 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleDownload = (filename: string) => {
+    // Create a download link for the document
+    const link = document.createElement('a');
+    link.href = `/docs/${encodeURIComponent(filename)}`;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setSuccess(`Download de "${filename}" iniciado`);
+  };
+
   const handleLogout = () => {
     localStorage.removeItem('admin_token');
     window.location.href = '/admin/login.html';
@@ -191,7 +203,7 @@ export default function AdminDashboard() {
               <div className="flex items-center gap-3">
                 <a
                   href="/"
-                  className="px-6 py-2 bg-white text-slate-900 font-medium rounded-lg hover:bg-slate-100 transition-colors"
+                  className="px-6 py-2 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors"
                   style={{ textDecoration: 'none' }}
                 >
                   IR PARA CONCIERGE RH DIGITAL
@@ -374,13 +386,22 @@ export default function AdminDashboard() {
                           {formatDate(doc.modified)}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right">
-                          <button
-                            onClick={() => handleDelete(doc.name)}
-                            className="p-2 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
-                            title="Deletar"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </button>
+                          <div className="flex items-center justify-end gap-2">
+                            <button
+                              onClick={() => handleDownload(doc.name)}
+                              className="p-2 hover:bg-blue-500/20 text-blue-500 rounded-lg transition-colors"
+                              title="Download"
+                            >
+                              <Download className="w-4 h-4" />
+                            </button>
+                            <button
+                              onClick={() => handleDelete(doc.name)}
+                              className="p-2 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
+                              title="Deletar"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     ))}
