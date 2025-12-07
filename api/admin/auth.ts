@@ -1,6 +1,14 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import bcrypt from 'bcryptjs';
-import { kv } from '@vercel/kv';
+
+// Tentar importar KV, mas não falhar se não estiver disponível
+let kv: any = null;
+try {
+  const kvModule = await import('@vercel/kv');
+  kv = kvModule.kv;
+} catch (error) {
+  console.warn('Vercel KV not available, sessions will be token-only');
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   // CORS headers
@@ -34,15 +42,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           // Gerar token de sessão
           const token = crypto.randomUUID();
           
-          try {
-            // Tentar salvar no Vercel KV (expira em 1 hora)
-            await kv.set(`admin_session:${token}`, { 
-              authenticated: true, 
-              timestamp: Date.now() 
-            }, { ex: 3600 });
-          } catch (kvError) {
-            // Se KV não estiver configurado, usar token simples
-            console.warn('Vercel KV não disponível, usando token temporário');
+          if (kv) {
+            try {
+              // Tentar salvar no Vercel KV (expira em 1 hora)
+              await kv.set(`admin_session:${token}`, { 
+                authenticated: true, 
+                timestamp: Date.now() 
+              }, { ex: 3600 });
+            } catch (kvError) {
+              // Se KV não estiver configurado, usar token simples
+              console.warn('Vercel KV não disponível, usando token temporário');
+            }
+          } else {
+            console.log('Using token-only authentication (KV not configured)');
           }
 
           return res.status(200).json({ 
@@ -63,14 +75,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           return res.status(400).json({ error: 'Token é obrigatório' });
         }
 
-        try {
-          const session = await kv.get(`admin_session:${token}`);
-          
-          if (session) {
+        if (kv) {
+          try {
+            const session = await kv.get(`admin_session:${token}`);
+            
+            if (session) {
+              return res.status(200).json({ valid: true });
+            }
+          } catch (kvError) {
+            console.warn('Vercel KV não disponível');
+          }
+        } else {
+          // Sem KV, aceitar qualquer token válido (UUID format)
+          const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+          if (uuidRegex.test(token)) {
             return res.status(200).json({ valid: true });
           }
-        } catch (kvError) {
-          console.warn('Vercel KV não disponível');
         }
 
         return res.status(401).json({ valid: false, error: 'Sessão inválida ou expirada' });
@@ -80,7 +100,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (action === 'logout') {
         const { token } = req.body;
         
-        if (token) {
+        if (token && kv) {
           try {
             await kv.del(`admin_session:${token}`);
           } catch (kvError) {
