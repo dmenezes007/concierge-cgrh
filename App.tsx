@@ -6,12 +6,20 @@ import ContentRenderer from './components/ContentRenderer';
 import database from './src/database.json';
 
 // --- Types ---
+interface ListItem {
+  text: string;
+  html?: string;
+  links?: any[];
+}
+
 interface Section {
   type: 'heading' | 'paragraph' | 'highlight' | 'list' | 'table';
   level?: number;
   content?: string;
-  items?: string[];
+  html?: string;
+  items?: string[] | ListItem[];
   ordered?: boolean;
+  links?: any[];
 }
 
 interface DatabaseItem {
@@ -221,6 +229,12 @@ export default function App() {
   const handleReadText = () => {
     if (!selectedItem) return;
 
+    // Verificar suporte do navegador
+    if (!('speechSynthesis' in window)) {
+      alert('Desculpe, seu navegador não suporta leitura de texto. Experimente usar Chrome, Edge ou Safari.');
+      return;
+    }
+
     if (isReading) {
       // Parar leitura
       window.speechSynthesis.cancel();
@@ -228,45 +242,94 @@ export default function App() {
       return;
     }
 
+    // Função para extrair apenas texto puro de uma seção
+    const extractPlainText = (section: Section): string => {
+      if (section.type === 'paragraph' || section.type === 'highlight') {
+        // Se tem HTML, extrair apenas texto
+        if (section.html) {
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = section.html;
+          return tempDiv.textContent || '';
+        }
+        return section.content || '';
+      }
+      
+      if (section.type === 'list' && section.items) {
+        return section.items.map(item => {
+          if (typeof item === 'string') return item;
+          if (item.text) return item.text;
+          return '';
+        }).join('. ');
+      }
+      
+      if (section.type === 'heading') {
+        return section.content || '';
+      }
+      
+      return '';
+    };
+
     // Função para limpar texto antes da leitura
     const cleanTextForSpeech = (text: string): string => {
       return text
+        // Remover tags HTML restantes
+        .replace(/<[^>]*>/g, ' ')
         // Remover ícones e emojis (Unicode)
         .replace(/[\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}]/gu, '')
-        // Remover símbolos de anexo/ícones comuns
-        .replace(/📎|📋|📄|📁|🔗|⚠️|ℹ️|✓|✔|✅|❌|⭐|🔔/g, '')
-        // Remover texto de ícones (ex: "anex", "icon", "emoji")
-        .replace(/\b(anex|icon|emoji|symbol|bullet|arrow)\b/gi, '')
+        // Remover símbolos visuais
+        .replace(/[📎📋📄📁🔗⚠️ℹ️✓✔✅❌⭐🔔●■□▪▫◆◇○◦•‣⁃]/g, '')
+        // Remover referências a elementos visuais
+        .replace(/\b(clique aqui|veja abaixo|acima|imagem|figura|anexo|ícone)\b/gi, '')
         // Remover e-mails
-        .replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, '')
-        // Remover URLs/links
+        .replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g, 'e-mail')
+        // Remover URLs completas
         .replace(/https?:\/\/[^\s]+/g, '')
         .replace(/www\.[^\s]+/g, '')
         // Remover caminhos de arquivo
         .replace(/[A-Za-z]:\\[^\s]+/g, '')
         .replace(/\/[^\s]+\.(jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|zip)/gi, '')
+        // Remover entidades HTML
+        .replace(/&[a-z]+;/gi, ' ')
         // Remover caracteres especiais isolados (mantém pontuação normal)
         .replace(/[^\w\sáàâãéèêíïóôõöúçñÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ.,!?;:()\-]/g, ' ')
         // Remover múltiplos espaços
         .replace(/\s+/g, ' ')
         // Remover espaços antes de pontuação
         .replace(/\s+([.,!?;:])/g, '$1')
+        // Adicionar pausas naturais
+        .replace(/\./g, '. ')
+        .replace(/:/g, ': ')
         .trim();
     };
 
-    // Extrair e limpar todo o texto do conteúdo
-    const rawText = [
+    // Extrair texto puro de todas as seções
+    const textParts = [
       selectedItem.title,
-      selectedItem.description,
-      ...selectedItem.sections.map(section => section.content || section.items?.join('. ') || '').filter(Boolean)
-    ].join('. ');
+      selectedItem.description
+    ];
 
+    // Processar cada seção individualmente
+    selectedItem.sections.forEach(section => {
+      const plainText = extractPlainText(section);
+      if (plainText && plainText.trim().length > 0) {
+        textParts.push(plainText);
+      }
+    });
+
+    const rawText = textParts.join('. ');
     const textToRead = cleanTextForSpeech(rawText);
 
-    const utterance = new SpeechSynthesisUtterance(textToRead);
+    // Limitar tamanho do texto (alguns navegadores têm limite)
+    const maxLength = 4000;
+    const finalText = textToRead.length > maxLength 
+      ? textToRead.substring(0, maxLength) + '... Texto muito longo, leitura truncada.'
+      : textToRead;
+
+    const utterance = new SpeechSynthesisUtterance(finalText);
     utterance.lang = 'pt-BR';
     utterance.rate = 0.9;
     utterance.pitch = 1.0;
+    utterance.volume = 1.0;
 
     utterance.onstart = () => setIsReading(true);
     utterance.onend = () => setIsReading(false);
@@ -720,7 +783,7 @@ export default function App() {
 
             {/* Content Card */}
             <Card className="prose prose-slate prose-lg max-w-none">
-              <ContentRenderer sections={selectedItem.sections} color={selectedItem.color} />
+              <ContentRenderer sections={selectedItem.sections as any} color={selectedItem.color} />
             </Card>
 
             {/* Rating Component - Bottom */}
@@ -787,6 +850,9 @@ export default function App() {
         
         {/* Copyright and Info */}
         <div className="text-center px-4">
+          <p className="text-blue-600 text-sm sm:text-base font-bold mb-2 sm:mb-3">
+            Projeto de Gestão do Conhecimento
+          </p>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mb-1 sm:mb-2">
             &copy; 2025 Academia de Propriedade Intelectual, Inovação e Desenvolvimento
           </p>
