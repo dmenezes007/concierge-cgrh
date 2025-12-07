@@ -95,21 +95,28 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       // Listar documentos do Vercel Blob Storage
       let blobDocs: any[] = [];
-      try {
-        const { blobs } = await list({
-          prefix: 'docs/',
-          token: process.env.BLOB_READ_WRITE_TOKEN,
-        });
-        
-        blobDocs = blobs.map(blob => ({
-          name: blob.pathname.replace('docs/', ''),
-          size: blob.size,
-          modified: blob.uploadedAt,
-          path: blob.url,
-          source: 'blob'
-        }));
-      } catch (error) {
-        console.log('Blob storage não configurado ou vazio:', error);
+      if (process.env.BLOB_READ_WRITE_TOKEN) {
+        try {
+          console.log('Listando documentos do Blob Storage...');
+          const { blobs } = await list({
+            prefix: 'docs/',
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+          });
+          
+          console.log(`Encontrados ${blobs.length} documentos no Blob`);
+          
+          blobDocs = blobs.map(blob => ({
+            name: blob.pathname.replace('docs/', ''),
+            size: blob.size,
+            modified: blob.uploadedAt,
+            path: blob.url,
+            source: 'blob'
+          }));
+        } catch (error: any) {
+          console.error('Erro ao listar Blob storage:', error.message);
+        }
+      } else {
+        console.log('BLOB_READ_WRITE_TOKEN não configurado');
       }
 
       // Combinar e remover duplicatas (priorizar blob)
@@ -117,9 +124,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const uniqueFileSystemDocs = fileSystemDocs.filter(d => !blobNames.has(d.name));
       const allDocs = [...blobDocs, ...uniqueFileSystemDocs];
 
+      console.log(`Total de documentos: ${allDocs.length} (${blobDocs.length} do Blob, ${uniqueFileSystemDocs.length} do filesystem)`);
+
       return res.status(200).json({ 
         documents: allDocs,
-        count: allDocs.length 
+        count: allDocs.length,
+        sources: {
+          blob: blobDocs.length,
+          filesystem: uniqueFileSystemDocs.length
+        }
       });
     }
 
@@ -131,18 +144,29 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Nome do arquivo é obrigatório' });
       }
 
+      // Verificar se o token do Blob está configurado
+      if (!process.env.BLOB_READ_WRITE_TOKEN) {
+        return res.status(500).json({
+          error: 'Blob Storage não configurado',
+          message: 'A variável BLOB_READ_WRITE_TOKEN não foi encontrada.'
+        });
+      }
+
       // Tentar deletar do Blob Storage
       try {
+        console.log(`Deletando arquivo do Blob: docs/${filename}`);
         await del(`docs/${filename}`, {
           token: process.env.BLOB_READ_WRITE_TOKEN,
         });
+        
+        console.log(`Arquivo ${filename} deletado com sucesso do Blob`);
         
         return res.status(200).json({ 
           success: true,
           message: `Documento ${filename} deletado com sucesso do Blob Storage` 
         });
       } catch (error: any) {
-        console.error('Erro ao deletar do blob:', error);
+        console.error('Erro ao deletar do blob:', error.message, error);
         
         // Se o arquivo está no filesystem (deployado), não pode deletar
         const filePath = path.join(process.cwd(), 'docs', filename);

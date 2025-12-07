@@ -109,7 +109,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Converter para HTML (preview)
     const result = await mammoth.convertToHtml({ buffer });
     
+    // Verificar se o token do Blob está configurado
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      fs.unlinkSync(docxFile.filepath);
+      return res.status(500).json({
+        error: 'Blob Storage não configurado',
+        message: 'A variável BLOB_READ_WRITE_TOKEN não foi encontrada. Configure o Vercel Blob Storage.'
+      });
+    }
+
     // Salvar no Vercel Blob Storage
+    console.log(`Salvando arquivo no Blob: docs/${docxFile.originalFilename}`);
     const blob = await put(`docs/${docxFile.originalFilename}`, buffer, {
       access: 'public',
       token: process.env.BLOB_READ_WRITE_TOKEN,
@@ -118,7 +128,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Limpar arquivo temporário do formidable
     fs.unlinkSync(docxFile.filepath);
 
-    console.log('Arquivo salvo no Blob:', blob.url);
+    console.log('Arquivo salvo no Blob com sucesso:', blob.url);
 
     // Resposta
     return res.status(200).json({

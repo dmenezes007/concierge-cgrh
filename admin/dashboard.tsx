@@ -45,6 +45,7 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('admin_token');
+      console.log('Carregando documentos...');
       const response = await fetch('/api/admin/documents', {
         headers: {
           'Authorization': `Bearer ${token}`
@@ -58,14 +59,18 @@ export default function AdminDashboard() {
       }
 
       const data = await response.json();
+      console.log('Resposta da API:', data);
+      
       if (response.ok) {
+        console.log(`Documentos carregados: ${data.documents?.length || 0}`);
         setDocuments(data.documents || []);
       } else {
+        console.error('Erro na resposta:', data);
         setError(data.error || 'Erro ao carregar documentos');
       }
     } catch (err) {
+      console.error('Erro ao carregar documentos:', err);
       setError('Erro de conexão ao carregar documentos');
-      console.error(err);
     } finally {
       setLoading(false);
     }
