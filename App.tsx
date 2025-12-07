@@ -850,15 +850,24 @@ export default function App() {
         
         {/* Copyright and Info */}
         <div className="text-center px-4">
-          <p className="text-blue-600 text-sm sm:text-base font-bold mb-2 sm:mb-3">
+          <p className="text-blue-600 text-xs sm:text-sm mb-2 sm:mb-3">
             Projeto de Gestão do Conhecimento
           </p>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mb-1 sm:mb-2">
             &copy; 2025 Academia de Propriedade Intelectual, Inovação e Desenvolvimento
           </p>
-          <p className="text-slate-400 text-[10px] sm:text-xs">
-            {(database as DatabaseItem[]).length} documentos disponíveis
-          </p>
+          <div className="flex items-center justify-center gap-3 flex-wrap">
+            <p className="text-slate-400 text-[10px] sm:text-xs">
+              {(database as DatabaseItem[]).length} documentos disponíveis
+            </p>
+            <a
+              href="/admin/login.html"
+              className="text-[10px] sm:text-xs text-slate-400 hover:text-slate-600 transition-colors px-2 py-1 rounded border border-slate-300 hover:border-slate-400"
+              style={{ textDecoration: 'none' }}
+            >
+              IR PARA PAINEL ADMINISTRATIVO
+            </a>
+          </div>
         </div>
       </footer>
     </div>

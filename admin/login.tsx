@@ -58,7 +58,7 @@ export default function AdminLogin() {
             <Lock className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold text-white mb-2">Painel Administrativo</h1>
-          <p className="text-slate-400">Concierge RH Digital</p>
+          <p className="text-blue-600 font-bold">Concierge RH Digital</p>
         </div>
 
         {/* Login Form */}
@@ -131,9 +131,10 @@ export default function AdminLogin() {
         <div className="text-center mt-6">
           <a 
             href="/" 
-            className="text-sm text-slate-400 hover:text-white transition-colors"
+            className="inline-block px-6 py-3 bg-white text-slate-900 font-medium rounded-lg hover:bg-slate-100 transition-colors"
+            style={{ textDecoration: 'none' }}
           >
-            ← Voltar para o Concierge
+            IR PARA CONCIERGE RH DIGITAL
           </a>
         </div>
       </div>
