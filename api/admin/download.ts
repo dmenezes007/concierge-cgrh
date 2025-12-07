@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
+import { head } from '@vercel/blob';
 
 // Lazy load KV only if configured
 let kv: any = null;
@@ -80,6 +81,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // Security: prevent path traversal
     const safeName = path.basename(filename);
+    
+    // Tentar buscar do Blob Storage primeiro
+    try {
+      const blobInfo = await head(`docs/${safeName}`, {
+        token: process.env.BLOB_READ_WRITE_TOKEN,
+      });
+      
+      // Redirecionar para o URL do blob
+      return res.redirect(307, blobInfo.url);
+    } catch (blobError) {
+      console.log('Arquivo não encontrado no Blob, tentando filesystem:', blobError);
+    }
+    
+    // Se não está no Blob, tentar filesystem
     const docsDir = path.join(process.cwd(), 'docs');
     const filePath = path.join(docsDir, safeName);
 

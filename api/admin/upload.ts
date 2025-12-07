@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
+import { put } from '@vercel/blob';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;
@@ -108,30 +109,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Converter para HTML (preview)
     const result = await mammoth.convertToHtml({ buffer });
     
-    // IMPORTANTE: No ambiente Vercel, o sistema de arquivos é read-only
-    // Exceto a pasta /tmp que é temporária e apagada após cada execução
-    // Para persistência, seria necessário usar um serviço externo como:
-    // - Vercel Blob Storage
-    // - AWS S3
-    // - Cloudinary
-    // - etc.
-    
-    // Por enquanto, vamos salvar em /tmp (temporário) e retornar informações
-    const tmpPath = path.join('/tmp', docxFile.originalFilename);
-    fs.copyFileSync(docxFile.filepath, tmpPath);
+    // Salvar no Vercel Blob Storage
+    const blob = await put(`docs/${docxFile.originalFilename}`, buffer, {
+      access: 'public',
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    });
 
     // Limpar arquivo temporário do formidable
     fs.unlinkSync(docxFile.filepath);
 
+    console.log('Arquivo salvo no Blob:', blob.url);
+
     // Resposta
     return res.status(200).json({
       success: true,
-      message: 'Upload recebido com sucesso',
+      message: 'Documento enviado com sucesso!',
       filename: docxFile.originalFilename,
       size: docxFile.size,
+      blobUrl: blob.url,
       preview: result.value.substring(0, 500) + '...', // Preview limitado
-      warning: 'IMPORTANTE: O ambiente Vercel é read-only. Para adicionar documentos permanentemente, você deve fazer commit no GitHub. O arquivo foi processado mas não foi salvo permanentemente.',
-      instructions: 'Para adicionar documentos: 1) Adicione o arquivo .docx na pasta docs/ localmente, 2) Execute "npm run convert-docs", 3) Faça commit e push para o GitHub'
+      note: 'Para processar o documento no sistema de busca, execute "npm run convert-docs" localmente e faça deploy.'
     });
 
   } catch (error: any) {

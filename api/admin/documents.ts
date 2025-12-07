@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
+import { list, del } from '@vercel/blob';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;
@@ -73,27 +74,52 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // GET - Listar documentos
     if (req.method === 'GET') {
+      // Listar documentos do sistema de arquivos (docs/ - deployados)
       const docsPath = path.join(process.cwd(), 'docs');
+      let fileSystemDocs: any[] = [];
       
-      if (!fs.existsSync(docsPath)) {
-        return res.status(200).json({ documents: [] });
+      if (fs.existsSync(docsPath)) {
+        fileSystemDocs = fs.readdirSync(docsPath)
+          .filter(file => file.endsWith('.docx'))
+          .map(file => {
+            const stats = fs.statSync(path.join(docsPath, file));
+            return {
+              name: file,
+              size: stats.size,
+              modified: stats.mtime,
+              path: `/docs/${file}`,
+              source: 'filesystem'
+            };
+          });
       }
 
-      const files = fs.readdirSync(docsPath)
-        .filter(file => file.endsWith('.docx'))
-        .map(file => {
-          const stats = fs.statSync(path.join(docsPath, file));
-          return {
-            name: file,
-            size: stats.size,
-            modified: stats.mtime,
-            path: `/docs/${file}`
-          };
+      // Listar documentos do Vercel Blob Storage
+      let blobDocs: any[] = [];
+      try {
+        const { blobs } = await list({
+          prefix: 'docs/',
+          token: process.env.BLOB_READ_WRITE_TOKEN,
         });
+        
+        blobDocs = blobs.map(blob => ({
+          name: blob.pathname.replace('docs/', ''),
+          size: blob.size,
+          modified: blob.uploadedAt,
+          path: blob.url,
+          source: 'blob'
+        }));
+      } catch (error) {
+        console.log('Blob storage não configurado ou vazio:', error);
+      }
+
+      // Combinar e remover duplicatas (priorizar blob)
+      const blobNames = new Set(blobDocs.map(d => d.name));
+      const uniqueFileSystemDocs = fileSystemDocs.filter(d => !blobNames.has(d.name));
+      const allDocs = [...blobDocs, ...uniqueFileSystemDocs];
 
       return res.status(200).json({ 
-        documents: files,
-        count: files.length 
+        documents: allDocs,
+        count: allDocs.length 
       });
     }
 
@@ -105,15 +131,31 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Nome do arquivo é obrigatório' });
       }
 
-      // IMPORTANTE: No ambiente Vercel, o sistema de arquivos é read-only
-      // Não é possível deletar arquivos que foram deployados
-      // Para remover documentos, é necessário remover do repositório Git e fazer deploy novamente
-      
-      return res.status(403).json({ 
-        error: 'Operação não permitida no ambiente Vercel',
-        message: 'O sistema de arquivos da Vercel é read-only. Para remover documentos, delete o arquivo da pasta docs/ localmente, faça commit e push para o GitHub.',
-        filename: filename
-      });
+      // Tentar deletar do Blob Storage
+      try {
+        await del(`docs/${filename}`, {
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+        });
+        
+        return res.status(200).json({ 
+          success: true,
+          message: `Documento ${filename} deletado com sucesso do Blob Storage` 
+        });
+      } catch (error: any) {
+        console.error('Erro ao deletar do blob:', error);
+        
+        // Se o arquivo está no filesystem (deployado), não pode deletar
+        const filePath = path.join(process.cwd(), 'docs', filename);
+        if (fs.existsSync(filePath)) {
+          return res.status(403).json({ 
+            error: 'Arquivo está no repositório Git',
+            message: 'Este documento foi deployado via Git. Para removê-lo, delete o arquivo da pasta docs/ localmente e faça commit/push.',
+            filename: filename
+          });
+        }
+        
+        return res.status(404).json({ error: 'Arquivo não encontrado' });
+      }
     }
 
     return res.status(405).json({ error: 'Método não permitido' });

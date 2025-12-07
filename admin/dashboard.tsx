@@ -346,7 +346,7 @@ export default function AdminDashboard() {
             </div>
 
             <p className="text-xs text-slate-500 mt-3">
-              Após o upload, execute <code className="px-2 py-1 bg-slate-900 rounded">npm run convert-docs</code> para processar o documento
+              O documento será salvo no Vercel Blob Storage. Para incluí-lo no sistema de busca, adicione-o à pasta docs/ e execute npm run convert-docs localmente.
             </p>
           </div>
 
