@@ -8,13 +8,22 @@ let kvInitialized = false;
 
 async function getKV() {
   if (!kvInitialized) {
+    kvInitialized = true;
+    
+    // Verificar se as variáveis de ambiente do KV existem
+    if (!process.env.KV_REST_API_URL || !process.env.KV_REST_API_TOKEN) {
+      console.log('Vercel KV not configured - using token-only authentication');
+      return null;
+    }
+    
     try {
       const kvModule = await import('@vercel/kv');
       kv = kvModule.kv;
+      console.log('Vercel KV initialized successfully');
     } catch (error) {
-      console.warn('Vercel KV not available');
+      console.warn('Error loading Vercel KV:', error);
+      return null;
     }
-    kvInitialized = true;
   }
   return kv;
 }
