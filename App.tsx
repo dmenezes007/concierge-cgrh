@@ -500,7 +500,7 @@ export default function App() {
       {/* Main Content Area with Hero Section */}
       <div 
         className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out
-          ${hasSelection ? 'pt-16 sm:pt-20 pb-4 sm:pb-12 justify-start' : 'pt-28 sm:pt-32 pb-4 sm:pb-20 justify-start'}`}
+          ${hasSelection ? 'pt-16 sm:pt-20 pb-4 sm:pb-12 justify-start' : 'pt-32 sm:pt-36 pb-4 sm:pb-20 justify-start'}`}
       >
         {!hasSelection && (
           <div className="max-w-4xl w-full text-center mb-2 sm:mb-4 md:mb-6 animate-fadeIn">
@@ -657,7 +657,7 @@ export default function App() {
           <div className="mt-2 text-center px-4">
             <p className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-2">
               <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
-              <strong>AVISO:</strong> Não utilizamos recursos de IA. Digite palavras-chave para encontrar a informação que você procura.
+              <strong>AVISO:</strong> Não utilizamos recursos de IA. Procure por palavras-chave para encontrar a informação do seu interesse.
             </p>
           </div>
         </div>
