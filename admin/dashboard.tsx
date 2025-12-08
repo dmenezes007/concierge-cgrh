@@ -111,11 +111,11 @@ export default function AdminDashboard() {
       const data = await response.json();
 
       if (response.ok) {
-        const message = data.warning || data.message || 'Upload processado';
-        const instructions = data.instructions ? `\n\n${data.instructions}` : '';
-        setSuccess(`${message}${instructions}`);
+        const message = data.message || 'Upload realizado com sucesso!';
+        setSuccess(message);
         setSelectedFile(null);
-        // Não recarregar documentos pois o arquivo não foi salvo permanentemente
+        // Recarregar lista de documentos
+        setTimeout(() => loadDocuments(), 500);
       } else {
         setError(data.error || 'Erro ao enviar documento');
       }
@@ -145,7 +145,8 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         setSuccess(`Documento "${filename}" deletado com sucesso`);
-        loadDocuments();
+        // Recarregar lista de documentos
+        setTimeout(() => loadDocuments(), 500);
       } else {
         // Mostrar mensagem explicativa sobre limitação da Vercel
         const message = data.message ? `${data.error}\n\n${data.message}` : data.error;
