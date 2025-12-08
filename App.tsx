@@ -500,7 +500,7 @@ export default function App() {
       {/* Main Content Area with Hero Section */}
       <div 
         className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out
-          ${hasSelection ? 'pt-16 sm:pt-20 pb-4 sm:pb-12 justify-start' : 'pt-20 sm:pt-24 pb-4 sm:pb-20 justify-start'}`}
+          ${hasSelection ? 'pt-16 sm:pt-20 pb-4 sm:pb-12 justify-start' : 'pt-24 sm:pt-28 pb-4 sm:pb-20 justify-start'}`}
       >
         {!hasSelection && (
           <div className="max-w-4xl w-full text-center mb-2 sm:mb-4 md:mb-6 animate-fadeIn">
