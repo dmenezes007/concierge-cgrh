@@ -491,7 +491,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900 flex flex-col">
       
       {/* Fixed Header with Logo */}
-      <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-br from-slate-50 via-white to-slate-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 sm:px-4 md:px-6 py-3 flex items-center justify-center">
           <img src="/logos/inpi.png" alt="INPI" className="h-8 mt-2" />
         </div>
@@ -500,10 +500,10 @@ export default function App() {
       {/* Main Content Area with Hero Section */}
       <div 
         className={`flex-1 flex flex-col items-center px-12 sm:px-6 w-full transition-all duration-700 ease-in-out
-          ${hasSelection ? 'pt-16 sm:pt-24 pb-4 sm:pb-12 justify-start' : 'pt-16 sm:pt-32 pb-4 sm:pb-20 justify-center'}`}
+          ${hasSelection ? 'pt-16 sm:pt-20 pb-4 sm:pb-12 justify-start' : 'pt-20 sm:pt-24 pb-4 sm:pb-20 justify-start'}`}
       >
         {!hasSelection && (
-          <div className="max-w-4xl w-full text-center mb-3 sm:mb-6 md:mb-10 animate-fadeIn">
+          <div className="max-w-4xl w-full text-center mb-2 sm:mb-4 md:mb-6 animate-fadeIn">
             {/* Icon and Title */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 mb-3">
               <div className="relative mb-2 sm:mb-0">
@@ -518,7 +518,7 @@ export default function App() {
             </div>
             
             {/* Subtitle */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-3 sm:mb-6 md:mb-10 px-4">
+            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-light leading-relaxed max-w-3xl mx-auto mb-2 sm:mb-4 md:mb-6 px-4">
               Os serviços de gestão de pessoas na palma da sua mão
             </p>
           </div>
@@ -538,7 +538,7 @@ export default function App() {
         )}
 
         {/* Search Container */}
-        <div className="w-full max-w-3xl relative z-50 mb-2 sm:mb-4 md:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
+        <div className="w-full max-w-3xl relative z-40 mb-2 sm:mb-4 md:mb-6 px-2 sm:px-0" ref={searchContainerRef}>
           <div
             className={`
               relative flex items-center w-full transition-all duration-300 animate-shimmer
@@ -589,7 +589,7 @@ export default function App() {
           {/* Autocomplete Dropdown */}
           <div 
             className={`
-              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0 z-[100]
+              absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0 z-40
               ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
@@ -654,7 +654,7 @@ export default function App() {
           )}
           
           {/* Aviso sobre IA */}
-          <div className="mt-3 text-center px-4">
+          <div className="mt-2 text-center px-4">
             <p className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-2">
               <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></span>
               <strong>AVISO:</strong> Não utilizamos recursos de IA. Digite palavras-chave para encontrar a informação que você procura.
