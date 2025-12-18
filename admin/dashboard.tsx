@@ -178,7 +178,7 @@ export default function AdminDashboard() {
 
         if (response.ok) {
           setSuccess(`✅ Documento "${displayName}" deletado com sucesso!`);
-          setTimeout(() => loadDocuments(), 500);
+          loadDocuments(); // Recarregar imediatamente
         } else {
           setError(data.error || 'Erro ao deletar documento');
         }
@@ -197,7 +197,7 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         setSuccess(`Documento "${displayName}" deletado com sucesso`);
-        setTimeout(() => loadDocuments(), 500);
+        loadDocuments(); // Recarregar imediatamente
       } else {
         const message = data.message ? `${data.error}\n\n${data.message}` : data.error;
         setError(message || 'Erro ao deletar documento');
@@ -375,9 +375,21 @@ export default function AdminDashboard() {
           )}
 
           {success && (
-            <div className="mb-6 flex items-center gap-2 p-4 bg-green-500/10 border border-green-500/50 rounded-lg">
-              <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-              <p className="text-sm text-green-400">{success}</p>
+            <div className="mb-6 p-4 bg-green-500/10 border border-green-500/50 rounded-lg">
+              <div className="flex items-start gap-3">
+                <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                <div className="flex-1">
+                  <p className="text-sm text-green-400 whitespace-pre-line">{success}</p>
+                  <button
+                    onClick={loadDocuments}
+                    disabled={loading}
+                    className="mt-3 flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-700 disabled:bg-slate-600 text-white text-sm font-medium rounded-lg transition-colors"
+                  >
+                    <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
+                    Atualizar lista agora
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
@@ -432,14 +444,18 @@ export default function AdminDashboard() {
             <div className="p-6 border-b border-slate-700/50">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-white">Documentos</h2>
-                <button
-                  onClick={loadDocuments}
-                  disabled={loading}
-                  className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
-                  title="Recarregar"
-                >
-                  <RefreshCw className={`w-5 h-5 text-slate-400 ${loading ? 'animate-spin' : ''}`} />
-                </button>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm text-slate-400">{documents.length} {documents.length === 1 ? 'documento' : 'documentos'}</span>
+                  <button
+                    onClick={loadDocuments}
+                    disabled={loading}
+                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-slate-700 disabled:cursor-not-allowed text-white font-medium rounded-lg transition-colors"
+                    title="Atualizar lista de documentos"
+                  >
+                    <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                    <span className="hidden sm:inline">Atualizar</span>
+                  </button>
+                </div>
               </div>
             </div>
 
