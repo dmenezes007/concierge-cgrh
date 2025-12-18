@@ -108,6 +108,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 size: doc.content ? doc.content.length : 0,
                 modified: doc.createdAt || new Date().toISOString(),
                 path: doc.blobUrl || '',
+                blobUrl: doc.blobUrl || '', // Para deduplicação
                 source: 'redis',
                 keywords: doc.keywords || '',
                 description: doc.description || ''
@@ -168,17 +169,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.log('BLOB_READ_WRITE_TOKEN não configurado');
       }
 
+      // Deduplcar: remover arquivos do Blob que já estão no Redis
+      const redisUrls = new Set(redisDocs.map(d => d.blobUrl).filter(Boolean));
+      const uniqueBlobDocs = blobDocs.filter(d => !redisUrls.has(d.path));
+      
       // Combinar (priorizar Redis > Blob > filesystem)
-      const allDocs = [...redisDocs, ...blobDocs, ...fileSystemDocs];
+      const allDocs = [...redisDocs, ...uniqueBlobDocs, ...fileSystemDocs];
 
-      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${blobDocs.length} do Blob, ${fileSystemDocs.length} do filesystem)`);
+      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${uniqueBlobDocs.length} do Blob único, ${fileSystemDocs.length} do filesystem)`);
 
       return res.status(200).json({ 
         documents: allDocs,
         count: allDocs.length,
         sources: {
           redis: redisDocs.length,
-          blob: blobDocs.length,
+          blob: uniqueBlobDocs.length,
           filesystem: fileSystemDocs.length
         }
       });
