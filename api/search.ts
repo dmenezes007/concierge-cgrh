@@ -1,10 +1,21 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { kv } from '@vercel/kv';
+import Redis from 'ioredis';
+
+// Criar cliente Redis
+function createRedisClient() {
+  const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+  if (!redisUrl) {
+    throw new Error('REDIS_URL ou KV_REST_API_URL não configurada');
+  }
+  return new Redis(redisUrl);
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== 'GET') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
+
+  const redis = createRedisClient();
 
   try {
     const { q } = req.query;
@@ -30,7 +41,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // 2. Buscar IDs dos documentos que contêm cada palavra
     const docIdSets = await Promise.all(
-      searchWords.map(word => kv.smembers(`search:${word}`))
+      searchWords.map(word => redis.smembers(`search:${word}`))
     );
 
     // 3. Fazer interseção dos conjuntos (documentos que contêm TODAS as palavras)
@@ -54,7 +65,15 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // 4. Buscar dados completos dos documentos
     const documents = await Promise.all(
       matchingIds.map(async (id) => {
-        const doc = await kv.hgetall(`doc:${id}`);
+        const doc = await redis.hgetall(`doc:${id}`);
+        // Parse sections back to object
+        if (doc.sections && typeof doc.sections === 'string') {
+          try {
+            doc.sections = JSON.parse(doc.sections);
+          } catch (e) {
+            console.warn('Failed to parse sections for', id);
+          }
+        }
         return doc;
       })
     );
@@ -82,10 +101,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Remover o _score antes de retornar
     const results = scoredDocs.map(({ _score, ...doc }) => doc);
 
+    await redis.quit();
+
     return res.status(200).json(results);
 
   } catch (error: any) {
     console.error('❌ Erro na busca:', error);
+    await redis.quit();
     return res.status(500).json({
       error: 'Erro ao buscar documentos',
       details: error.message

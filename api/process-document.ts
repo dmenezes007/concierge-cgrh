@@ -1,6 +1,6 @@
 import { VercelRequest, VercelResponse } from '@vercel/node';
-import { kv } from '@vercel/kv';
 import mammoth from 'mammoth';
+import Redis from 'ioredis';
 
 interface DocumentData {
   id: string;
@@ -8,9 +8,18 @@ interface DocumentData {
   keywords: string;
   description: string;
   content: string;
-  sections: any[];
+  sections: string;
   createdAt: string;
   blobUrl?: string;
+}
+
+// Criar cliente Redis
+function createRedisClient() {
+  const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+  if (!redisUrl) {
+    throw new Error('REDIS_URL ou KV_REST_API_URL não configurada');
+  }
+  return new Redis(redisUrl);
 }
 
 // Função auxiliar para extrair texto de seções
@@ -45,10 +54,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const redis = createRedisClient();
+
   try {
     const { blobUrl, filename } = req.body;
 
     if (!blobUrl) {
+      await redis.quit();
       return res.status(400).json({ error: 'blobUrl é obrigatório' });
     }
 
@@ -83,24 +95,27 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       keywords,
       description,
       content,
-      sections,
+      sections: JSON.stringify(sections),
       createdAt: new Date().toISOString(),
       blobUrl
     };
 
-    // 5. Salvar no Vercel KV
-    await kv.hset(`doc:${id}`, documentData);
+    // 5. Salvar no Redis/KV
+    const entries = Object.entries(documentData).flat();
+    await redis.hset(`doc:${id}`, ...entries);
     
     // 6. Adicionar à lista de documentos
-    await kv.sadd('docs:all', id);
+    await redis.sadd('docs:all', id);
 
     // 7. Indexar para busca (criar índices de palavras-chave)
     const words = keywords.split(' ').filter(w => w.length > 3);
     for (const word of words) {
-      await kv.sadd(`search:${word.toLowerCase()}`, id);
+      await redis.sadd(`search:${word.toLowerCase()}`, id);
     }
 
     console.log('✅ Documento processado e indexado:', id);
+
+    await redis.quit();
 
     return res.status(200).json({
       success: true,
@@ -113,6 +128,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   } catch (error: any) {
     console.error('❌ Erro ao processar documento:', error);
+    await redis.quit();
     return res.status(500).json({
       error: 'Erro ao processar documento',
       details: error.message
