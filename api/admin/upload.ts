@@ -152,7 +152,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         throw new Error('Redis não configurado');
       }
 
-      const redis = new Redis(redisUrl);
+      const redis = new Redis(redisUrl, {
+        maxRetriesPerRequest: 3,
+        retryStrategy(times) {
+          if (times > 3) return null;
+          return Math.min(times * 50, 2000);
+        }
+      });
 
       // Extrair título e gerar ID
       const title = docxFile.originalFilename.replace('.docx', '');

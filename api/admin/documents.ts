@@ -82,7 +82,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       if (redisUrl) {
         try {
           console.log('Listando documentos do Redis...');
-          const redis = new Redis(redisUrl);
+          const redis = new Redis(redisUrl, {
+            maxRetriesPerRequest: 3,
+            retryStrategy(times) {
+              if (times > 3) return null; // Stop retrying after 3 attempts
+              return Math.min(times * 50, 2000);
+            },
+            lazyConnect: true // Don't connect immediately
+          });
+          
+          // Tentar conectar com timeout
+          await redis.connect();
           
           // Buscar todos os IDs de documentos
           const docIds = await redis.smembers('docs:all');
@@ -109,6 +119,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           console.log(`Processados ${redisDocs.length} documentos do Redis`);
         } catch (error: any) {
           console.error('Erro ao listar documentos do Redis:', error.message);
+          // Não falhar a requisição, apenas continuar sem documentos do Redis
         }
       }
       

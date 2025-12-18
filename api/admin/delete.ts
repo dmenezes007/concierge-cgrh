@@ -88,7 +88,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: 'Redis não configurado' });
     }
 
-    const redis = new Redis(redisUrl);
+    const redis = new Redis(redisUrl, {
+      maxRetriesPerRequest: 3,
+      retryStrategy(times) {
+        if (times > 3) return null;
+        return Math.min(times * 50, 2000);
+      }
+    });
 
     // 1. Buscar documento no Redis
     const doc = await redis.hgetall(`doc:${id}`);

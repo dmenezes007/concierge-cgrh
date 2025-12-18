@@ -7,7 +7,13 @@ function createRedisClient() {
   if (!redisUrl) {
     throw new Error('REDIS_URL ou KV_REST_API_URL não configurada');
   }
-  return new Redis(redisUrl);
+  return new Redis(redisUrl, {
+    maxRetriesPerRequest: 3,
+    retryStrategy(times) {
+      if (times > 3) return null;
+      return Math.min(times * 50, 2000);
+    }
+  });
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
