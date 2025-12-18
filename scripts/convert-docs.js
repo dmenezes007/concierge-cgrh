@@ -7,6 +7,10 @@ import XLSX from 'xlsx';
 import { list } from '@vercel/blob';
 import https from 'https';
 import http from 'http';
+import dotenv from 'dotenv';
+
+// Carregar variáveis de ambiente do arquivo .env
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

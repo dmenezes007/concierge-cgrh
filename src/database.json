@@ -388,7 +388,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=873:aposentadoria-e-abono&catid=20",
-    "lastModified": "2025-12-04T18:13:12.000Z"
+    "lastModified": "2025-12-18T17:35:44.634Z"
   },
   {
     "id": "capacitacao",
@@ -1222,7 +1222,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=863:capacitacao&catid=20",
-    "lastModified": "2025-12-04T18:15:40.000Z"
+    "lastModified": "2025-12-18T17:35:44.669Z"
   },
   {
     "id": "carta-de-servicos",
@@ -3431,6 +3431,72 @@
     ],
     "externalLink": "Carta de Serviços",
     "lastModified": "2025-12-04T18:19:08.000Z"
+  },
+  {
+    "id": "confira-como-sera-o-expediente-de-fim-de-ano-no-inpi",
+    "title": "Confira como será o expediente de fim de ano no INPI",
+    "keywords": "sougov",
+    "description": "Confira como será o expediente de fim de ano no INPI",
+    "icon": "file-text",
+    "color": {
+      "bg": "slate",
+      "text": "slate"
+    },
+    "sections": [
+      {
+        "type": "paragraph",
+        "content": "Confira como será o expediente de fim de ano no INPI",
+        "html": "<p>Confira como será o expediente de fim de ano no INPI</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Read Time: 1 min",
+        "html": "<p>&nbsp;Read Time: 1 min</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Publicado: 11 de dezembro de 2025",
+        "html": "<p>&nbsp;Publicado: 11 de dezembro de 2025</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "O INPI informa que, conforme a Portaria MGI nº 9.783/2024, não haverá expediente nos dias 25/12/2025 (quinta-feira) e 01/01/2026 (quinta-feira), em razão dos feriados nacionais de Natal e Confraternização Universal.",
+        "html": "<p>O INPI informa que, conforme a Portaria MGI nº 9.783/2024, não haverá expediente nos dias 25/12/2025 (quinta-feira) e 01/01/2026 (quinta-feira), em razão dos feriados nacionais de Natal e Confraternização Universal.</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Além disso, nos dias 24/12/2025 e 31/12/2025, até às 13h, e nos dias 26/12/2025 e 02/01/2026, o expediente deverá ser realizado exclusivamente de forma remota pelos servidores integrantes do Programa de Gestão do INPI (presencial, teletrabalho parcial e teletrabalho integral) e pelos colaboradores, conforme previsto em cada contrato, tanto na sede quanto nas regionais. A adoção dessas medidas tem como objetivo preservar a integridade física dos servidores, colaboradores e usuários, considerando as dificuldades de deslocamento típicas do período de festas de fim de ano.",
+        "html": "<p>Além disso, nos dias 24/12/2025 e 31/12/2025, até às 13h, e nos dias 26/12/2025 e 02/01/2026, o expediente deverá ser realizado exclusivamente de forma remota pelos servidores integrantes do Programa de Gestão do INPI (presencial, teletrabalho parcial e teletrabalho integral) e pelos colaboradores, conforme previsto em cada contrato, tanto na sede quanto nas regionais. A adoção dessas medidas tem como objetivo preservar a integridade física dos servidores, colaboradores e usuários, considerando as dificuldades de deslocamento típicas do período de festas de fim de ano.</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Os servidores participantes do PGD (presencial, teletrabalho parcial e teletrabalho integral) deverão cumprir normalmente seu plano de trabalho, mantendo no sistema “SouGov Frequência” o código correspondente à modalidade do Programa de Gestão na qual estão inseridos.",
+        "html": "<p>Os servidores participantes do PGD (presencial, teletrabalho parcial e teletrabalho integral) deverão cumprir normalmente seu plano de trabalho, mantendo no sistema “SouGov Frequência” o código correspondente à modalidade do Programa de Gestão na qual estão inseridos.</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Os servidores não integrantes do PGD estão dispensados do comparecimento à sede do INPI, devendo a chefia imediata registrar no sistema SouGov Frequência o código 90000 nos dias 24/12, 26/12 e 31/12/2025, bem como em 02/01/2026.",
+        "html": "<p>Os servidores não integrantes do PGD estão dispensados do comparecimento à sede do INPI, devendo a chefia imediata registrar no sistema SouGov Frequência o código 90000 nos dias 24/12, 26/12 e 31/12/2025, bem como em 02/01/2026.&nbsp;</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Colaboradores e/ou servidores em PGD presencial cujas atividades necessitam de acesso remoto aos sistemas ou às pastas de rede do INPI devem  obrigatoriamente utilizar o notebook institucional, possuir a software de VPN e o segundo fator de autenticação (2FA) configurados.",
+        "html": "<p>Colaboradores e/ou servidores em PGD presencial cujas atividades necessitam de acesso remoto aos sistemas ou às pastas de rede do INPI devem &nbsp;obrigatoriamente utilizar o notebook institucional, possuir a software de VPN e o segundo fator de autenticação (2FA) configurados.</p>"
+      },
+      {
+        "type": "paragraph",
+        "content": "Para a retirada do notebook institucional, a liberação do cadeado deverá ser solicitada ao Service Desk, por meio do e-mail atendimentoservicedesk@inpi.gov.br, até segunda-feira, 22/12, às 12h. Para a configuração do segundo fator de autenticação, os colaboradores e os servidores em PGD presencial receberão um e-mail com orientações na segunda-feira (15/12/2025).",
+        "html": "<p>Para a retirada do notebook institucional, a liberação do cadeado deverá ser solicitada ao Service Desk, por meio do e-mail&nbsp;<a href=\"mailto:atendimentoservicedesk@inpi.gov.br\">atendimentoservicedesk@inpi.gov.br</a>, até segunda-feira, 22/12, às 12h. Para a configuração do segundo fator de autenticação, os colaboradores e os servidores em PGD presencial receberão um e-mail com orientações na segunda-feira (15/12/2025).</p>",
+        "links": [
+          {
+            "text": "atendimentoservicedesk@inpi.gov.br",
+            "url": "mailto:atendimentoservicedesk@inpi.gov.br"
+          }
+        ]
+      }
+    ],
+    "externalLink": "#",
+    "lastModified": "2025-12-18T17:35:45.012Z"
   },
   {
     "id": "dados-cadastrais",
