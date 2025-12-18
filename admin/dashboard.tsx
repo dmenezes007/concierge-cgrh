@@ -13,10 +13,14 @@ import {
 } from 'lucide-react';
 
 interface Document {
+  id?: string; // ID do documento no Redis
   name: string;
   size: number;
   modified: string;
   path: string;
+  source?: 'redis' | 'blob' | 'filesystem';
+  keywords?: string;
+  description?: string;
 }
 
 export default function AdminDashboard() {
@@ -138,14 +142,42 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleDelete = async (filename: string) => {
-    if (!confirm(`Tem certeza que deseja deletar "${filename}"?`)) {
+  const handleDelete = async (doc: Document) => {
+    const displayName = doc.name || doc.id || 'documento';
+    
+    if (!confirm(`Tem certeza que deseja deletar "${displayName}"?`)) {
       return;
     }
 
+    setError('');
+    setSuccess('');
+
     try {
       const token = localStorage.getItem('admin_token');
-      const response = await fetch(`/api/admin/documents?filename=${encodeURIComponent(filename)}`, {
+      
+      // Se é um documento do Redis, usar API de delete do Redis
+      if (doc.source === 'redis' && doc.id) {
+        console.log(`Deletando documento do Redis: ${doc.id}`);
+        const response = await fetch(`/api/admin/delete?id=${encodeURIComponent(doc.id)}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          setSuccess(`✅ Documento "${displayName}" deletado com sucesso!`);
+          setTimeout(() => loadDocuments(), 500);
+        } else {
+          setError(data.error || 'Erro ao deletar documento');
+        }
+        return;
+      }
+      
+      // Para documentos do Blob/filesystem, usar API antiga
+      const response = await fetch(`/api/admin/documents?filename=${encodeURIComponent(doc.name)}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -155,11 +187,9 @@ export default function AdminDashboard() {
       const data = await response.json();
 
       if (response.ok) {
-        setSuccess(`Documento "${filename}" deletado com sucesso`);
-        // Recarregar lista de documentos
+        setSuccess(`Documento "${displayName}" deletado com sucesso`);
         setTimeout(() => loadDocuments(), 500);
       } else {
-        // Mostrar mensagem explicativa sobre limitação da Vercel
         const message = data.message ? `${data.error}\n\n${data.message}` : data.error;
         setError(message || 'Erro ao deletar documento');
       }
@@ -459,7 +489,7 @@ export default function AdminDashboard() {
                               <Download className="w-4 h-4" />
                             </button>
                             <button
-                              onClick={() => handleDelete(doc.name)}
+                              onClick={() => handleDelete(doc)}
                               className="p-2 hover:bg-red-500/20 text-red-500 rounded-lg transition-colors"
                               title="Deletar"
                             >

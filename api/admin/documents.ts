@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import fs from 'fs';
 import path from 'path';
 import { list, del } from '@vercel/blob';
+import Redis from 'ioredis';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;
@@ -74,7 +75,44 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // GET - Listar documentos
     if (req.method === 'GET') {
-      // Listar documentos do sistema de arquivos (docs/ - deployados)
+      // 1. Listar documentos do Redis
+      let redisDocs: any[] = [];
+      const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+      
+      if (redisUrl) {
+        try {
+          console.log('Listando documentos do Redis...');
+          const redis = new Redis(redisUrl);
+          
+          // Buscar todos os IDs de documentos
+          const docIds = await redis.smembers('docs:all');
+          console.log(`Encontrados ${docIds.length} documentos no Redis`);
+          
+          // Buscar dados de cada documento
+          for (const id of docIds) {
+            const doc = await redis.hgetall(`doc:${id}`);
+            if (doc && doc.id) {
+              redisDocs.push({
+                id: doc.id,
+                name: doc.title || id,
+                size: doc.content ? doc.content.length : 0,
+                modified: doc.createdAt || new Date().toISOString(),
+                path: doc.blobUrl || '',
+                source: 'redis',
+                keywords: doc.keywords || '',
+                description: doc.description || ''
+              });
+            }
+          }
+          
+          await redis.quit();
+          console.log(`Processados ${redisDocs.length} documentos do Redis`);
+        } catch (error: any) {
+          console.error('Erro ao listar documentos do Redis:', error.message);
+        }
+      }
+      
+      // 2. Listar documentos do sistema de arquivos (docs/ - deployados)
       const docsPath = path.join(process.cwd(), 'docs');
       let fileSystemDocs: any[] = [];
       
@@ -82,19 +120,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         fileSystemDocs = fs.readdirSync(docsPath)
           .filter(file => file.endsWith('.docx'))
           .map(file => {
-            const stats = fs.statSync(path.join(docsPath, file));
-            return {
-              name: file,
-              size: stats.size,
-              modified: stats.mtime,
-              path: `/docs/${file}`,
-              source: 'filesystem'
-            };
-          });
-      }
+            const stats = fs.statSync(path.join(doRedis > Blob > filesystem)
+      const allDocs = [...redisDocs, ...blobDocs, ...fileSystemDocs];
 
-      // Listar documentos do Vercel Blob Storage
-      let blobDocs: any[] = [];
+      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${blobDocs.length} do Blob, ${fileSystemDocs.length} do filesystem)`);
+
+      return res.status(200).json({ 
+        documents: allDocs,
+        count: allDocs.length,
+        sources: {
+          redis: redisDocs.length,
+          blob: blobDocs.length,
+          filesystem: f];
       if (process.env.BLOB_READ_WRITE_TOKEN) {
         try {
           console.log('Listando documentos do Blob Storage...');
