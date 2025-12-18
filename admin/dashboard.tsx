@@ -100,21 +100,28 @@ export default function AdminDashboard() {
       
       console.log('Enviando arquivo:', selectedFile.name, 'Tamanho:', selectedFile.size);
 
-      // Client-side upload para arquivos grandes (> 4.5 MB)
-      // Usa upload direto para o Blob, sem passar pelo servidor
-      
-      const { upload } = await import('@vercel/blob/client');
-      
-      const newBlob = await upload(selectedFile.name, selectedFile, {
-        access: 'public',
-        handleUploadUrl: '/api/admin/upload-url',
-        clientPayload: JSON.stringify({ filename: selectedFile.name }),
+      // Upload via FormData (funciona para todos os tamanhos)
+      const formData = new FormData();
+      formData.append('document', selectedFile);
+
+      const response = await fetch('/api/admin/upload', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData
       });
 
-      console.log('Upload concluído:', newBlob.url);
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Erro no upload');
+      }
+
+      const result = await response.json();
+      console.log('Upload concluído:', result);
       
       setSuccess(
-        `✅ Documento "${selectedFile.name}" enviado e indexado automaticamente!\n\n` +
+        `✅ ${result.message || 'Documento enviado e indexado automaticamente!'}\n\n` +
         `O documento já está disponível para busca no sistema. 🚀`
       );
       setSelectedFile(null);
