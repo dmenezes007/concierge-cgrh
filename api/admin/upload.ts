@@ -142,15 +142,57 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     console.log('Arquivo salvo no Blob com sucesso:', blob.url);
 
-    // Resposta
-    return res.status(200).json({
-      success: true,
-      message: 'Documento enviado com sucesso! Execute "npm run convert-docs" localmente para indexar.',
-      filename: docxFile.originalFilename,
-      size: docxFile.size,
-      blobUrl: blob.url,
-      preview: result.value.substring(0, 500) + '...',
-    });
+    // 🔄 PROCESSAMENTO AUTOMÁTICO - Chamar API de processamento
+    try {
+      console.log('🔄 Iniciando processamento automático do documento...');
+      
+      const processUrl = `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'}/api/process-document`;
+      
+      const processResponse = await fetch(processUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          blobUrl: blob.url,
+          filename: docxFile.originalFilename,
+        }),
+      });
+
+      if (!processResponse.ok) {
+        const errorData = await processResponse.json().catch(() => ({}));
+        console.error('❌ Erro no processamento:', errorData);
+        throw new Error(`Processamento falhou: ${errorData.error || processResponse.statusText}`);
+      }
+
+      const processResult = await processResponse.json();
+      console.log('✅ Documento processado e indexado:', processResult.document?.id);
+
+      // Resposta com sucesso completo
+      return res.status(200).json({
+        success: true,
+        message: '✅ Documento enviado e indexado automaticamente! Já está disponível para busca.',
+        filename: docxFile.originalFilename,
+        size: docxFile.size,
+        blobUrl: blob.url,
+        documentId: processResult.document?.id,
+        preview: result.value.substring(0, 500) + '...',
+      });
+
+    } catch (processError: any) {
+      console.error('⚠️ Erro no processamento automático:', processError.message);
+      
+      // Mesmo com erro no processamento, o upload foi bem-sucedido
+      return res.status(200).json({
+        success: true,
+        message: '⚠️ Documento enviado, mas falhou a indexação automática. Execute "npm run convert-docs" manualmente.',
+        filename: docxFile.originalFilename,
+        size: docxFile.size,
+        blobUrl: blob.url,
+        preview: result.value.substring(0, 500) + '...',
+        warning: `Processamento falhou: ${processError.message}`,
+      });
+    }
 
   } catch (error: any) {
     console.error('Erro no upload:', error);

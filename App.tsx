@@ -397,8 +397,42 @@ export default function App() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Filter logic
-  const suggestions = useMemo(() => {
+  // Filter logic - NOVA: busca híbrida (KV + fallback local)
+  const [apiResults, setApiResults] = useState<DatabaseItem[]>([]);
+  const [isSearching, setIsSearching] = useState(false);
+  
+  // Buscar na API quando query muda
+  useEffect(() => {
+    if (!query || query.length < 2) {
+      setApiResults([]);
+      return;
+    }
+
+    const searchAPI = async () => {
+      setIsSearching(true);
+      try {
+        const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
+        if (response.ok) {
+          const results = await response.json();
+          setApiResults(results);
+        } else {
+          console.warn('API de busca falhou, usando fallback local');
+          setApiResults([]);
+        }
+      } catch (error) {
+        console.warn('Erro na busca da API, usando fallback local:', error);
+        setApiResults([]);
+      } finally {
+        setIsSearching(false);
+      }
+    };
+
+    const timeoutId = setTimeout(searchAPI, 300); // Debounce de 300ms
+    return () => clearTimeout(timeoutId);
+  }, [query]);
+  
+  // Busca local como fallback
+  const localResults = useMemo(() => {
     if (!query) return [];
     const normalizedQuery = normalizeText(query);
     const queryWords = normalizedQuery.split(/\s+/).filter(word => word.length > 0);
@@ -416,6 +450,14 @@ export default function App() {
       });
     });
   }, [query]);
+
+  // Combinar resultados: priorizar API, usar local como fallback
+  const suggestions = useMemo(() => {
+    if (apiResults.length > 0) {
+      return apiResults;
+    }
+    return localResults;
+  }, [apiResults, localResults]);
 
   const handleSelect = (item: DatabaseItem) => {
     setSelectedItem(item);

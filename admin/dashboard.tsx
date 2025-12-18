@@ -114,14 +114,8 @@ export default function AdminDashboard() {
       console.log('Upload concluído:', newBlob.url);
       
       setSuccess(
-        `✅ Upload de "${selectedFile.name}" realizado com sucesso!\n\n` +
-        `📝 PRÓXIMOS PASSOS para indexar o documento:\n\n` +
-        `1. Abra o terminal na pasta do projeto\n` +
-        `2. Execute: npm run convert-docs\n` +
-        `3. Execute: git add src/database.json docs/\n` +
-        `4. Execute: git commit -m "docs: add ${selectedFile.name}"\n` +
-        `5. Execute: git push origin main\n\n` +
-        `Após o deploy (~2 min), o documento estará disponível na busca! 🚀`
+        `✅ Documento "${selectedFile.name}" enviado e indexado automaticamente!\n\n` +
+        `O documento já está disponível para busca no sistema. 🚀`
       );
       setSelectedFile(null);
       
@@ -380,14 +374,6 @@ export default function AdminDashboard() {
                   </>
                 )}
               </button>
-            </div>
-
-            <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4 mb-4">
-              <p className="text-sm text-blue-300 leading-relaxed">
-                <strong>ℹ️ Importante:</strong> Após o upload, o documento estará no Blob Storage mas não aparecerá na busca automaticamente. 
-                Você precisa executar <code className="px-1.5 py-0.5 bg-slate-900/50 rounded">npm run convert-docs</code> localmente 
-                e fazer commit das alterações para indexar o documento no sistema de busca.
-              </p>
             </div>
 
             <p className="text-xs text-slate-500 mt-3">
