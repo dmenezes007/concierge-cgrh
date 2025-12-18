@@ -2,13 +2,13 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
+    "api/admin/*.ts": {
+      "memory": 1024,
+      "maxDuration": 30
+    },
     "api/**/*.ts": {
       "memory": 1024,
       "maxDuration": 10
-    },
-    "api/admin/upload.ts": {
-      "memory": 1024,
-      "maxDuration": 30
     }
   },
   "rewrites": [
