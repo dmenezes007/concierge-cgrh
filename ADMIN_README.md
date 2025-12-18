@@ -48,6 +48,9 @@ Crie/edite o arquivo `.env` na raiz do projeto:
 # Senha do admin (use o hash gerado acima)
 ADMIN_PASSWORD_HASH=$2b$10$j1XYUupBSU2UQGBQgkNbYuicSZODovxfMncVxZ8ukgHiSUlAHNI7.
 
+# Vercel Blob Storage (obrigatório para upload de documentos)
+BLOB_READ_WRITE_TOKEN=seu_token_aqui
+
 # Vercel KV (opcional - para sessões persistentes)
 KV_REST_API_URL=
 KV_REST_API_TOKEN=
@@ -55,11 +58,17 @@ KV_REST_API_TOKEN=
 
 **Senha padrão atual**: `admin123` ⚠️ **MUDE EM PRODUÇÃO!**
 
+**⚠️ IMPORTANTE**: Configure o `BLOB_READ_WRITE_TOKEN` no Vercel para habilitar o upload de documentos:
+1. Acesse https://vercel.com/dashboard/stores
+2. Crie um Blob Storage (se não existir)
+3. Copie o token e adicione às variáveis de ambiente
+
 ### 3. Deploy no Vercel
 
 ```bash
-# Adicionar variável de ambiente no Vercel
+# Adicionar variáveis de ambiente no Vercel
 vercel env add ADMIN_PASSWORD_HASH
+vercel env add BLOB_READ_WRITE_TOKEN
 
 # Fazer deploy
 git add .
@@ -84,8 +93,19 @@ O Vercel fará o deploy automaticamente.
 1. No dashboard, clique em **Selecione um arquivo .docx**
 2. Escolha um arquivo `.docx` no seu computador
 3. Clique em **Enviar**
-4. ⚠️ **Importante**: Execute `npm run convert-docs` localmente para processar o documento
-5. Faça commit e push das alterações
+4. O documento será salvo automaticamente no **Vercel Blob Storage**
+5. **Execute localmente**: `npm run convert-docs` para processar e indexar o documento
+   - Este comando agora **baixa automaticamente** os documentos do Blob Storage
+   - Processa todos os arquivos .docx (locais + do Blob)
+   - Atualiza o `database.json` com o novo conteúdo
+6. Faça commit e push das alterações:
+   ```bash
+   git add src/database.json
+   git commit -m "chore: update database with new document"
+   git push
+   ```
+
+**💡 Nota**: O script `convert-docs` sincroniza automaticamente documentos do Blob Storage com a pasta local antes de processar.
 
 ### Deletar Documentos
 
@@ -178,6 +198,25 @@ concierge-cgrh/
 - Veja logs do servidor: `vercel logs`
 
 ### Documento não aparece na app
+
+**Causa**: O documento foi enviado para o Blob Storage, mas o `database.json` não foi atualizado.
+
+**Solução**:
+1. Execute localmente: `npm run convert-docs`
+   - O script irá:
+     - ✅ Conectar ao Vercel Blob Storage
+     - ✅ Baixar novos documentos automaticamente
+     - ✅ Processar todos os arquivos .docx
+     - ✅ Atualizar o `database.json`
+2. Verifique se o arquivo `src/database.json` foi modificado
+3. Faça commit e push:
+   ```bash
+   git add src/database.json docs/
+   git commit -m "chore: add new document to database"
+   git push
+   ```
+
+**💡 Dica**: Configure o `BLOB_READ_WRITE_TOKEN` no arquivo `.env` local para permitir que o script acesse o Blob Storage.
 
 - Após upload, execute: `npm run convert-docs`
 - Faça commit: `git add . && git commit -m "Add new document"`

@@ -4,6 +4,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import * as cheerio from 'cheerio';
 import XLSX from 'xlsx';
+import { list } from '@vercel/blob';
+import https from 'https';
+import http from 'http';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -217,6 +220,99 @@ function loadExcelData() {
   return excelMap;
 }
 
+// Função para baixar arquivo de uma URL
+async function downloadFile(url, destPath) {
+  return new Promise((resolve, reject) => {
+    const protocol = url.startsWith('https') ? https : http;
+    const file = fs.createWriteStream(destPath);
+    
+    protocol.get(url, (response) => {
+      response.pipe(file);
+      file.on('finish', () => {
+        file.close();
+        resolve();
+      });
+    }).on('error', (err) => {
+      fs.unlinkSync(destPath);
+      reject(err);
+    });
+  });
+}
+
+// Função para buscar documentos do Vercel Blob Storage
+async function fetchBlobDocuments() {
+  const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+  
+  if (!blobToken) {
+    console.log('⚠️  BLOB_READ_WRITE_TOKEN não configurado - buscando apenas arquivos locais\n');
+    return [];
+  }
+
+  try {
+    console.log('☁️  Buscando documentos do Vercel Blob Storage...\n');
+    
+    // Listar todos os blobs no prefixo 'docs/'
+    const { blobs } = await list({
+      prefix: 'docs/',
+      token: blobToken
+    });
+
+    // Filtrar apenas arquivos .docx
+    const docxBlobs = blobs.filter(blob => 
+      blob.pathname.endsWith('.docx') && 
+      !blob.pathname.includes('~$') // Ignorar arquivos temporários
+    );
+
+    console.log(`   📦 Encontrados ${docxBlobs.length} documentos no Blob Storage\n`);
+
+    // Baixar cada documento para a pasta docs/ temporariamente
+    const tempDir = path.join(__dirname, '../docs');
+    if (!fs.existsSync(tempDir)) {
+      fs.mkdirSync(tempDir, { recursive: true });
+    }
+
+    const downloadedFiles = [];
+    
+    for (const blob of docxBlobs) {
+      const filename = path.basename(blob.pathname);
+      const localPath = path.join(tempDir, filename);
+      
+      // Verificar se já existe localmente (evitar download duplicado)
+      if (fs.existsSync(localPath)) {
+        const localStats = fs.statSync(localPath);
+        const blobDate = new Date(blob.uploadedAt);
+        const localDate = new Date(localStats.mtime);
+        
+        // Se o arquivo local é mais recente ou igual, pular download
+        if (localDate >= blobDate) {
+          console.log(`   ⏭️  ${filename} - já existe localmente (atualizado)`);
+          continue;
+        }
+      }
+      
+      try {
+        console.log(`   ⬇️  Baixando: ${filename}`);
+        await downloadFile(blob.url, localPath);
+        downloadedFiles.push(filename);
+        console.log(`   ✅ ${filename} - baixado com sucesso`);
+      } catch (error) {
+        console.error(`   ❌ Erro ao baixar ${filename}:`, error.message);
+      }
+    }
+
+    if (downloadedFiles.length > 0) {
+      console.log(`\n   ✨ ${downloadedFiles.length} novos documentos baixados do Blob\n`);
+    } else {
+      console.log(`\n   ℹ️  Nenhum novo documento para baixar\n`);
+    }
+
+    return downloadedFiles;
+  } catch (error) {
+    console.error('❌ Erro ao buscar documentos do Blob:', error.message);
+    return [];
+  }
+}
+
 async function convertDocxToJson(docxPath, excelData = {}) {
   try {
     const result = await mammoth.convertToHtml({ path: docxPath });
@@ -294,6 +390,9 @@ async function main() {
   
   // Carregar dados da planilha Excel
   const excelData = loadExcelData();
+  
+  // Buscar e baixar documentos do Vercel Blob Storage
+  await fetchBlobDocuments();
   
   // Verificar se a pasta docs existe
   if (!fs.existsSync(DOCS_DIR)) {
