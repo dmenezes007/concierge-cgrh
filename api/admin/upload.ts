@@ -192,6 +192,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         description: content.substring(0, 200),
         content,
         sections: '[]',
+        icon: 'file-text',
+        color: JSON.stringify({ bg: 'blue', text: 'white' }),
         createdAt: new Date().toISOString(),
         blobUrl: blob.url
       };

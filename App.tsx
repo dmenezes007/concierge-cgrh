@@ -414,7 +414,43 @@ export default function App() {
         const response = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
         if (response.ok) {
           const results = await response.json();
-          setApiResults(results);
+          
+          // Normalizar documentos vindos do Redis (parsear strings JSON)
+          const normalizedResults = results.map((doc: any) => {
+            // Parse sections se for string
+            if (doc.sections && typeof doc.sections === 'string') {
+              try {
+                doc.sections = JSON.parse(doc.sections);
+              } catch (e) {
+                console.warn('Erro ao parsear sections:', e);
+                doc.sections = [];
+              }
+            }
+            
+            // Parse color se for string
+            if (doc.color && typeof doc.color === 'string') {
+              try {
+                doc.color = JSON.parse(doc.color);
+              } catch (e) {
+                console.warn('Erro ao parsear color:', e);
+                doc.color = { bg: 'blue', text: 'white' };
+              }
+            }
+            
+            // Garantir que color existe
+            if (!doc.color) {
+              doc.color = { bg: 'blue', text: 'white' };
+            }
+            
+            // Garantir que icon existe
+            if (!doc.icon) {
+              doc.icon = 'file-text';
+            }
+            
+            return doc;
+          });
+          
+          setApiResults(normalizedResults);
         } else {
           console.warn('API de busca falhou, usando fallback local');
           setApiResults([]);
