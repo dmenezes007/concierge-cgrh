@@ -162,28 +162,49 @@ export default function AdminDashboard() {
   const handleDownload = async (filename: string) => {
     try {
       const token = localStorage.getItem('admin_token');
-      const response = await fetch(`/api/admin/download?filename=${encodeURIComponent(filename)}`, {
+      
+      // Usar link direto para evitar problemas de CORS
+      // A API fará o proxy do arquivo
+      const downloadUrl = `/api/admin/download?filename=${encodeURIComponent(filename)}`;
+      
+      // Criar link temporário e clicar
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = filename;
+      link.style.display = 'none';
+      
+      // Adicionar auth header via fetch e criar blob URL
+      const response = await fetch(downloadUrl, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
       });
 
       if (!response.ok) {
-        const data = await response.json();
-        setError(data.error || 'Erro ao fazer download');
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+          const data = await response.json();
+          setError(data.error || 'Erro ao fazer download');
+        } else {
+          setError('Erro ao fazer download');
+        }
         return;
       }
 
-      // Create blob from response
+      // Criar blob do conteúdo
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
+      
+      // Criar link e fazer download
       link.href = url;
-      link.download = filename;
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      
+      // Limpar
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }, 100);
       
       setSuccess(`Download de "${filename}" iniciado`);
     } catch (err) {

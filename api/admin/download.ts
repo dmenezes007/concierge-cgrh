@@ -89,12 +89,24 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           token: process.env.BLOB_READ_WRITE_TOKEN,
         });
         
-        // Download URL do blob (válido por tempo limitado)
-        const downloadUrl = blobInfo.downloadUrl || blobInfo.url;
+        // Buscar o arquivo do blob e servir ao cliente
+        // Isso evita problemas de CORS
+        const response = await fetch(blobInfo.url);
         
-        // Redirecionar para o blob URL
-        // Usa 302 temporário para evitar cache
-        return res.redirect(302, downloadUrl);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch blob: ${response.status}`);
+        }
+        
+        const buffer = await response.arrayBuffer();
+        
+        // Set headers for download
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+        res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(safeName)}"`);
+        res.setHeader('Content-Length', buffer.byteLength);
+        res.setHeader('Cache-Control', 'no-cache');
+
+        return res.status(200).send(Buffer.from(buffer));
+        
       } catch (blobError) {
         console.log('Arquivo não encontrado no Blob:', blobError);
       }
