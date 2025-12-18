@@ -21,11 +21,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { q } = req.query;
     
     if (!q || typeof q !== 'string') {
+      await redis.quit();
       return res.status(400).json({ error: 'Parâmetro "q" é obrigatório' });
     }
 
     const query = q.toLowerCase().trim();
-    console.log('🔍 Buscando:', query);
+    console.log('🔍 API Search - Query:', query);
 
     // 1. Extrair palavras-chave da busca (remover acentos, normalizar)
     const searchWords = query
