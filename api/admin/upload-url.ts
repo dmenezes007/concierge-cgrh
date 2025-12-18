@@ -65,10 +65,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
+    // Verificar se o token do Blob está configurado
+    if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error('BLOB_READ_WRITE_TOKEN não configurado');
+      return res.status(500).json({
+        error: 'Blob Storage não configurado',
+        message: 'A variável BLOB_READ_WRITE_TOKEN não foi encontrada.'
+      });
+    }
+
     // Handle client upload request from @vercel/blob/client
     const jsonResponse = await handleUpload({
       body: req,
       request: req,
+      token: process.env.BLOB_READ_WRITE_TOKEN,
       onBeforeGenerateToken: async (pathname, clientPayload) => {
         console.log('Generating upload token for:', pathname);
         
