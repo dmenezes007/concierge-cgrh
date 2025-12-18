@@ -131,18 +131,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         fileSystemDocs = fs.readdirSync(docsPath)
           .filter(file => file.endsWith('.docx'))
           .map(file => {
-            const stats = fs.statSync(path.join(doRedis > Blob > filesystem)
-      const allDocs = [...redisDocs, ...blobDocs, ...fileSystemDocs];
+            const stats = fs.statSync(path.join(docsPath, file));
+            return {
+              name: file,
+              size: stats.size,
+              modified: stats.mtime,
+              path: `/docs/${file}`,
+              source: 'filesystem'
+            };
+          });
+      }
 
-      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${blobDocs.length} do Blob, ${fileSystemDocs.length} do filesystem)`);
-
-      return res.status(200).json({ 
-        documents: allDocs,
-        count: allDocs.length,
-        sources: {
-          redis: redisDocs.length,
-          blob: blobDocs.length,
-          filesystem: f];
+      // 3. Listar documentos do Vercel Blob Storage
+      let blobDocs: any[] = [];
       if (process.env.BLOB_READ_WRITE_TOKEN) {
         try {
           console.log('Listando documentos do Blob Storage...');
@@ -167,19 +168,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.log('BLOB_READ_WRITE_TOKEN não configurado');
       }
 
-      // Combinar e remover duplicatas (priorizar blob)
-      const blobNames = new Set(blobDocs.map(d => d.name));
-      const uniqueFileSystemDocs = fileSystemDocs.filter(d => !blobNames.has(d.name));
-      const allDocs = [...blobDocs, ...uniqueFileSystemDocs];
+      // Combinar (priorizar Redis > Blob > filesystem)
+      const allDocs = [...redisDocs, ...blobDocs, ...fileSystemDocs];
 
-      console.log(`Total de documentos: ${allDocs.length} (${blobDocs.length} do Blob, ${uniqueFileSystemDocs.length} do filesystem)`);
+      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${blobDocs.length} do Blob, ${fileSystemDocs.length} do filesystem)`);
 
       return res.status(200).json({ 
         documents: allDocs,
         count: allDocs.length,
         sources: {
+          redis: redisDocs.length,
           blob: blobDocs.length,
-          filesystem: uniqueFileSystemDocs.length
+          filesystem: fileSystemDocs.length
         }
       });
     }
