@@ -5,6 +5,7 @@ import path from 'path';
 import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import { put } from '@vercel/blob';
+import Redis from 'ioredis';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;
@@ -142,55 +143,92 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     console.log('Arquivo salvo no Blob com sucesso:', blob.url);
 
-    // 🔄 PROCESSAMENTO AUTOMÁTICO - Chamar API de processamento
+    // 🔄 PROCESSAMENTO AUTOMÁTICO INLINE (sem chamada HTTP)
     try {
-      console.log('🔄 Iniciando processamento automático do documento...');
+      console.log('🔄 Processando e indexando documento...');
       
-      const processUrl = `${process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000'}/api/process-document`;
-      
-      const processResponse = await fetch(processUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          blobUrl: blob.url,
-          filename: docxFile.originalFilename,
-        }),
-      });
-
-      if (!processResponse.ok) {
-        const errorData = await processResponse.json().catch(() => ({}));
-        console.error('❌ Erro no processamento:', errorData);
-        throw new Error(`Processamento falhou: ${errorData.error || processResponse.statusText}`);
+      const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+      if (!redisUrl) {
+        throw new Error('Redis não configurado');
       }
 
-      const processResult = await processResponse.json();
-      console.log('✅ Documento processado e indexado:', processResult.document?.id);
+      const redis = new Redis(redisUrl);
 
-      // Resposta com sucesso completo
+      // Extrair título e gerar ID
+      const title = docxFile.originalFilename.replace('.docx', '');
+      const id = title
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+
+      // Extrair texto do HTML
+      const content = result.value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+
+      // Gerar keywords (top 20 palavras)
+      const words = content
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s]/g, ' ')
+        .split(/\s+/)
+        .filter(w => w.length > 3);
+      
+      const freq: Record<string, number> = {};
+      words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+      
+      const keywords = Object.entries(freq)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 20)
+        .map(([word]) => word)
+        .join(' ');
+
+      // Salvar no Redis
+      const documentData = {
+        id,
+        title,
+        keywords,
+        description: content.substring(0, 200),
+        content,
+        sections: '[]',
+        createdAt: new Date().toISOString(),
+        blobUrl: blob.url
+      };
+
+      await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());
+      await redis.sadd('docs:all', id);
+
+      // Indexar palavras-chave
+      const indexWords = keywords.split(' ').filter(w => w.length > 3);
+      for (const word of indexWords) {
+        await redis.sadd(`search:${word.toLowerCase()}`, id);
+      }
+
+      await redis.quit();
+
+      console.log('✅ Documento indexado:', id);
+
       return res.status(200).json({
         success: true,
         message: '✅ Documento enviado e indexado automaticamente! Já está disponível para busca.',
         filename: docxFile.originalFilename,
         size: docxFile.size,
         blobUrl: blob.url,
-        documentId: processResult.document?.id,
+        documentId: id,
         preview: result.value.substring(0, 500) + '...',
       });
 
     } catch (processError: any) {
-      console.error('⚠️ Erro no processamento automático:', processError.message);
+      console.error('⚠️ Erro no processamento:', processError);
       
-      // Mesmo com erro no processamento, o upload foi bem-sucedido
       return res.status(200).json({
         success: true,
-        message: '⚠️ Documento enviado, mas falhou a indexação automática. Execute "npm run convert-docs" manualmente.',
+        message: '⚠️ Documento enviado mas não indexado. Erro: ' + processError.message,
         filename: docxFile.originalFilename,
         size: docxFile.size,
         blobUrl: blob.url,
         preview: result.value.substring(0, 500) + '...',
-        warning: `Processamento falhou: ${processError.message}`,
       });
     }
 
