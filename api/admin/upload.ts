@@ -91,26 +91,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       keepExtensions: true,
     });
 
+    console.log('Parseando formulário...');
     const [fields, files] = await form.parse(req);
+    console.log('Formulário parseado. Files:', Object.keys(files));
     
     const docxFile = files.document?.[0];
     if (!docxFile) {
+      console.error('Nenhum arquivo recebido');
       return res.status(400).json({ error: 'Arquivo não fornecido' });
     }
 
+    console.log('Arquivo recebido:', docxFile.originalFilename, 'Tamanho:', docxFile.size);
+
     // Validar extensão
     if (!docxFile.originalFilename?.endsWith('.docx')) {
+      console.error('Extensão inválida:', docxFile.originalFilename);
+      fs.unlinkSync(docxFile.filepath);
       return res.status(400).json({ error: 'Apenas arquivos .docx são permitidos' });
     }
 
     // Ler o arquivo
+    console.log('Lendo arquivo...');
     const buffer = fs.readFileSync(docxFile.filepath);
+    console.log('Arquivo lido, tamanho do buffer:', buffer.length);
 
     // Converter para HTML (preview)
+    console.log('Convertendo para HTML...');
     const result = await mammoth.convertToHtml({ buffer });
+    console.log('Conversão concluída');
     
     // Verificar se o token do Blob está configurado
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
+      console.error('BLOB_READ_WRITE_TOKEN não configurado');
       fs.unlinkSync(docxFile.filepath);
       return res.status(500).json({
         error: 'Blob Storage não configurado',
@@ -133,19 +145,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Resposta
     return res.status(200).json({
       success: true,
-      message: 'Documento enviado com sucesso!',
+      message: 'Documento enviado com sucesso! Execute "npm run convert-docs" localmente para indexar.',
       filename: docxFile.originalFilename,
       size: docxFile.size,
       blobUrl: blob.url,
-      preview: result.value.substring(0, 500) + '...', // Preview limitado
-      note: 'Para processar o documento no sistema de busca, execute "npm run convert-docs" localmente e faça deploy.'
+      preview: result.value.substring(0, 500) + '...',
     });
 
   } catch (error: any) {
     console.error('Erro no upload:', error);
+    console.error('Stack:', error.stack);
     return res.status(500).json({ 
       error: 'Erro ao processar upload', 
-      details: error.message 
+      details: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
 }

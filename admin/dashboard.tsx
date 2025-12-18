@@ -100,6 +100,8 @@ export default function AdminDashboard() {
       const formData = new FormData();
       formData.append('document', selectedFile);
 
+      console.log('Enviando arquivo:', selectedFile.name, 'Tamanho:', selectedFile.size);
+
       const response = await fetch('/api/admin/upload', {
         method: 'POST',
         headers: {
@@ -108,7 +110,18 @@ export default function AdminDashboard() {
         body: formData
       });
 
+      console.log('Response status:', response.status);
+      
+      // Verificar se a resposta é JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const text = await response.text();
+        console.error('Resposta não é JSON:', text);
+        throw new Error('Erro no servidor: resposta inválida');
+      }
+
       const data = await response.json();
+      console.log('Response data:', data);
 
       if (response.ok) {
         const message = data.message || 'Upload realizado com sucesso!';
@@ -117,11 +130,15 @@ export default function AdminDashboard() {
         // Recarregar lista de documentos
         setTimeout(() => loadDocuments(), 500);
       } else {
-        setError(data.error || 'Erro ao enviar documento');
+        const errorMsg = data.error || 'Erro ao enviar documento';
+        const detailMsg = data.message ? `\n\n${data.message}` : '';
+        setError(errorMsg + detailMsg);
+        console.error('Erro do servidor:', data);
       }
-    } catch (err) {
-      setError('Erro de conexão ao enviar documento');
-      console.error(err);
+    } catch (err: any) {
+      console.error('Erro completo:', err);
+      const errorMessage = err.message || 'Erro de conexão ao enviar documento';
+      setError(`${errorMessage}\n\nVerifique o console (F12) para mais detalhes.`);
     } finally {
       setUploading(false);
     }
