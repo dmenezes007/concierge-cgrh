@@ -83,15 +83,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const safeName = path.basename(filename);
     
     // Tentar buscar do Blob Storage primeiro
-    try {
-      const blobInfo = await head(`docs/${safeName}`, {
-        token: process.env.BLOB_READ_WRITE_TOKEN,
-      });
-      
-      // Redirecionar para o URL do blob
-      return res.redirect(307, blobInfo.url);
-    } catch (blobError) {
-      console.log('Arquivo não encontrado no Blob, tentando filesystem:', blobError);
+    if (process.env.BLOB_READ_WRITE_TOKEN) {
+      try {
+        const blobInfo = await head(`docs/${safeName}`, {
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+        });
+        
+        // Download URL do blob (válido por tempo limitado)
+        const downloadUrl = blobInfo.downloadUrl || blobInfo.url;
+        
+        // Redirecionar para o blob URL
+        // Usa 302 temporário para evitar cache
+        return res.redirect(302, downloadUrl);
+      } catch (blobError) {
+        console.log('Arquivo não encontrado no Blob:', blobError);
+      }
     }
     
     // Se não está no Blob, tentar filesystem

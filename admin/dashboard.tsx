@@ -97,47 +97,31 @@ export default function AdminDashboard() {
 
     try {
       const token = localStorage.getItem('admin_token');
-      const formData = new FormData();
-      formData.append('document', selectedFile);
-
+      
       console.log('Enviando arquivo:', selectedFile.name, 'Tamanho:', selectedFile.size);
 
-      const response = await fetch('/api/admin/upload', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-        },
-        body: formData
+      // Client-side upload para arquivos grandes (> 4.5 MB)
+      // Usa upload direto para o Blob, sem passar pelo servidor
+      
+      const { upload } = await import('@vercel/blob/client');
+      
+      const newBlob = await upload(selectedFile.name, selectedFile, {
+        access: 'public',
+        handleUploadUrl: '/api/admin/upload-url',
+        clientPayload: JSON.stringify({ filename: selectedFile.name }),
       });
 
-      console.log('Response status:', response.status);
+      console.log('Upload concluído:', newBlob.url);
       
-      // Verificar se a resposta é JSON
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        const text = await response.text();
-        console.error('Resposta não é JSON:', text);
-        throw new Error('Erro no servidor: resposta inválida');
-      }
+      setSuccess(`Upload de "${selectedFile.name}" realizado com sucesso! Execute "npm run convert-docs" localmente para indexar o documento.`);
+      setSelectedFile(null);
+      
+      // Recarregar lista de documentos
+      setTimeout(() => loadDocuments(), 500);
 
-      const data = await response.json();
-      console.log('Response data:', data);
-
-      if (response.ok) {
-        const message = data.message || 'Upload realizado com sucesso!';
-        setSuccess(message);
-        setSelectedFile(null);
-        // Recarregar lista de documentos
-        setTimeout(() => loadDocuments(), 500);
-      } else {
-        const errorMsg = data.error || 'Erro ao enviar documento';
-        const detailMsg = data.message ? `\n\n${data.message}` : '';
-        setError(errorMsg + detailMsg);
-        console.error('Erro do servidor:', data);
-      }
     } catch (err: any) {
       console.error('Erro completo:', err);
-      const errorMessage = err.message || 'Erro de conexão ao enviar documento';
+      const errorMessage = err.message || 'Erro ao enviar documento';
       setError(`${errorMessage}\n\nVerifique o console (F12) para mais detalhes.`);
     } finally {
       setUploading(false);
