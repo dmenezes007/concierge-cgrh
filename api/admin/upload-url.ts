@@ -58,12 +58,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Método não permitido' });
   }
 
-  // Check authentication
-  const authenticated = await isAuthenticated(req);
-  if (!authenticated) {
-    return res.status(401).json({ error: 'Não autorizado' });
-  }
-
   try {
     // Verificar se o token do Blob está configurado
     if (!process.env.BLOB_READ_WRITE_TOKEN) {
@@ -81,6 +75,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       token: process.env.BLOB_READ_WRITE_TOKEN,
       onBeforeGenerateToken: async (pathname, clientPayload) => {
         console.log('Generating upload token for:', pathname);
+        
+        // Autenticação dentro do callback
+        const authenticated = await isAuthenticated(req);
+        if (!authenticated) {
+          throw new Error('Não autorizado');
+        }
         
         // Validate that it's a .docx file
         if (!pathname.endsWith('.docx')) {
