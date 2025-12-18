@@ -145,6 +145,13 @@ export default function AdminDashboard() {
   const handleDelete = async (doc: Document) => {
     const displayName = doc.name || doc.id || 'documento';
     
+    console.log('🗑️ Tentando deletar documento:', {
+      name: doc.name,
+      id: doc.id,
+      source: doc.source,
+      path: doc.path
+    });
+    
     if (!confirm(`Tem certeza que deseja deletar "${displayName}"?`)) {
       return;
     }
@@ -157,7 +164,7 @@ export default function AdminDashboard() {
       
       // Se é um documento do Redis, usar API de delete do Redis
       if (doc.source === 'redis' && doc.id) {
-        console.log(`Deletando documento do Redis: ${doc.id}`);
+        console.log(`✅ Deletando documento do Redis via API: ${doc.id}`);
         const response = await fetch(`/api/admin/delete?id=${encodeURIComponent(doc.id)}`, {
           method: 'DELETE',
           headers: {
@@ -165,7 +172,9 @@ export default function AdminDashboard() {
           }
         });
 
+        console.log('📡 Response status:', response.status);
         const data = await response.json();
+        console.log('📄 Response data:', data);
 
         if (response.ok) {
           setSuccess(`✅ Documento "${displayName}" deletado com sucesso!`);

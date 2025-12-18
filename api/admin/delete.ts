@@ -78,6 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const { id } = req.query;
 
     if (!id || typeof id !== 'string') {
+      console.error('❌ ID não fornecido ou inválido:', id);
       return res.status(400).json({ error: 'ID do documento não fornecido' });
     }
 
@@ -85,6 +86,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
     if (!redisUrl) {
+      console.error('❌ Redis URL não configurada');
       return res.status(500).json({ error: 'Redis não configurado' });
     }
 
@@ -97,12 +99,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     });
 
     // 1. Buscar documento no Redis
+    console.log('📋 Buscando documento no Redis...');
     const doc = await redis.hgetall(`doc:${id}`);
     
     if (!doc || !doc.id) {
+      console.error('❌ Documento não encontrado:', id);
       await redis.quit();
       return res.status(404).json({ error: 'Documento não encontrado' });
     }
+
+    console.log('✅ Documento encontrado:', doc.title || id);
 
     // 2. Deletar arquivo do Blob Storage (se existir)
     if (doc.blobUrl) {
