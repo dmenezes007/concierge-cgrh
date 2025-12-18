@@ -7,13 +7,41 @@
  * criando índices de busca para cada documento.
  */
 
-import { kv } from '@vercel/kv';
+import 'dotenv/config';
+import Redis from 'ioredis';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+// Criar cliente Redis direto
+const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+if (!redisUrl) {
+  console.error('❌ REDIS_URL ou KV_REST_API_URL não configurada');
+  process.exit(1);
+}
+
+console.log('🔗 Conectando ao Redis:', redisUrl.replace(/:[^:@]+@/, ':****@'));
+const redis = new Redis(redisUrl);
+
+// Funções compatíveis com @vercel/kv
+const kv = {
+  async hset(key, data) {
+    const entries = Object.entries(data).flat();
+    return redis.hset(key, ...entries);
+  },
+  async sadd(key, ...members) {
+    return redis.sadd(key, ...members);
+  },
+  async hgetall(key) {
+    return redis.hgetall(key);
+  },
+  async smembers(key) {
+    return redis.smembers(key);
+  }
+};
 
 // Carregar database.json
 const databasePath = path.join(__dirname, '..', 'src', 'database.json');
@@ -67,18 +95,18 @@ async function migrateDocuments() {
       // Extrair conteúdo completo
       const content = extractText(doc.sections || []);
 
-      // Preparar dados do documento
+      // Preparar dados do documento (serializar objetos complexos)
       const documentData = {
         id: doc.id,
-        title: doc.title,
+        title: doc.title || '',
         keywords: doc.keywords || '',
         description: doc.description || '',
         content,
-        sections: doc.sections || [],
-        icon: doc.icon,
-        color: doc.color,
-        externalLink: doc.externalLink,
-        lastModified: doc.lastModified,
+        sections: JSON.stringify(doc.sections || []),
+        icon: doc.icon || 'file-text',
+        color: JSON.stringify(doc.color || {}),
+        externalLink: doc.externalLink || '',
+        lastModified: doc.lastModified || '',
         createdAt: new Date().toISOString(),
       };
 
@@ -121,6 +149,10 @@ async function migrateDocuments() {
   console.log(`❌ Erros: ${errorCount} documentos`);
   console.log(`📚 Total: ${database.length} documentos`);
   console.log('='.repeat(50) + '\n');
+
+  // Fechar conexão Redis
+  await redis.quit();
+  console.log('🔌 Conexão fechada');
 
   if (errorCount === 0) {
     console.log('🎉 Migração concluída com sucesso!\n');

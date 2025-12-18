@@ -19,6 +19,7 @@
     "bcryptjs": "^3.0.3",
     "dotenv": "^17.2.3",
     "formidable": "^3.5.4",
+    "ioredis": "^5.8.2",
     "lucide-react": "^0.555.0",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
