@@ -169,16 +169,41 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         console.log('BLOB_READ_WRITE_TOKEN não configurado');
       }
 
-      // Deduplcar: remover arquivos do Blob que já estão no Redis
+      // Deduplicar: remover arquivos do Blob/filesystem que já estão no Redis
+      // E também remover arquivos do Blob que NÃO estão no Redis (foram deletados)
       const redisUrls = new Set(redisDocs.map(d => d.blobUrl).filter(Boolean));
+      const redisIds = new Set(redisDocs.map(d => d.id));
+      
+      console.log('IDs no Redis:', Array.from(redisIds));
       console.log('URLs no Redis para deduplicação:', Array.from(redisUrls));
       
+      // Para cada documento do Blob, verificar se ainda está no Redis
       const uniqueBlobDocs = blobDocs.filter(d => {
+        // Gerar ID a partir do nome do arquivo (mesmo algoritmo do upload)
+        const title = d.name.replace('.docx', '');
+        const id = title
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        
+        // Se o documento NÃO está no Redis, significa que foi deletado
+        const wasDeleted = !redisIds.has(id);
+        
+        if (wasDeleted) {
+          console.log(`🗑️ Documento deletado do Redis mas ainda no Blob: ${d.name} (ID: ${id})`);
+          return false; // NÃO mostrar na lista
+        }
+        
+        // Também checar se já está no Redis via URL (duplicata)
         const isDuplicate = redisUrls.has(d.path);
         if (isDuplicate) {
           console.log(`🔄 Removendo duplicata: ${d.name} (já existe no Redis)`);
+          return false;
         }
-        return !isDuplicate;
+        
+        return true; // Mostrar apenas se NÃO foi deletado e NÃO é duplicata
       });
       
       // Também deduplar filesystem - normalizar nomes para comparação

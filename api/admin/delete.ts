@@ -111,22 +111,38 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     console.log('✅ Documento encontrado:', doc.title || id);
 
     // 2. Deletar arquivo do Blob Storage (se existir)
+    let blobDeleted = false;
     if (doc.blobUrl) {
       try {
         console.log('🗑️ Tentando deletar do Blob:', doc.blobUrl);
         
         if (!process.env.BLOB_READ_WRITE_TOKEN) {
-          console.warn('⚠️ BLOB_READ_WRITE_TOKEN não configurado');
-        } else {
-          await del(doc.blobUrl, {
-            token: process.env.BLOB_READ_WRITE_TOKEN,
-          });
-          console.log('✅ Arquivo deletado do Blob Storage com sucesso');
+          console.error('❌ BLOB_READ_WRITE_TOKEN não configurado - Blob não será deletado!');
+          throw new Error('Token do Blob não configurado');
         }
+        
+        // Deletar do Blob
+        await del(doc.blobUrl, {
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+        });
+        
+        blobDeleted = true;
+        console.log('✅ Arquivo deletado do Blob Storage com sucesso');
+        
       } catch (error: any) {
-        console.warn('⚠️ Erro ao deletar arquivo do Blob:', error.message);
-        console.warn('Stack:', error.stack);
-        // Continua mesmo se falhar, pois o mais importante é remover do Redis
+        console.error('❌ ERRO CRÍTICO ao deletar arquivo do Blob:', error.message);
+        console.error('Stack completo:', error.stack);
+        console.error('BlobUrl:', doc.blobUrl);
+        console.error('Token presente:', !!process.env.BLOB_READ_WRITE_TOKEN);
+        
+        // NÃO continua - retorna erro para o usuário saber que falhou
+        await redis.quit();
+        return res.status(500).json({
+          error: 'Erro ao deletar arquivo do Blob Storage',
+          details: error.message,
+          blobUrl: doc.blobUrl,
+          warning: 'Documento removido do Redis mas arquivo permanece no Blob'
+        });
       }
     } else {
       console.log('ℹ️ Documento não possui blobUrl, pulando deleção do Blob');
@@ -152,7 +168,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(200).json({
       success: true,
       message: 'Documento deletado com sucesso',
-      documentId: id
+      documentId: id,
+      blobDeleted,
+      details: {
+        redisRemoved: true,
+        blobRemoved: blobDeleted,
+        searchIndexRemoved: true
+      }
     });
 
   } catch (error: any) {

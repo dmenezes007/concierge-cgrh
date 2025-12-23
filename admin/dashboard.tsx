@@ -35,6 +35,7 @@ export default function AdminDashboard() {
   const [success, setSuccess] = useState('');
   const [uploading, setUploading] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [checking, setChecking] = useState(false);
 
   useEffect(() => {
     checkAuth();
@@ -303,6 +304,61 @@ export default function AdminDashboard() {
     window.location.href = '/admin/login.html';
   };
 
+  const handleHealthCheck = async (cleanup: boolean = false) => {
+    setChecking(true);
+    setError('');
+    setSuccess('');
+
+    try {
+      const response = await fetch(`/api/health-check${cleanup ? '?cleanup=true' : ''}`);
+      const data = await response.json();
+
+      if (response.ok) {
+        const { summary, orphans, cleanedFiles, message } = data;
+        
+        let resultMessage = `📊 Health Check:
+
+`;
+        resultMessage += `📊 Redis: ${summary.redisDocuments} documentos
+`;
+        resultMessage += `☁️ Blob: ${summary.blobDocuments} arquivos
+`;
+        resultMessage += `🗑️ Órfãos: ${summary.orphansFound} arquivos
+
+`;
+        
+        if (cleanup && cleanedFiles.length > 0) {
+          resultMessage += `✅ Limpos: ${cleanedFiles.length} arquivos
+`;
+          resultMessage += cleanedFiles.map((f: string) => `  - ${f}`).join('\n');
+        } else if (orphans.length > 0) {
+          resultMessage += `⚠️ Arquivos órfãos encontrados:
+`;
+          resultMessage += orphans.slice(0, 5).map((o: any) => `  - ${o.filename}`).join('\n');
+          if (orphans.length > 5) {
+            resultMessage += `\n  ... e mais ${orphans.length - 5}`;
+          }
+        }
+        
+        resultMessage += `\n\n${message}`;
+        
+        setSuccess(resultMessage);
+        
+        // Recarregar documentos após limpeza
+        if (cleanup && cleanedFiles.length > 0) {
+          setTimeout(() => loadDocuments(), 1000);
+        }
+      } else {
+        setError(data.error || 'Erro ao executar health check');
+      }
+    } catch (err: any) {
+      setError('Erro de conexão ao executar health check');
+      console.error(err);
+    } finally {
+      setChecking(false);
+    }
+  };
+
   const formatFileSize = (bytes: number) => {
     if (bytes < 1024) return bytes + ' B';
     if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
@@ -340,6 +396,28 @@ export default function AdminDashboard() {
               </div>
 
               <div className="flex items-center gap-3">
+                <button
+                  onClick={() => handleHealthCheck(false)}
+                  disabled={checking}
+                  className="flex items-center gap-2 px-3 py-2 bg-yellow-600 hover:bg-yellow-700 disabled:bg-slate-700 text-white rounded-lg transition-colors text-sm"
+                  title="Verificar consistência entre Redis e Blob"
+                >
+                  <AlertCircle className={`w-4 h-4 ${checking ? 'animate-spin' : ''}`} />
+                  {checking ? 'Verificando...' : 'Health Check'}
+                </button>
+                <button
+                  onClick={() => {
+                    if (confirm('🧹 Deseja limpar arquivos órfãos do Blob Storage?\n\nIsso deletará arquivos que estão no Blob mas não no Redis.')) {
+                      handleHealthCheck(true);
+                    }
+                  }}
+                  disabled={checking}
+                  className="flex items-center gap-2 px-3 py-2 bg-red-600 hover:bg-red-700 disabled:bg-slate-700 text-white rounded-lg transition-colors text-sm"
+                  title="Limpar arquivos órfãos do Blob"
+                >
+                  <Trash2 className="w-4 h-4" />
+                  Limpar Órfãos
+                </button>
                 <a
                   href="/"
                   className="px-6 py-2 bg-white text-slate-900 font-bold rounded-lg hover:bg-slate-100 transition-colors"
