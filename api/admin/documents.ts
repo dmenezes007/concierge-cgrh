@@ -171,12 +171,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       // Deduplcar: remover arquivos do Blob que já estão no Redis
       const redisUrls = new Set(redisDocs.map(d => d.blobUrl).filter(Boolean));
-      const uniqueBlobDocs = blobDocs.filter(d => !redisUrls.has(d.path));
+      console.log('URLs no Redis para deduplicação:', Array.from(redisUrls));
+      
+      const uniqueBlobDocs = blobDocs.filter(d => {
+        const isDuplicate = redisUrls.has(d.path);
+        if (isDuplicate) {
+          console.log(`🔄 Removendo duplicata: ${d.name} (já existe no Redis)`);
+        }
+        return !isDuplicate;
+      });
+      
+      // Também deduplar filesystem
+      const redisNames = new Set(redisDocs.map(d => d.name));
+      const uniqueFileSystemDocs = fileSystemDocs.filter(d => {
+        const isDuplicate = redisNames.has(d.name) || redisNames.has(d.name.replace('.docx', ''));
+        if (isDuplicate) {
+          console.log(`🔄 Removendo duplicata filesystem: ${d.name}`);
+        }
+        return !isDuplicate;
+      });
       
       // Combinar (priorizar Redis > Blob > filesystem)
-      const allDocs = [...redisDocs, ...uniqueBlobDocs, ...fileSystemDocs];
+      const allDocs = [...redisDocs, ...uniqueBlobDocs, ...uniqueFileSystemDocs];
 
-      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${uniqueBlobDocs.length} do Blob único, ${fileSystemDocs.length} do filesystem)`);
+      console.log(`Total de documentos: ${allDocs.length} (${redisDocs.length} do Redis, ${uniqueBlobDocs.length} do Blob único, ${uniqueFileSystemDocs.length} do filesystem único)`);
 
       return res.status(200).json({ 
         documents: allDocs,
@@ -184,7 +202,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         sources: {
           redis: redisDocs.length,
           blob: uniqueBlobDocs.length,
-          filesystem: fileSystemDocs.length
+          filesystem: uniqueFileSystemDocs.length
         }
       });
     }

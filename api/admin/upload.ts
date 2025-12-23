@@ -88,7 +88,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     // Parse do formulário com formidable
     const form = formidable({
-      maxFileSize: 10 * 1024 * 1024, // 10MB
+      maxFileSize: 50 * 1024 * 1024, // 50MB
       keepExtensions: true,
     });
 
@@ -244,6 +244,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   } catch (error: any) {
     console.error('Erro no upload:', error);
     console.error('Stack:', error.stack);
+    
+    // Verificar se é erro de tamanho de arquivo
+    if (error.code === 'LIMIT_FILE_SIZE' || error.message?.includes('maxFileSize')) {
+      return res.status(413).json({ 
+        error: 'Arquivo muito grande', 
+        details: 'O arquivo excede o limite de 50MB. Por favor, envie um arquivo menor.',
+        maxSize: '50MB'
+      });
+    }
+    
     return res.status(500).json({ 
       error: 'Erro ao processar upload', 
       details: error.message,

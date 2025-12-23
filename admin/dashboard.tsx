@@ -117,8 +117,19 @@ export default function AdminDashboard() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Erro no upload');
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch (e) {
+          // Se não conseguir parsear JSON, usar mensagem genérica
+          throw new Error(`Erro no upload (${response.status}): ${response.statusText}`);
+        }
+        
+        if (response.status === 413) {
+          throw new Error(`Arquivo muito grande! O limite é de 50MB. Seu arquivo tem ${(selectedFile.size / (1024 * 1024)).toFixed(1)}MB`);
+        }
+        
+        throw new Error(errorData.error || errorData.details || 'Erro no upload');
       }
 
       const result = await response.json();

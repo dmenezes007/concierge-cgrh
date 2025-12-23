@@ -113,14 +113,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // 2. Deletar arquivo do Blob Storage (se existir)
     if (doc.blobUrl) {
       try {
-        await del(doc.blobUrl, {
-          token: process.env.BLOB_READ_WRITE_TOKEN,
-        });
-        console.log('✅ Arquivo deletado do Blob:', doc.blobUrl);
+        console.log('🗑️ Tentando deletar do Blob:', doc.blobUrl);
+        
+        if (!process.env.BLOB_READ_WRITE_TOKEN) {
+          console.warn('⚠️ BLOB_READ_WRITE_TOKEN não configurado');
+        } else {
+          await del(doc.blobUrl, {
+            token: process.env.BLOB_READ_WRITE_TOKEN,
+          });
+          console.log('✅ Arquivo deletado do Blob Storage com sucesso');
+        }
       } catch (error: any) {
         console.warn('⚠️ Erro ao deletar arquivo do Blob:', error.message);
+        console.warn('Stack:', error.stack);
         // Continua mesmo se falhar, pois o mais importante é remover do Redis
       }
+    } else {
+      console.log('ℹ️ Documento não possui blobUrl, pulando deleção do Blob');
     }
 
     // 3. Remover índices de busca
