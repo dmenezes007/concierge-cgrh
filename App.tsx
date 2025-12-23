@@ -839,7 +839,25 @@ export default function App() {
               <div className="mt-3 sm:mt-4 flex items-center gap-2 text-[10px] sm:text-xs text-slate-400">
                 <span>Última atualização:</span>
                 <span className="font-medium text-slate-500">
-                  {new Date(selectedItem.lastModified).toLocaleDateString('pt-BR')}
+                  {selectedItem.lastModified 
+                    ? (() => {
+                        try {
+                          const date = new Date(selectedItem.lastModified);
+                          return !isNaN(date.getTime()) 
+                            ? date.toLocaleDateString('pt-BR', { 
+                                day: '2-digit', 
+                                month: '2-digit', 
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })
+                            : 'Data não disponível';
+                        } catch {
+                          return 'Data não disponível';
+                        }
+                      })()
+                    : 'Data não disponível'
+                  }
                 </span>
               </div>
             </Card>

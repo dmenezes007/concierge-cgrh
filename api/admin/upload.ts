@@ -172,7 +172,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Extrair texto do HTML
       const content = result.value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
 
-      // Gerar keywords (top 20 palavras)
+      // Gerar keywords (TODAS as palavras únicas do conteúdo para busca completa)
       const words = content
         .toLowerCase()
         .normalize('NFD')
@@ -181,26 +181,23 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .split(/\s+/)
         .filter(w => w.length > 3);
       
-      const freq: Record<string, number> = {};
-      words.forEach(w => freq[w] = (freq[w] || 0) + 1);
+      // Usar Set para palavras únicas, depois converter para array
+      const uniqueWords = [...new Set(words)];
       
-      const keywords = Object.entries(freq)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 20)
-        .map(([word]) => word)
-        .join(' ');
+      const keywords = uniqueWords.join(' ');
 
       // Salvar no Redis
       const documentData = {
         id,
         title,
         keywords,
-        description: content.substring(0, 500),
+        description: content.substring(0, 2000), // Aumentado de 500 para 2000 caracteres
         content,
         sections: '[]',
         icon: 'file-text',
         color: JSON.stringify({ bg: 'blue', text: 'white' }),
         externalLink: '',
+        lastModified: new Date().toISOString(), // Nome correto do campo
         createdAt: new Date().toISOString(),
         blobUrl: blob.url
       };
@@ -208,8 +205,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());
       await redis.sadd('docs:all', id);
 
-      // Indexar palavras-chave
-      const indexWords = keywords.split(' ').filter(w => w.length > 3);
+      // Indexar TODAS as palavras únicas do conteúdo
+      const indexWords = uniqueWords.filter(w => w.length > 3);
+      console.log(`Indexando ${indexWords.length} palavras únicas para doc:${id}`);
       for (const word of indexWords) {
         await redis.sadd(`search:${word.toLowerCase()}`, id);
       }

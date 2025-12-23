@@ -8,6 +8,7 @@
     "migrate-to-kv": "node scripts/migrate-to-kv.js",
     "migrate-to-blob": "node scripts/migrate-files-to-blob.js",
     "check-sync": "node scripts/check-sync-status.js",
+    "reindex": "node scripts/reindex-documents.js",
     "prebuild": "npm run convert-docs",
     "dev": "vite",
     "build": "vite build",
