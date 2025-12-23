@@ -487,13 +487,27 @@ export default function App() {
     });
   }, [query]);
 
-  // Combinar resultados: priorizar API, usar local como fallback
+  // Combinar resultados: priorizar API (Redis), complementar com local
   const suggestions = useMemo(() => {
+    // Se ainda está buscando, não mostrar nada
+    if (isSearching) {
+      return [];
+    }
+    
+    // Sempre priorizar resultados da API (Redis - documentos mais recentes)
     if (apiResults.length > 0) {
+      console.log('📊 Usando resultados da API (Redis):', apiResults.length);
       return apiResults;
     }
-    return localResults;
-  }, [apiResults, localResults]);
+    
+    // Se a API não retornou nada mas a query é válida, tentar local como fallback
+    if (query.length >= 2) {
+      console.log('📁 Usando resultados locais (database.json):', localResults.length);
+      return localResults;
+    }
+    
+    return [];
+  }, [apiResults, localResults, isSearching, query]);
 
   const handleSelect = (item: DatabaseItem) => {
     setSelectedItem(item);
@@ -668,11 +682,17 @@ export default function App() {
           <div 
             className={`
               absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300 origin-top mx-2 sm:mx-0 z-40
-              ${(isFocused && query && suggestions.length > 0) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
+              ${(isFocused && query && (suggestions.length > 0 || isSearching)) ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-2 invisible pointer-events-none'}
             `}
           >
-            <div className="h-[180px] sm:h-[240px] overflow-y-scroll">
-              {suggestions.map((item) => {
+            {isSearching ? (
+              <div className="p-8 text-center">
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 mx-auto mb-3"></div>
+                <p className="text-sm text-slate-500">Buscando documentos...</p>
+              </div>
+            ) : (
+              <div className="h-[180px] sm:h-[240px] overflow-y-scroll">
+                {suggestions.map((item) => {
                 const IconComponent = getIconComponent(item.icon);
                 const gradient = COLOR_GRADIENTS[item.color.bg] || COLOR_GRADIENTS.blue;
                 return (
@@ -718,10 +738,11 @@ export default function App() {
                 );
               })}
             </div>
+            )}
           </div>
           
           {/* No results state in dropdown */}
-          {(isFocused && query && suggestions.length === 0) && (
+          {(isFocused && query && suggestions.length === 0 && !isSearching) && (
             <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl shadow-xl border border-slate-100 p-6 text-center">
               <div className="text-slate-300 mb-2">
                 <Search size={32} className="mx-auto" />
