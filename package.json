@@ -6,6 +6,8 @@
   "scripts": {
     "convert-docs": "node scripts/convert-docs.js",
     "migrate-to-kv": "node scripts/migrate-to-kv.js",
+    "migrate-to-blob": "node scripts/migrate-files-to-blob.js",
+    "check-sync": "node scripts/check-sync-status.js",
     "prebuild": "npm run convert-docs",
     "dev": "vite",
     "build": "vite build",
