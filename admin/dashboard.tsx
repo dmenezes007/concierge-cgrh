@@ -9,7 +9,9 @@ import {
   CheckCircle,
   BarChart3,
   FileUp,
-  Download
+  Download,
+  Star,
+  Eye
 } from 'lucide-react';
 
 interface Document {
@@ -21,6 +23,9 @@ interface Document {
   source?: 'redis' | 'blob' | 'filesystem';
   keywords?: string;
   description?: string;
+  views?: number; // Número de visualizações
+  averageRating?: number; // Avaliação média
+  ratingCount?: number; // Número de avaliações
 }
 
 export default function AdminDashboard() {
@@ -67,7 +72,27 @@ export default function AdminDashboard() {
       
       if (response.ok) {
         console.log(`Documentos carregados: ${data.documents?.length || 0}`);
-        setDocuments(data.documents || []);
+        const docs = data.documents || [];
+        
+        // Buscar estatísticas para cada documento
+        const docsWithStats = await Promise.all(
+          docs.map(async (doc: Document) => {
+            if (doc.id) {
+              try {
+                const statsResponse = await fetch(`/api/document-stats?id=${doc.id}`);
+                if (statsResponse.ok) {
+                  const stats = await statsResponse.json();
+                  return { ...doc, ...stats };
+                }
+              } catch (e) {
+                console.warn('Erro ao buscar stats para', doc.id);
+              }
+            }
+            return doc;
+          })
+        );
+        
+        setDocuments(docsWithStats);
       } else {
         console.error('Erro na resposta:', data);
         setError(data.error || 'Erro ao carregar documentos');
@@ -337,7 +362,7 @@ export default function AdminDashboard() {
         {/* Main Content */}
         <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center">
@@ -352,25 +377,46 @@ export default function AdminDashboard() {
 
             <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center">
-                  <CheckCircle className="w-6 h-6 text-green-500" />
+                <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                  <Eye className="w-6 h-6 text-purple-500" />
                 </div>
                 <div>
-                  <p className="text-sm text-slate-400">Status</p>
-                  <p className="text-2xl font-bold text-white">Ativo</p>
+                  <p className="text-sm text-slate-400">Total de Visualizações</p>
+                  <p className="text-2xl font-bold text-white">
+                    {documents.reduce((sum, doc) => sum + (doc.views || 0), 0).toLocaleString('pt-BR')}
+                  </p>
                 </div>
               </div>
             </div>
 
             <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center">
-                  <Upload className="w-6 h-6 text-purple-500" />
+                <div className="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center">
+                  <Star className="w-6 h-6 text-yellow-500" />
                 </div>
                 <div>
-                  <p className="text-sm text-slate-400">Último Upload</p>
-                  <p className="text-sm font-medium text-white">
-                    {documents.length > 0 ? 'Hoje' : 'Nenhum'}
+                  <p className="text-sm text-slate-400">Avaliação Média</p>
+                  <p className="text-2xl font-bold text-white">
+                    {(() => {
+                      const docsWithRating = documents.filter(d => d.averageRating && d.averageRating > 0);
+                      if (docsWithRating.length === 0) return '—';
+                      const avg = docsWithRating.reduce((sum, doc) => sum + (doc.averageRating || 0), 0) / docsWithRating.length;
+                      return avg.toFixed(1);
+                    })()}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 rounded-xl p-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center">
+                  <CheckCircle className="w-6 h-6 text-green-500" />
+                </div>
+                <div>
+                  <p className="text-sm text-slate-400">Total de Avaliações</p>
+                  <p className="text-2xl font-bold text-white">
+                    {documents.reduce((sum, doc) => sum + (doc.ratingCount || 0), 0).toLocaleString('pt-BR')}
                   </p>
                 </div>
               </div>
@@ -492,6 +538,15 @@ export default function AdminDashboard() {
                       <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                         Tamanho
                       </th>
+                      <th className="px-6 py-3 text-center text-xs font-medium text-slate-400 uppercase tracking-wider">
+                        <div className="flex items-center justify-center gap-1">
+                          <Star className="w-3 h-3" />
+                          Avaliação
+                        </div>
+                      </th>
+                      <th className="px-6 py-3 text-center text-xs font-medium text-slate-400 uppercase tracking-wider">
+                        Visualizações
+                      </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-slate-400 uppercase tracking-wider">
                         Modificado
                       </th>
@@ -511,6 +566,30 @@ export default function AdminDashboard() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-400">
                           {formatFileSize(doc.size)}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
+                          {doc.averageRating !== undefined && doc.averageRating > 0 ? (
+                            <div className="flex flex-col items-center gap-0.5">
+                              <div className="flex items-center gap-1">
+                                <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
+                                <span className="text-sm font-medium text-white">
+                                  {doc.averageRating.toFixed(1)}
+                                </span>
+                              </div>
+                              <span className="text-xs text-slate-500">
+                                {doc.ratingCount} {doc.ratingCount === 1 ? 'voto' : 'votos'}
+                              </span>
+                            </div>
+                          ) : (
+                            <span className="text-xs text-slate-500">Sem avaliações</span>
+                          )}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-center">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                            <span className="text-sm font-medium text-blue-400">
+                              {doc.views !== undefined ? doc.views.toLocaleString('pt-BR') : '0'}
+                            </span>
+                          </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-400">
                           {formatDate(doc.modified)}

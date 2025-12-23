@@ -509,10 +509,23 @@ export default function App() {
     return [];
   }, [apiResults, localResults, isSearching, query]);
 
-  const handleSelect = (item: DatabaseItem) => {
+  const handleSelect = async (item: DatabaseItem) => {
     setSelectedItem(item);
     setQuery(item.title);
     setIsFocused(false);
+    
+    // Rastrear visualização
+    if (item.id) {
+      try {
+        await fetch('/api/track-view', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ documentId: item.id })
+        });
+      } catch (error) {
+        console.warn('Erro ao rastrear visualização:', error);
+      }
+    }
   };
 
   const handleClear = () => {
