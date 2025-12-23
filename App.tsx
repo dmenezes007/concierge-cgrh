@@ -114,7 +114,7 @@ export default function App() {
   const loadRatings = async (documentId: string) => {
     try {
       // Tentar carregar da API primeiro
-      const response = await fetch(`/api/ratings?documentId=${documentId}`);
+      const response = await fetch(`/api/stats?action=ratings&documentId=${documentId}`);
       
       if (response.ok) {
         const data = await response.json();
@@ -158,7 +158,7 @@ export default function App() {
     
     try {
       // Tentar salvar na API
-      const response = await fetch('/api/ratings', {
+      const response = await fetch('/api/stats?action=rate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -517,7 +517,7 @@ export default function App() {
     // Rastrear visualização
     if (item.id) {
       try {
-        await fetch('/api/track-view', {
+        await fetch('/api/stats?action=track-view', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ documentId: item.id })

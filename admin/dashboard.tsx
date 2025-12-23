@@ -80,7 +80,7 @@ export default function AdminDashboard() {
           docs.map(async (doc: Document) => {
             if (doc.id) {
               try {
-                const statsResponse = await fetch(`/api/document-stats?id=${doc.id}`);
+                const statsResponse = await fetch(`/api/stats?action=document&id=${doc.id}`);
                 if (statsResponse.ok) {
                   const stats = await statsResponse.json();
                   return { ...doc, ...stats };
