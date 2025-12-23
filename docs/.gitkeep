@@ -1,0 +1,2 @@
+# Esta pasta mantém arquivos auxiliares do projeto
+# Os documentos .docx são gerenciados via Blob Storage e Redis
