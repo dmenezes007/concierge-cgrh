@@ -181,12 +181,26 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return !isDuplicate;
       });
       
-      // Também deduplar filesystem
-      const redisNames = new Set(redisDocs.map(d => d.name));
+      // Também deduplar filesystem - normalizar nomes para comparação
+      const redisNamesNormalized = new Set(
+        redisDocs.map(d => {
+          // Remover extensão e normalizar espaços
+          const normalized = d.name.toLowerCase()
+            .replace(/\.docx$/i, '')
+            .replace(/\s+/g, ' ')
+            .trim();
+          return normalized;
+        })
+      );
+      
       const uniqueFileSystemDocs = fileSystemDocs.filter(d => {
-        const isDuplicate = redisNames.has(d.name) || redisNames.has(d.name.replace('.docx', ''));
+        const normalizedName = d.name.toLowerCase()
+          .replace(/\.docx$/i, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        const isDuplicate = redisNamesNormalized.has(normalizedName);
         if (isDuplicate) {
-          console.log(`🔄 Removendo duplicata filesystem: ${d.name}`);
+          console.log(`🔄 Removendo duplicata filesystem: ${d.name} (já indexado no Redis)`);
         }
         return !isDuplicate;
       });
@@ -215,41 +229,53 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(400).json({ error: 'Nome do arquivo é obrigatório' });
       }
 
-      // Verificar se o token do Blob está configurado
-      if (!process.env.BLOB_READ_WRITE_TOKEN) {
-        return res.status(500).json({
-          error: 'Blob Storage não configurado',
-          message: 'A variável BLOB_READ_WRITE_TOKEN não foi encontrada.'
-        });
-      }
+      console.log('🗑️ Deletando arquivo:', filename);
 
-      // Tentar deletar do Blob Storage
       try {
-        console.log(`Deletando arquivo do Blob: docs/${filename}`);
-        await del(`docs/${filename}`, {
-          token: process.env.BLOB_READ_WRITE_TOKEN,
-        });
+        // 1. Tentar deletar do filesystem (docs/)
+        const docsPath = path.join(process.cwd(), 'docs');
+        const filePath = path.join(docsPath, filename);
         
-        console.log(`Arquivo ${filename} deletado com sucesso do Blob`);
-        
-        return res.status(200).json({ 
-          success: true,
-          message: `Documento ${filename} deletado com sucesso do Blob Storage` 
-        });
-      } catch (error: any) {
-        console.error('Erro ao deletar do blob:', error.message, error);
-        
-        // Se o arquivo está no filesystem (deployado), não pode deletar
-        const filePath = path.join(process.cwd(), 'docs', filename);
         if (fs.existsSync(filePath)) {
-          return res.status(403).json({ 
-            error: 'Arquivo está no repositório Git',
-            message: 'Este documento foi deployado via Git. Para removê-lo, delete o arquivo da pasta docs/ localmente e faça commit/push.',
-            filename: filename
-          });
+          fs.unlinkSync(filePath);
+          console.log('✅ Arquivo deletado do filesystem:', filePath);
         }
+
+        // 2. Tentar deletar do Blob Storage
+        if (process.env.BLOB_READ_WRITE_TOKEN) {
+          try {
+            const { blobs } = await list({
+              prefix: 'docs/',
+              token: process.env.BLOB_READ_WRITE_TOKEN,
+            });
+            
+            const blob = blobs.find(b => 
+              b.pathname === `docs/${filename}` || 
+              b.pathname.endsWith(filename)
+            );
+            
+            if (blob) {
+              await del(blob.url, {
+                token: process.env.BLOB_READ_WRITE_TOKEN,
+              });
+              console.log('✅ Arquivo deletado do Blob:', blob.url);
+            }
+          } catch (error: any) {
+            console.warn('⚠️ Erro ao deletar do Blob:', error.message);
+          }
+        }
+
+        return res.status(200).json({
+          success: true,
+          message: 'Arquivo deletado com sucesso'
+        });
         
-        return res.status(404).json({ error: 'Arquivo não encontrado' });
+      } catch (error: any) {
+        console.error('❌ Erro ao deletar arquivo:', error);
+        return res.status(500).json({
+          error: 'Erro ao deletar arquivo',
+          details: error.message
+        });
       }
     }
 
