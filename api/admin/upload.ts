@@ -195,7 +195,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         id,
         title,
         keywords,
-        description: content.substring(0, 200),
+        description: content.substring(0, 500),
         content,
         sections: '[]',
         icon: 'file-text',

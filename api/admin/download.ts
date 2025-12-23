@@ -82,15 +82,70 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     // Security: prevent path traversal
     const safeName = path.basename(filename);
     
-    // Tentar buscar do Blob Storage primeiro
+    // Primeiro, tentar buscar no Redis para pegar o blobUrl
+    try {
+      const Redis = (await import('ioredis')).default;
+      const redisUrl = process.env.KV_REST_API_URL || process.env.REDIS_URL;
+      
+      if (redisUrl) {
+        const redis = new Redis(redisUrl, {
+          maxRetriesPerRequest: 3,
+          retryStrategy(times) {
+            if (times > 3) return null;
+            return Math.min(times * 50, 2000);
+          }
+        });
+        
+        // Gerar ID a partir do filename (mesmo algoritmo do upload)
+        const docId = safeName
+          .replace('.docx', '')
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-+|-+$/g, '');
+        
+        console.log('🗑️ Buscando documento no Redis:', docId);
+        const doc = await redis.hgetall(`doc:${docId}`);
+        
+        if (doc && doc.blobUrl) {
+          console.log('✅ Documento encontrado no Redis, baixando do Blob:', doc.blobUrl);
+          
+          // Buscar diretamente do blob URL
+          const response = await fetch(doc.blobUrl);
+          
+          if (!response.ok) {
+            throw new Error(`Failed to fetch blob: ${response.status}`);
+          }
+          
+          const buffer = await response.arrayBuffer();
+          
+          await redis.quit();
+          
+          // Set headers for download
+          res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+          res.setHeader('Content-Disposition', `attachment; filename="${encodeURIComponent(safeName)}"`);
+          res.setHeader('Content-Length', buffer.byteLength);
+          res.setHeader('Cache-Control', 'no-cache');
+
+          return res.status(200).send(Buffer.from(buffer));
+        }
+        
+        await redis.quit();
+      }
+    } catch (redisError) {
+      console.warn('⚠️ Erro ao buscar no Redis:', redisError);
+    }
+    
+    // Fallback: Tentar buscar do Blob Storage diretamente
     if (process.env.BLOB_READ_WRITE_TOKEN) {
       try {
         const blobInfo = await head(`docs/${safeName}`, {
           token: process.env.BLOB_READ_WRITE_TOKEN,
         });
         
-        // Buscar o arquivo do blob e servir ao cliente
-        // Isso evita problemas de CORS
+        console.log('✅ Arquivo encontrado no Blob, baixando:', blobInfo.url);
+        
         const response = await fetch(blobInfo.url);
         
         if (!response.ok) {
@@ -108,7 +163,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(200).send(Buffer.from(buffer));
         
       } catch (blobError) {
-        console.log('Arquivo não encontrado no Blob:', blobError);
+        console.log('⚠️ Arquivo não encontrado no Blob:', blobError);
       }
     }
     
