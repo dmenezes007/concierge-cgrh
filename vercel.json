@@ -4,7 +4,8 @@
   "functions": {
     "api/admin/*.ts": {
       "memory": 1024,
-      "maxDuration": 30
+      "maxDuration": 30,
+      "includeFiles": "api/utils/**"
     },
     "api/**/*.ts": {
       "memory": 1024,
