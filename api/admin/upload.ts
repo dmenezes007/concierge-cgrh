@@ -6,7 +6,7 @@ import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import { put } from '@vercel/blob';
 import Redis from 'ioredis';
-import { processDocx, sectionsToJson } from './utils/docx-processor';
+import { processDocx, sectionsToJson } from '../utils/docx-processor';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;

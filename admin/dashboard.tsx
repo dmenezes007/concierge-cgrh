@@ -215,7 +215,9 @@ export default function AdminDashboard() {
 
         if (response.ok) {
           setSuccess(`✅ Documento "${displayName}" deletado com sucesso!`);
-          loadDocuments(); // Recarregar imediatamente
+          // Limpar cache e forçar reload completo
+          setDocuments([]);
+          await loadDocuments();
         } else {
           setError(data.error || 'Erro ao deletar documento');
         }
@@ -234,7 +236,9 @@ export default function AdminDashboard() {
 
       if (response.ok) {
         setSuccess(`Documento "${displayName}" deletado com sucesso`);
-        loadDocuments(); // Recarregar imediatamente
+        // Limpar cache e forçar reload completo
+        setDocuments([]);
+        await loadDocuments();
       } else {
         const message = data.message ? `${data.error}\n\n${data.message}` : data.error;
         setError(message || 'Erro ao deletar documento');

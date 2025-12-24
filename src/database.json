@@ -1,452 +1,5 @@
 [
   {
-    "id": "6-entrevista-com-usuario---lgpd",
-    "title": "6 ENTREVISTA COM USUÁRIO - LGPD",
-    "keywords": "dados pessoais perfil",
-    "description": "Informações sobre recursos humanos.",
-    "icon": "file-text",
-    "color": {
-      "bg": "slate",
-      "text": "slate"
-    },
-    "sections": [
-      {
-        "type": "heading",
-        "level": 2,
-        "content": "USUÁRIOS DO SISTEMA"
-      },
-      {
-        "type": "highlight",
-        "content": "Objetivo: Entender as necessidades práticas, comportamentos de uso e expectativas quanto à busca e recuperação dos ativos.",
-        "html": "<p><strong>Objetivo:</strong> Entender as necessidades práticas, comportamentos de uso e expectativas quanto à busca e recuperação dos ativos.</p>"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "LGPD",
-            "html": "<li>LGPD</li>"
-          },
-          {
-            "text": "fe.arakaki@gmail.com",
-            "html": "<li>fe.arakaki@gmail.com</li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "1. Perfil e contexto"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Qual é a sua função ou área de atuação?Davidson - chefe da academia e responsável pelo dados e lgpdFlávia - chefe da pos",
-            "html": "<li>Qual é a sua função ou área de atuação?<ul><li>Davidson - chefe da academia e responsável pelo dados e lgpd</li><li>Flávia - chefe da pos</li></ul></li>"
-          },
-          {
-            "text": "Davidson - chefe da academia e responsável pelo dados e lgpd",
-            "html": "<li>Davidson - chefe da academia e responsável pelo dados e lgpd</li>"
-          },
-          {
-            "text": "Flávia - chefe da pos",
-            "html": "<li>Flávia - chefe da pos</li>"
-          },
-          {
-            "text": "Com que frequência você realiza buscas em sistemas de propriedade industrial?Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mêsLGPD - semanalmente, para validar informações e questões de usuários externos",
-            "html": "<li>Com que frequência você realiza buscas em sistemas de propriedade industrial?<ul><li>Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mês</li><li>LGPD - semanalmente, para validar informações e questões de usuários externos </li></ul></li>"
-          },
-          {
-            "text": "Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mês",
-            "html": "<li>Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mês</li>"
-          },
-          {
-            "text": "LGPD - semanalmente, para validar informações e questões de usuários externos",
-            "html": "<li>LGPD - semanalmente, para validar informações e questões de usuários externos </li>"
-          },
-          {
-            "text": "Haverá integração com outras bases ou sistemas (WIPO, EPO, USPTO etc.)?Flávia - manter funcionalidades calendário (está fazendo o cálculo errado) poderia integrar com a WIPO, EPO -> busca de família de patentes PAG, Receita federal, Busca de questões recursaisGoogle patent",
-            "html": "<li>Haverá integração com outras bases ou sistemas (WIPO, EPO, USPTO etc.)?<ul><li>Flávia - manter funcionalidades </li><li>calendário (está fazendo o cálculo errado) </li><li>poderia integrar com a <ul><li>WIPO, EPO -&gt; busca de família de patentes </li><li>PAG, Receita federal, </li><li>Busca de questões recursais</li><li>Google patent<br></li></ul></li></ul></li>"
-          },
-          {
-            "text": "Flávia - manter funcionalidades",
-            "html": "<li>Flávia - manter funcionalidades </li>"
-          },
-          {
-            "text": "calendário (está fazendo o cálculo errado)",
-            "html": "<li>calendário (está fazendo o cálculo errado) </li>"
-          },
-          {
-            "text": "poderia integrar com a WIPO, EPO -> busca de família de patentes PAG, Receita federal, Busca de questões recursaisGoogle patent",
-            "html": "<li>poderia integrar com a <ul><li>WIPO, EPO -&gt; busca de família de patentes </li><li>PAG, Receita federal, </li><li>Busca de questões recursais</li><li>Google patent<br></li></ul></li>"
-          },
-          {
-            "text": "WIPO, EPO -> busca de família de patentes",
-            "html": "<li>WIPO, EPO -&gt; busca de família de patentes </li>"
-          },
-          {
-            "text": "PAG, Receita federal,",
-            "html": "<li>PAG, Receita federal, </li>"
-          },
-          {
-            "text": "Busca de questões recursais",
-            "html": "<li>Busca de questões recursais</li>"
-          },
-          {
-            "text": "Google patent",
-            "html": "<li>Google patent<br></li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Davidson - chefe da academia e responsável pelo dados e lgpd",
-            "html": "<li>Davidson - chefe da academia e responsável pelo dados e lgpd</li>"
-          },
-          {
-            "text": "Flávia - chefe da pos",
-            "html": "<li>Flávia - chefe da pos</li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mês",
-            "html": "<li>Flávia - depende da atividade, mas com frequência para realizar pesquisas. Pelo menos de 4 a 5 vezes por mês</li>"
-          },
-          {
-            "text": "LGPD - semanalmente, para validar informações e questões de usuários externos",
-            "html": "<li>LGPD - semanalmente, para validar informações e questões de usuários externos </li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Flávia - manter funcionalidades",
-            "html": "<li>Flávia - manter funcionalidades </li>"
-          },
-          {
-            "text": "calendário (está fazendo o cálculo errado)",
-            "html": "<li>calendário (está fazendo o cálculo errado) </li>"
-          },
-          {
-            "text": "poderia integrar com a WIPO, EPO -> busca de família de patentes PAG, Receita federal, Busca de questões recursaisGoogle patent",
-            "html": "<li>poderia integrar com a <ul><li>WIPO, EPO -&gt; busca de família de patentes </li><li>PAG, Receita federal, </li><li>Busca de questões recursais</li><li>Google patent<br></li></ul></li>"
-          },
-          {
-            "text": "WIPO, EPO -> busca de família de patentes",
-            "html": "<li>WIPO, EPO -&gt; busca de família de patentes </li>"
-          },
-          {
-            "text": "PAG, Receita federal,",
-            "html": "<li>PAG, Receita federal, </li>"
-          },
-          {
-            "text": "Busca de questões recursais",
-            "html": "<li>Busca de questões recursais</li>"
-          },
-          {
-            "text": "Google patent",
-            "html": "<li>Google patent<br></li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "WIPO, EPO -> busca de família de patentes",
-            "html": "<li>WIPO, EPO -&gt; busca de família de patentes </li>"
-          },
-          {
-            "text": "PAG, Receita federal,",
-            "html": "<li>PAG, Receita federal, </li>"
-          },
-          {
-            "text": "Busca de questões recursais",
-            "html": "<li>Busca de questões recursais</li>"
-          },
-          {
-            "text": "Google patent",
-            "html": "<li>Google patent<br></li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "2. Necessidades e objetivos"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Qual o objetivo principal ao buscar um ativo? (Ex: verificar anterioridade, identificar concorrência, consultar detalhes técnicos)DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveisDIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -> Na legislação só deveria ocultar o inventor",
-            "html": "<li>Qual o objetivo principal ao buscar um ativo? (Ex: verificar anterioridade, identificar concorrência, consultar detalhes técnicos)<ul><li>DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica </li><li>ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveis</li><li>DIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -&gt; Na legislação só deveria ocultar o inventor</li></ul></li>"
-          },
-          {
-            "text": "DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica",
-            "html": "<li>DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica </li>"
-          },
-          {
-            "text": "ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveis",
-            "html": "<li>ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveis</li>"
-          },
-          {
-            "text": "DIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -> Na legislação só deveria ocultar o inventor",
-            "html": "<li>DIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -&gt; Na legislação só deveria ocultar o inventor</li>"
-          },
-          {
-            "text": "Você prefere fazer uma busca rápida ou precisa de filtros avançados?filtros avançadosna busca rápida tem 1 filtro que é so disponibilizado na busca rápida o protocolo não faz busca pelo filtro",
-            "html": "<li>Você prefere fazer uma busca rápida ou precisa de filtros avançados?<ul><li>filtros avançados</li><li>na busca rápida tem 1 filtro que é so disponibilizado na busca rápida </li><li>o protocolo não faz busca pelo filtro</li></ul></li>"
-          },
-          {
-            "text": "filtros avançados",
-            "html": "<li>filtros avançados</li>"
-          },
-          {
-            "text": "na busca rápida tem 1 filtro que é so disponibilizado na busca rápida",
-            "html": "<li>na busca rápida tem 1 filtro que é so disponibilizado na busca rápida </li>"
-          },
-          {
-            "text": "o protocolo não faz busca pelo filtro",
-            "html": "<li>o protocolo não faz busca pelo filtro</li>"
-          },
-          {
-            "text": "Quais informações você espera visualizar logo nos resultados da busca?tudo menos os dados pessoais que não sejam públicosno busca não aparece a classificaçãotem o formato de saida padrão e minifigura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a famíliaestratégia que foi utilizada logo no início do resultado da buscainclusão de filtros do que foi apresentadonão ter que voltar a tela para refazer a estratégia de buscaestatísticas marcações de algumas palavras que foram buscadas",
-            "html": "<li>Quais informações você espera visualizar logo nos resultados da busca?<ul><li>tudo menos os dados pessoais que não sejam públicos</li><li>no busca não aparece a classificação</li><li>tem o formato de saida padrão e mini</li><li>figura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a família</li><li>estratégia que foi utilizada logo no início do resultado da busca</li><li>inclusão de filtros do que foi apresentado</li><li>não ter que voltar a tela para refazer a estratégia de busca</li><li>estatísticas </li><li>marcações de algumas palavras que foram buscadas</li></ul></li>"
-          },
-          {
-            "text": "tudo menos os dados pessoais que não sejam públicos",
-            "html": "<li>tudo menos os dados pessoais que não sejam públicos</li>"
-          },
-          {
-            "text": "no busca não aparece a classificação",
-            "html": "<li>no busca não aparece a classificação</li>"
-          },
-          {
-            "text": "tem o formato de saida padrão e mini",
-            "html": "<li>tem o formato de saida padrão e mini</li>"
-          },
-          {
-            "text": "figura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a família",
-            "html": "<li>figura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a família</li>"
-          },
-          {
-            "text": "estratégia que foi utilizada logo no início do resultado da busca",
-            "html": "<li>estratégia que foi utilizada logo no início do resultado da busca</li>"
-          },
-          {
-            "text": "inclusão de filtros do que foi apresentado",
-            "html": "<li>inclusão de filtros do que foi apresentado</li>"
-          },
-          {
-            "text": "não ter que voltar a tela para refazer a estratégia de busca",
-            "html": "<li>não ter que voltar a tela para refazer a estratégia de busca</li>"
-          },
-          {
-            "text": "estatísticas",
-            "html": "<li>estatísticas </li>"
-          },
-          {
-            "text": "marcações de algumas palavras que foram buscadas",
-            "html": "<li>marcações de algumas palavras que foram buscadas</li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica",
-            "html": "<li>DIPGP - pesquisa de prospecção, análise tecnológica, verificação de uso de determinado uso legal, busca de determinada tecnológica </li>"
-          },
-          {
-            "text": "ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveis",
-            "html": "<li>ETDP - aferir a exposição indevida de dados pessoais dos usuários, verificar o atendimento dos direitos dos titulares dos dados pessoais e levantar o cumprimento da LGPD, exposição demasiada, se os direitos estão sendo responsáveis</li>"
-          },
-          {
-            "text": "DIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -> Na legislação só deveria ocultar o inventor",
-            "html": "<li>DIPGP - Questões de sigilo não estão adequadas e não é possível visualizar. Por exemplo, se o inventor pede sigilo, nada mais do processo é exibido. -&gt; Na legislação só deveria ocultar o inventor</li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "filtros avançados",
-            "html": "<li>filtros avançados</li>"
-          },
-          {
-            "text": "na busca rápida tem 1 filtro que é so disponibilizado na busca rápida",
-            "html": "<li>na busca rápida tem 1 filtro que é so disponibilizado na busca rápida </li>"
-          },
-          {
-            "text": "o protocolo não faz busca pelo filtro",
-            "html": "<li>o protocolo não faz busca pelo filtro</li>"
-          }
-        ]
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "tudo menos os dados pessoais que não sejam públicos",
-            "html": "<li>tudo menos os dados pessoais que não sejam públicos</li>"
-          },
-          {
-            "text": "no busca não aparece a classificação",
-            "html": "<li>no busca não aparece a classificação</li>"
-          },
-          {
-            "text": "tem o formato de saida padrão e mini",
-            "html": "<li>tem o formato de saida padrão e mini</li>"
-          },
-          {
-            "text": "figura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a família",
-            "html": "<li>figura ao lado, título, inventor, depositante, classificação e data, alguns apresentam a família</li>"
-          },
-          {
-            "text": "estratégia que foi utilizada logo no início do resultado da busca",
-            "html": "<li>estratégia que foi utilizada logo no início do resultado da busca</li>"
-          },
-          {
-            "text": "inclusão de filtros do que foi apresentado",
-            "html": "<li>inclusão de filtros do que foi apresentado</li>"
-          },
-          {
-            "text": "não ter que voltar a tela para refazer a estratégia de busca",
-            "html": "<li>não ter que voltar a tela para refazer a estratégia de busca</li>"
-          },
-          {
-            "text": "estatísticas",
-            "html": "<li>estatísticas </li>"
-          },
-          {
-            "text": "marcações de algumas palavras que foram buscadas",
-            "html": "<li>marcações de algumas palavras que foram buscadas</li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "3. Funcionalidades esperadas e requisitos institucionais"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Que filtros você considera indispensáveis? (ex: titular, data, classificação, tipo de ativo)",
-            "html": "<li>Que filtros você considera indispensáveis? (ex: titular, data, classificação, tipo de ativo)</li>"
-          },
-          {
-            "text": "Você utiliza operadores como AND, OR, NOT?",
-            "html": "<li>Você utiliza operadores como AND, OR, NOT?</li>"
-          },
-          {
-            "text": "Há exigências legais, regulatórias ou de conformidade (LGPD, acesso à informação)?",
-            "html": "<li>Há exigências legais, regulatórias ou de conformidade (LGPD, acesso à informação)?<br></li>"
-          },
-          {
-            "text": "Quais níveis de acesso o sistema deve oferecer (público, autenticado, administrativo)?",
-            "html": "<li>Quais níveis de acesso o sistema deve oferecer (público, autenticado, administrativo)?<br></li>"
-          },
-          {
-            "text": "Deseja-se controle estatístico do uso? Logs? Relatórios?",
-            "html": "<li>Deseja-se controle estatístico do uso? Logs? Relatórios?</li>"
-          },
-          {
-            "text": "Gostaria de poder comparar registros? Exportar dados? Acessar documentos anexos?",
-            "html": "<li>Gostaria de poder comparar registros? Exportar dados? Acessar documentos anexos?</li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "4. Interface e usabilidade"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Que tipo de apresentação você prefere? Lista, cards, gráfico?",
-            "html": "<li>Que tipo de apresentação você prefere? Lista, cards, gráfico?</li>"
-          },
-          {
-            "text": "Seria útil ter sugestões automáticas ao digitar?",
-            "html": "<li>Seria útil ter sugestões automáticas ao digitar?</li>"
-          },
-          {
-            "text": "Acha importante ter ajuda ou exemplos de busca na interface?",
-            "html": "<li>Acha importante ter ajuda ou exemplos de busca na interface?</li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "5. Problemas enfrentados em sistemas atuais"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Quais dificuldades você já encontrou em sistemas semelhantes?",
-            "html": "<li>Quais dificuldades você já encontrou em sistemas semelhantes?</li>"
-          },
-          {
-            "text": "O que mais te atrapalha na hora de encontrar o que procura?",
-            "html": "<li>O que mais te atrapalha na hora de encontrar o que procura?</li>"
-          }
-        ]
-      },
-      {
-        "type": "heading",
-        "level": 3,
-        "content": "5. Novas funcionalidades"
-      },
-      {
-        "type": "list",
-        "ordered": false,
-        "items": [
-          {
-            "text": "Há alguma funcionalidade que você gostaria que o sistema tivesse e que ainda não mencionamos?",
-            "html": "<li>Há alguma funcionalidade que você gostaria que o sistema tivesse e que ainda não mencionamos? </li>"
-          },
-          {
-            "text": "Se você pudesse idealizar uma ferramenta de busca perfeita para seu uso, o que ela incluiria?",
-            "html": "<li>Se você pudesse idealizar uma ferramenta de busca perfeita para seu uso, o que ela incluiria?</li>"
-          }
-        ]
-      }
-    ],
-    "externalLink": "#",
-    "lastModified": "2025-12-23T13:30:09.577Z"
-  },
-  {
     "id": "aposentadoria-e-abono",
     "title": "Aposentadoria e Abono",
     "keywords": "solicitação salário gratificação sougov licença aposentadoria abono permanência voluntária tempo",
@@ -835,7 +388,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=873:aposentadoria-e-abono&catid=20",
-    "lastModified": "2025-12-18T17:35:44.634Z"
+    "lastModified": "2025-12-24T14:22:22.194Z"
   },
   {
     "id": "capacitacao",
@@ -1669,7 +1222,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=863:capacitacao&catid=20",
-    "lastModified": "2025-12-18T17:35:44.669Z"
+    "lastModified": "2025-12-24T14:22:22.229Z"
   },
   {
     "id": "carta-de-servicos",
@@ -3877,7 +3430,7 @@
       }
     ],
     "externalLink": "Carta de Serviços",
-    "lastModified": "2025-12-04T18:19:08.000Z"
+    "lastModified": "2025-12-24T14:22:22.258Z"
   },
   {
     "id": "confira-como-sera-o-expediente-de-fim-de-ano-no-inpi",
@@ -3943,7 +3496,7 @@
       }
     ],
     "externalLink": "#",
-    "lastModified": "2025-12-18T17:35:45.012Z"
+    "lastModified": "2025-12-24T14:22:22.281Z"
   },
   {
     "id": "dados-cadastrais",
@@ -4053,7 +3606,7 @@
       }
     ],
     "externalLink": "Dados Cadastrais",
-    "lastModified": "2025-12-05T05:50:12.000Z"
+    "lastModified": "2025-12-24T14:22:22.316Z"
   },
   {
     "id": "estagio-probatorio",
@@ -4162,7 +3715,7 @@
       }
     ],
     "externalLink": "Estágio Probatório",
-    "lastModified": "2025-12-05T05:50:26.000Z"
+    "lastModified": "2025-12-24T14:22:22.348Z"
   },
   {
     "id": "frequencia",
@@ -4549,7 +4102,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=862:frequencia-2&catid=20",
-    "lastModified": "2025-12-05T06:00:14.000Z"
+    "lastModified": "2025-12-24T14:22:22.381Z"
   },
   {
     "id": "ferias",
@@ -4704,7 +4257,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/todos-os-servicos?view=article&layout=edit&id=496:ferias-cgrh&catid=20",
-    "lastModified": "2025-12-05T05:50:46.000Z"
+    "lastModified": "2025-12-24T14:22:22.412Z"
   },
   {
     "id": "licencas",
@@ -5410,7 +4963,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=875:licencas&catid=20",
-    "lastModified": "2025-12-05T06:01:08.000Z"
+    "lastModified": "2025-12-24T14:22:22.444Z"
   },
   {
     "id": "pagamento",
@@ -5885,7 +5438,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/pagamento",
-    "lastModified": "2025-12-05T06:01:46.000Z"
+    "lastModified": "2025-12-24T14:22:22.480Z"
   },
   {
     "id": "programa-de-gestao-e-desempenho",
@@ -6089,7 +5642,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/pgd-e-frequencia?layout=edit",
-    "lastModified": "2025-12-05T06:03:16.000Z"
+    "lastModified": "2025-12-24T14:22:22.510Z"
   },
   {
     "id": "remocao",
@@ -6211,7 +5764,7 @@
       }
     ],
     "externalLink": "Remoção",
-    "lastModified": "2025-12-05T06:07:22.000Z"
+    "lastModified": "2025-12-24T14:22:22.537Z"
   },
   {
     "id": "retribuicao-por-titulacao",
@@ -6333,7 +5886,7 @@
       }
     ],
     "externalLink": "Retribuição por Titulação",
-    "lastModified": "2025-12-05T06:07:36.000Z"
+    "lastModified": "2025-12-24T14:22:22.564Z"
   },
   {
     "id": "saude-ocupacional",
@@ -6553,7 +6106,7 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas/saude-ocupacional?layout=edit",
-    "lastModified": "2025-12-05T06:08:00.000Z"
+    "lastModified": "2025-12-24T14:22:22.609Z"
   },
   {
     "id": "selecao-interna-e-externa",
@@ -6910,7 +6463,7 @@
       }
     ],
     "externalLink": "Seleção Interna/Externa",
-    "lastModified": "2025-12-05T06:08:26.000Z"
+    "lastModified": "2025-12-24T14:22:22.639Z"
   },
   {
     "id": "utilizacao-do-sougov",
@@ -7074,6 +6627,6 @@
       }
     ],
     "externalLink": "http://intranet.inpi.gov.br/index.php/recursos-humanos-gestao-de-pessoas?view=article&layout=edit&id=877:utilizacao-do-sougov&catid=20",
-    "lastModified": "2025-12-05T06:08:54.000Z"
+    "lastModified": "2025-12-24T14:22:22.666Z"
   }
 ]
