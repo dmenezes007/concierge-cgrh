@@ -6,6 +6,8 @@ import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import { put } from '@vercel/blob';
 import Redis from 'ioredis';
+
+// Importar processador - deixar o Vercel resolver o caminho
 import { processDocx, sectionsToJson } from '../utils/docx-processor';
 
 // Tentar importar KV de forma lazy
@@ -172,8 +174,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
       console.log('📄 Processando documento com formatação avançada...');
       
+      // Verificar se as funções estão disponíveis
+      console.log('processDocx type:', typeof processDocx);
+      console.log('sectionsToJson type:', typeof sectionsToJson);
+      
       // Usar o processador avançado
-      const processed = await processDocx(buffer);
+      let processed;
+      try {
+        console.log('Chamando processDocx com buffer de tamanho:', buffer.length);
+        processed = await processDocx(buffer);
+        console.log('processDocx retornou:', processed ? 'OK' : 'NULL');
+      } catch (procError: any) {
+        console.error('❌ ERRO FATAL no processDocx:', procError.message);
+        console.error('Stack do processDocx:', procError.stack);
+        throw new Error(`Falha ao processar DOCX: ${procError.message}`);
+      }
+      
       const content = processed.content;
       const sectionsJson = sectionsToJson(processed.sections);
 
