@@ -263,7 +263,7 @@ export async function processDocx(buffer: Buffer): Promise<ProcessedDocument> {
         };
       });
     })
-  });
+  } as any);
   
   const html = result.value;
   const plainText = stripHtml(html);
