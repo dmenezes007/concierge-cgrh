@@ -8,6 +8,7 @@ import mammoth from 'mammoth';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
+import { processDocx, sectionsToJson } from './docx-processor.js';
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -29,11 +30,14 @@ async function uploadSpecificFile(filename) {
     const buffer = fs.readFileSync(filePath);
     console.log(`📄 Arquivo lido: ${buffer.length} bytes`);
 
-    // Extrair texto
-    console.log('📖 Extraindo texto...');
-    const result = await mammoth.convertToHtml({ buffer });
-    const content = result.value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    // Processar com formatação avançada
+    console.log('📖 Extraindo texto e formatação...');
+    const processed = await processDocx(buffer);
+    const content = processed.content;
+    const sectionsJson = sectionsToJson(processed.sections);
     console.log(`   Conteúdo: ${content.length} caracteres`);
+    console.log(`   Seções estruturadas: ${processed.sections.length}`);
+    console.log(`   Formatação: Links=${processed.metadata.hasLinks}, Tabelas=${processed.metadata.hasTables}`);
 
     // Upload para Blob
     console.log('☁️  Fazendo upload para Blob Storage...');
@@ -69,20 +73,21 @@ async function uploadSpecificFile(filename) {
 
     console.log(`   Palavras únicas: ${uniqueWords.length}`);
 
-    // Salvar no Redis
+    // Salvar no Redis com formatação preservada
     const documentData = {
       id,
       title,
       keywords,
-      description: content.substring(0, 2000),
+      description: content, // Sem limite - conteúdo completo
       content,
-      sections: '[]',
+      sections: sectionsJson, // Seções estruturadas com formatação
       icon: 'file-text',
       color: JSON.stringify({ bg: 'blue', text: 'white' }),
       externalLink: '',
       lastModified: new Date().toISOString(),
       createdAt: new Date().toISOString(),
-      blobUrl: blob.url
+      blobUrl: blob.url,
+      metadata: JSON.stringify(processed.metadata)
     };
 
     await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());

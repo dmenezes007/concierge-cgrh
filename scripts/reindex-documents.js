@@ -1,18 +1,19 @@
 /**
  * Re-indexar documentos do Blob Storage no Redis
- * Aplica novas regras de indexação: TODAS as palavras + mais caracteres na descrição
+ * Aplica novas regras de indexação: TODAS as palavras + formatação avançada preservada
  */
 
 import { list } from '@vercel/blob';
 import Redis from 'ioredis';
 import mammoth from 'mammoth';
 import dotenv from 'dotenv';
+import { processDocx, sectionsToJson } from './docx-processor.js';
 
 // Carregar variáveis de ambiente
 dotenv.config();
 
 async function reindexDocuments() {
-  console.log('🔄 Iniciando re-indexação de documentos...\n');
+  console.log('🔄 Iniciando re-indexação de documentos com formatação avançada...\n');
 
   // Conectar ao Redis
   const redis = new Redis(process.env.REDIS_URL || process.env.KV_REST_API_URL);
@@ -44,9 +45,15 @@ async function reindexDocuments() {
         const arrayBuffer = await response.arrayBuffer();
         const buffer = Buffer.from(arrayBuffer);
 
-        // Extrair texto
-        const result = await mammoth.convertToHtml({ buffer });
-        const content = result.value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        // Processar com formatação avançada
+        console.log('   🔍 Extraindo formatação avançada...');
+        const processed = await processDocx(buffer);
+        const content = processed.content;
+        const sectionsJson = sectionsToJson(processed.sections);
+
+        console.log(`   ✅ ${processed.sections.length} seções estruturadas`);
+        console.log(`   📊 ${processed.metadata.wordCount} palavras, ${processed.metadata.paragraphCount} parágrafos`);
+        console.log(`   🔗 Links: ${processed.metadata.hasLinks ? 'Sim' : 'Não'}, Tabelas: ${processed.metadata.hasTables ? 'Sim' : 'Não'}`);
 
         // Gerar ID
         const title = filename.replace('.docx', '');
@@ -74,20 +81,21 @@ async function reindexDocuments() {
         console.log(`   Palavras únicas: ${uniqueWords.length}`);
         console.log(`   Tamanho do conteúdo: ${content.length} caracteres`);
 
-        // Atualizar no Redis
+        // Atualizar no Redis com formatação preservada
         const documentData = {
           id,
           title,
           keywords,
-          description: content.substring(0, 2000), // 2000 caracteres agora
+          description: content, // Sem limite - conteúdo completo
           content,
-          sections: '[]',
+          sections: sectionsJson, // Seções estruturadas com formatação
           icon: 'file-text',
           color: JSON.stringify({ bg: 'blue', text: 'white' }),
           externalLink: '',
           lastModified: blob.uploadedAt || new Date().toISOString(),
           createdAt: blob.uploadedAt || new Date().toISOString(),
-          blobUrl: blob.url
+          blobUrl: blob.url,
+          metadata: JSON.stringify(processed.metadata)
         };
 
         await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());

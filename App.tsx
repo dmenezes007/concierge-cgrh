@@ -319,10 +319,10 @@ export default function App() {
     const rawText = textParts.join('. ');
     const textToRead = cleanTextForSpeech(rawText);
 
-    // Limitar tamanho do texto (alguns navegadores têm limite)
-    const maxLength = 4000;
+    // Limitar tamanho do texto apenas para TTS (navegadores têm limite de síntese de voz)
+    const maxLength = 15000; // Aumentado de 4000 para 15000 caracteres
     const finalText = textToRead.length > maxLength 
-      ? textToRead.substring(0, maxLength) + '... Texto muito longo, leitura truncada.'
+      ? textToRead.substring(0, maxLength) + '... Texto muito longo. Fim da leitura em voz alta.'
       : textToRead;
 
     const utterance = new SpeechSynthesisUtterance(finalText);

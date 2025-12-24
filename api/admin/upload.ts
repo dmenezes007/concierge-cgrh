@@ -6,6 +6,7 @@ import mammoth from 'mammoth';
 import * as XLSX from 'xlsx';
 import { put } from '@vercel/blob';
 import Redis from 'ioredis';
+import { processDocx, sectionsToJson } from './utils/docx-processor';
 
 // Tentar importar KV de forma lazy
 let kv: any = null;
@@ -169,8 +170,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/^-+|-+$/g, '');
 
-      // Extrair texto do HTML
-      const content = result.value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      console.log('📄 Processando documento com formatação avançada...');
+      
+      // Usar o processador avançado
+      const processed = await processDocx(buffer);
+      const content = processed.content;
+      const sectionsJson = sectionsToJson(processed.sections);
+
+      console.log(`✅ Formatação extraída: ${processed.sections.length} seções`);
+      console.log(`📊 Metadados: ${processed.metadata.wordCount} palavras, ${processed.metadata.paragraphCount} parágrafos`);
+      console.log(`🔗 Links: ${processed.metadata.hasLinks ? 'Sim' : 'Não'}, Tabelas: ${processed.metadata.hasTables ? 'Sim' : 'Não'}`);
 
       // Gerar keywords (TODAS as palavras únicas do conteúdo para busca completa)
       const words = content
@@ -186,20 +195,21 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       
       const keywords = uniqueWords.join(' ');
 
-      // Salvar no Redis
+      // Salvar no Redis com formatação preservada
       const documentData = {
         id,
         title,
         keywords,
-        description: content.substring(0, 2000), // Aumentado de 500 para 2000 caracteres
+        description: content, // Sem limite - conteúdo completo
         content,
-        sections: '[]',
+        sections: sectionsJson, // Seções estruturadas com formatação
         icon: 'file-text',
         color: JSON.stringify({ bg: 'blue', text: 'white' }),
         externalLink: '',
-        lastModified: new Date().toISOString(), // Nome correto do campo
+        lastModified: new Date().toISOString(),
         createdAt: new Date().toISOString(),
-        blobUrl: blob.url
+        blobUrl: blob.url,
+        metadata: JSON.stringify(processed.metadata)
       };
 
       await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());
@@ -219,10 +229,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log('✅ Documento indexado:', id);
       console.log('✅ Título:', title);
       console.log('✅ Total de palavras indexadas:', indexWords.length);
+      console.log('✅ Formatação avançada preservada!');
 
       return res.status(200).json({
         success: true,
-        message: '✅ Documento enviado e indexado automaticamente! Já está disponível para busca.',
+        message: '✅ Documento enviado e indexado automaticamente com formatação avançada! Já está disponível para busca.',
         filename: docxFile.originalFilename,
         size: docxFile.size,
         blobUrl: blob.url,
