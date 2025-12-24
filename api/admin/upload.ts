@@ -178,25 +178,45 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log('processDocx type:', typeof processDocx);
       console.log('sectionsToJson type:', typeof sectionsToJson);
       
-      // Usar o processador avançado
-      let processed;
+      // Tentar usar o processador avançado com fallback
+      let content: string;
+      let sectionsJson: string;
+      let metadata: any;
+      
       try {
         console.log('Chamando processDocx com buffer de tamanho:', buffer.length);
-        processed = await processDocx(buffer);
+        const processed = await processDocx(buffer);
         console.log('processDocx retornou:', processed ? 'OK' : 'NULL');
+        
+        content = processed.content;
+        sectionsJson = sectionsToJson(processed.sections);
+        metadata = processed.metadata;
+        
+        console.log(`✅ Formatação extraída: ${processed.sections.length} seções`);
+        console.log(`📊 Metadados: ${metadata.wordCount} palavras, ${metadata.paragraphCount} parágrafos`);
+        console.log(`🔗 Links: ${metadata.hasLinks ? 'Sim' : 'Não'}, Tabelas: ${metadata.hasTables ? 'Sim' : 'Não'}`);
       } catch (procError: any) {
-        console.error('❌ ERRO FATAL no processDocx:', procError.message);
-        console.error('Stack do processDocx:', procError.stack);
-        throw new Error(`Falha ao processar DOCX: ${procError.message}`);
+        console.error('❌ ERRO no processDocx:', procError.message);
+        console.error('Stack:', procError.stack);
+        console.log('⚠️ Usando processamento simplificado como fallback...');
+        
+        // FALLBACK: Processamento simples com mammoth direto
+        const simpleResult = await mammoth.extractRawText({ buffer });
+        content = simpleResult.value || '';
+        sectionsJson = JSON.stringify([{
+          type: 'paragraph',
+          content: content
+        }]);
+        metadata = {
+          hasImages: false,
+          hasTables: false,
+          hasLinks: false,
+          wordCount: content.split(/\s+/).length,
+          paragraphCount: 1
+        };
+        
+        console.log('✅ Processamento simplificado concluído');
       }
-      
-      const content = processed.content;
-      const sectionsJson = sectionsToJson(processed.sections);
-
-      console.log(`✅ Formatação extraída: ${processed.sections.length} seções`);
-      console.log(`📊 Metadados: ${processed.metadata.wordCount} palavras, ${processed.metadata.paragraphCount} parágrafos`);
-      console.log(`🔗 Links: ${processed.metadata.hasLinks ? 'Sim' : 'Não'}, Tabelas: ${processed.metadata.hasTables ? 'Sim' : 'Não'}`);
-
       // Gerar keywords (TODAS as palavras únicas do conteúdo para busca completa)
       const words = content
         .toLowerCase()
@@ -225,7 +245,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         lastModified: new Date().toISOString(),
         createdAt: new Date().toISOString(),
         blobUrl: blob.url,
-        metadata: JSON.stringify(processed.metadata)
+        metadata: JSON.stringify(metadata)
       };
 
       await redis.hset(`doc:${id}`, ...Object.entries(documentData).flat());
