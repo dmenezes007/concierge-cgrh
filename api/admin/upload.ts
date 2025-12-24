@@ -179,7 +179,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         .replace(/[\u0300-\u036f]/g, '')
         .replace(/[^a-z0-9\s]/g, ' ')
         .split(/\s+/)
-        .filter(w => w.length > 3);
+        .filter(w => w.length > 2); // Palavras com 3+ caracteres
       
       // Usar Set para palavras únicas, depois converter para array
       const uniqueWords = [...new Set(words)];
@@ -208,6 +208,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // Indexar TODAS as palavras únicas do conteúdo
       const indexWords = uniqueWords.filter(w => w.length > 3);
       console.log(`Indexando ${indexWords.length} palavras únicas para doc:${id}`);
+      console.log(`Primeiras 20 palavras indexadas:`, indexWords.slice(0, 20).join(', '));
+      
       for (const word of indexWords) {
         await redis.sadd(`search:${word.toLowerCase()}`, id);
       }
@@ -215,6 +217,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       await redis.quit();
 
       console.log('✅ Documento indexado:', id);
+      console.log('✅ Título:', title);
+      console.log('✅ Total de palavras indexadas:', indexWords.length);
 
       return res.status(200).json({
         success: true,
@@ -223,6 +227,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         size: docxFile.size,
         blobUrl: blob.url,
         documentId: id,
+        wordsIndexed: indexWords.length,
+        sampleWords: indexWords.slice(0, 10),
         preview: result.value.substring(0, 500) + '...',
       });
 

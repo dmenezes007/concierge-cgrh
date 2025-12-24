@@ -40,7 +40,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9\s]/g, ' ')
       .split(/\s+/)
-      .filter(w => w.length > 2);
+      .filter(w => w.length > 2); // Aceitar palavras com 3+ caracteres
+
+    console.log('🔑 Palavras da busca:', searchWords);
 
     if (searchWords.length === 0) {
       return res.status(200).json([]);
@@ -48,26 +50,43 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     // 2. Buscar IDs dos documentos que contêm cada palavra
     const docIdSets = await Promise.all(
-      searchWords.map(word => redis.smembers(`search:${word}`))
+      searchWords.map(async word => {
+        const ids = await redis.smembers(`search:${word}`);
+        console.log(`  - "${word}": ${ids.length} docs`);
+        return ids;
+      })
     );
 
-    // 3. Fazer interseção dos conjuntos (documentos que contêm TODAS as palavras)
-    let matchingIds = docIdSets[0] || [];
-    for (let i = 1; i < docIdSets.length; i++) {
-      const set = docIdSets[i] || [];
-      matchingIds = matchingIds.filter(id => set.includes(id));
+    // 3. Usar UNIÃO (OR) em vez de interseção - encontra docs com QUALQUER palavra
+    const allIds = new Set<string>();
+    docIdSets.forEach(set => {
+      (set || []).forEach(id => allIds.add(id as string));
+    });
+    
+    let matchingIds = Array.from(allIds);
+
+    // Se encontrou poucos resultados, tentar buscar no título/keywords diretamente
+    if (matchingIds.length < 5) {
+      console.log('🔍 Buscando também por correspondência parcial em títulos...');
+      const allDocIds = await redis.smembers('docs:all');
+      
+      for (const docId of allDocIds) {
+        if (!matchingIds.includes(docId)) {
+          const doc = await redis.hgetall(`doc:${docId}`);
+          const titleNormalized = (doc.title || '').toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '');
+          
+          // Verificar se alguma palavra da busca está no título
+          const hasMatch = searchWords.some(word => titleNormalized.includes(word));
+          if (hasMatch) {
+            matchingIds.push(docId);
+          }
+        }
+      }
     }
 
-    // Se não encontrou com todas as palavras, tentar com união (qualquer palavra)
-    if (matchingIds.length === 0) {
-      const allIds = new Set<string>();
-      docIdSets.forEach(set => {
-        (set || []).forEach(id => allIds.add(id as string));
-      });
-      matchingIds = Array.from(allIds);
-    }
-
-    console.log(`📊 Encontrados ${matchingIds.length} documentos`);
+    console.log(`📊 Total de ${matchingIds.length} documentos encontrados`);
 
     // 4. Buscar dados completos dos documentos
     const documents = await Promise.all(
